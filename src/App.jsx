@@ -1,34 +1,66 @@
 import React from "react";
 
-// The live dashboard (User + Parish views,
-// bookings, events, announcements, parish records, etc.) is compiled into
-// dist/assets/index-v<timestamp>.js and is loaded from dist/index.html.
-//
-// During development we embed that built dashboard in an iframe so the full
-// application is visible while we work on SQL and shared features.
 export default function App() {
   return (
     <main
       style={{
         width: "100vw",
-        height: "100vh",
+        minHeight: "100vh",
         margin: 0,
         padding: 0,
-        overflow: "hidden",
-        background: "#f6f7f3",
+        boxSizing: "border-box",
+        display: "grid",
+        placeItems: "center",
+        background: "#ffffff",
+        color: "#111827",
+        fontFamily: "Arial, sans-serif",
       }}
     >
-      <iframe
-        title="DioLink Parish and User Portal"
-        src="/dist/index.html"
+      <section
         style={{
           width: "100%",
-          height: "100%",
-          border: "none",
-          display: "block",
-          background: "transparent",
+          maxWidth: "640px",
+          padding: "32px 24px",
+          textAlign: "center",
+          background: "#ffffff",
         }}
-      />
+      >
+        <div
+          style={{
+            fontSize: "12px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#111827",
+            fontWeight: 700,
+            marginBottom: "12px",
+          }}
+        >
+          Client portal
+        </div>
+
+        <h1
+          style={{
+            margin: "0 0 12px",
+            fontSize: "clamp(2rem, 4vw, 2.8rem)",
+            lineHeight: 1.15,
+            fontWeight: 700,
+            color: "#111827",
+          }}
+        >
+          ParishLink
+        </h1>
+
+        <p
+          style={{
+            margin: 0,
+            fontSize: "1rem",
+            lineHeight: 1.6,
+            color: "#111827",
+          }}
+        >
+          This workspace is for the client experience only.
+        </p>
+      </section>
     </main>
   );
 }

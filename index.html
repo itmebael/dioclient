@@ -3,18 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DioLink · Your parish, closer</title>
+    <title>ParishLink · Client portal</title>
     <link rel="icon" type="image/svg+xml" href="/dist/favicon.svg" />
+    <script>
+      if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+        window.location.replace("/dist/index.html" + window.location.hash);
+      }
+    </script>
   </head>
-  <body style="margin: 0; padding: 0; overflow: hidden; background: #f6f7f3;">
-    <!--
-      Production + Vercel: static shell only (no /src/*.jsx — static hosts serve .jsx as text/jsx and modules fail).
-      Local dev: run `npm run dev` — Vite serves this file; the iframe loads /dist/index.html.
-    -->
-    <iframe
-      title="DioLink Parish and User Portal"
-      src="/dist/index.html"
-      style="width: 100vw; height: 100vh; border: none; display: block; background: transparent;"
-    ></iframe>
+  <body style="margin: 0; padding: 0; background: #f6f7f3;">
+    <div id="root"></div>
   </body>
 </html>

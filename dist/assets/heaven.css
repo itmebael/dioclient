@@ -31,7 +31,7 @@ html[data-design=heaven] :is(button,input,select,textarea) { font-family: 'DM Sa
 #root :is(.sidebar,.workspace__topbar,.overview-shell,.glass-card,.profile-pill,.icon-button,.nav-item,.sidebar__footer,.login-panel,.login-card) { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; }
 #root .sidebar { position: sticky; top: 0; height: 100dvh; border: 0 !important; border-right: 1px solid var(--heaven-line) !important; border-radius: 0; padding: 32px 18px 20px; background: var(--heaven-surface) !important; gap: 20px; }
 #root .sidebar__brand { gap: 12px; padding: 0 6px 22px; border-bottom: 1px solid var(--heaven-line); }
-#root .sidebar__crest { width: 42px !important; height: 52px !important; min-width: 42px; }
+#root .sidebar__crest { width: 84px !important; height: 104px !important; min-width: 84px; }
 #root .sidebar__brand h1 { font-size: 1.65rem; margin: 0; }
 #root :is(.sidebar__eyebrow,.workspace__eyebrow,.login-role-panel__eyebrow) { font-size: .66rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--heaven-accent) !important; }
 #root .sidebar__caption { font-size: .72rem; line-height: 1.5; color: var(--heaven-muted); }
@@ -89,7 +89,7 @@ html[data-design=heaven] dialog::backdrop { background: #172c2566; backdrop-filt
 #root .login-panel { padding: 0; border: 0 !important; border-radius: 0; gap: 28px; background: transparent !important; }
 #root .login-panel__topbar { padding: 0 8px; }
 #root .login-panel__brand { gap: 18px; }
-#root .login-panel__crest { width: 42px !important; height: 56px !important; }
+#root .login-panel__crest { width: 168px !important; height: 224px !important; }
 #root .login-panel__brand h1 { font-size: 2rem; }
 #root .login-panel__brand p { margin: 4px 0 0; font-size: .85rem; }
 #root .login-grid { grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--heaven-line); border-radius: 24px; overflow: hidden; background: var(--heaven-surface); }

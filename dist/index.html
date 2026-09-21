@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DioLink · Your parish, closer</title>
+    <title>ParishLink · Your parish, closer</title>
     <!-- User dashboard: light (white) theme only — runs before React reads localStorage. -->
     <script>
       (function () {
@@ -907,6 +907,9 @@
       }
     </style>
     <link rel="stylesheet" href="/dist/assets/heaven.css?v=google-login-20260920">
+    <link rel="stylesheet" href="/dist/assets/client-photo-theme.css?v=dashboard-photo-20260921">
+    <link rel="stylesheet" href="/dist/assets/login-polish.css?v=20260921">
+    <link rel="stylesheet" href="/dist/assets/client-dashboard.css?v=20260921">
   </head>
   <body>
     <dialog id="login-terms-dialog" class="login-terms-dialog" aria-labelledby="login-terms-title">
@@ -7230,5 +7233,176 @@
         setInterval(tick, 3500);
       })();
     </script>
+    <script>
+      (function () {
+        var supabaseUrl = "https://lnipoknkbjcxwnggzrnm.supabase.co";
+        var supabaseKey = "sb_publishable_865CAmJ0g9wUj9dlCo6phQ_l5biuRKK";
+        var recoveryToken = "";
+        var modal;
+
+        function parseRecoveryToken() {
+          var raw = window.location.hash.replace(/^#/, "");
+          var params = new URLSearchParams(raw);
+          return params.get("type") === "recovery" ? params.get("access_token") || "" : "";
+        }
+
+        function showRecovery(mode, message) {
+          if (!modal) {
+            modal = document.createElement("div");
+            modal.id = "parishlink-recovery-modal";
+            modal.innerHTML = '<div class="parishlink-recovery-dialog" role="dialog" aria-modal="true" aria-labelledby="parishlink-recovery-title">' +
+              '<button type="button" class="parishlink-recovery-close" aria-label="Close">×</button>' +
+              '<p class="workspace__eyebrow">ACCOUNT SECURITY</p>' +
+              '<h2 id="parishlink-recovery-title">Reset your password</h2>' +
+              '<p class="parishlink-recovery-copy"></p>' +
+              '<form class="parishlink-recovery-form">' +
+              '<label><span>Email address</span><input name="email" type="email" autocomplete="email" required></label>' +
+              '<label class="parishlink-recovery-code"><span>Reset token</span><input name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" placeholder="Enter the code from your email"></label>' +
+              '<div class="parishlink-recovery-passwords">' +
+              '<label><span>New password</span><input name="password" type="password" minlength="6" autocomplete="new-password"></label>' +
+              '<label><span>Confirm password</span><input name="confirm" type="password" minlength="6" autocomplete="new-password"></label>' +
+              '</div><p class="parishlink-recovery-status" role="status"></p>' +
+              '<button type="submit" class="primary-action">Send reset token</button>' +
+              '</form></div>';
+            document.body.appendChild(modal);
+            modal.querySelector(".parishlink-recovery-close").onclick = function () { recoveryToken = ""; modal.remove(); modal = null; };
+            modal.querySelector(".parishlink-recovery-form").onsubmit = submitRecovery;
+          }
+          var form = modal.querySelector("form");
+          var copy = modal.querySelector(".parishlink-recovery-copy");
+          var passwords = modal.querySelector(".parishlink-recovery-passwords");
+          var code = modal.querySelector(".parishlink-recovery-code");
+          var submit = form.querySelector("button[type=submit]");
+          var status = modal.querySelector(".parishlink-recovery-status");
+          var emailInput = form.elements.email;
+          var passwordInput = form.elements.password;
+          var confirmInput = form.elements.confirm;
+          var codeInput = form.elements.code;
+          var identifier = document.querySelector("#user-login-identifier, #parish-login-identifier");
+          if (mode === "request" && !emailInput.value && identifier && identifier.value) emailInput.value = identifier.value;
+          emailInput.required = mode === "request";
+          if (mode === "update") {
+            copy.textContent = "Choose a new password, then confirm it below.";
+            passwords.style.display = "grid";
+            code.style.display = "none";
+            emailInput.closest("label").style.display = "none";
+            submit.textContent = "Save new password";
+            form.dataset.mode = "update";
+            passwordInput.required = true;
+            confirmInput.required = true;
+            codeInput.required = false;
+          } else if (mode === "verify") {
+            copy.textContent = "Enter the code from your email, then create and confirm your new password.";
+            passwords.style.display = "grid";
+            code.style.display = "grid";
+            emailInput.closest("label").style.display = "none";
+            submit.textContent = "Verify code and save password";
+            form.dataset.mode = "verify";
+            passwordInput.required = true;
+            confirmInput.required = true;
+            codeInput.required = true;
+          } else {
+            copy.textContent = "Enter your registered email address to receive a one-time password reset token.";
+            passwords.style.display = "none";
+            code.style.display = "none";
+            emailInput.closest("label").style.display = "grid";
+            submit.textContent = "Send reset token";
+            form.dataset.mode = "request";
+            passwordInput.required = false;
+            confirmInput.required = false;
+            codeInput.required = false;
+          }
+          if (message) status.textContent = message;
+        }
+
+        async function submitRecovery(event, recoveryForm) {
+          event.preventDefault();
+          var form = recoveryForm || event.currentTarget;
+          var status = modal.querySelector(".parishlink-recovery-status");
+          var submit = form.querySelector("button[type=submit]");
+          var email = form.dataset.recoveryEmail || String(form.elements.email.value || "").trim().toLowerCase();
+          if (form.dataset.mode === "complete") { recoveryToken = ""; window.location.hash = "login"; window.location.reload(); return; }
+          submit.disabled = true;
+          status.textContent = "";
+          try {
+            if (form.dataset.mode === "update") {
+              var password = form.elements.password.value;
+              if (password.length < 6) throw new Error("Use at least 6 characters for your new password.");
+              if (password !== form.elements.confirm.value) throw new Error("The passwords do not match.");
+              var update = await fetch(supabaseUrl + "/auth/v1/user", { method: "PUT", headers: { apikey: supabaseKey, Authorization: "Bearer " + recoveryToken, "Content-Type": "application/json" }, body: JSON.stringify({ password: password }) });
+              var updateData = await update.json().catch(function () { return {}; });
+              if (!update.ok) throw new Error(updateData.msg || updateData.message || "Could not save your password. Try again or request a new token.");
+              status.textContent = "Password updated. You can now sign in with your new password.";
+              submit.textContent = "Back to sign in";
+              form.dataset.mode = "complete";
+              recoveryToken = "";
+              form.querySelectorAll("input").forEach(function (input) { input.disabled = true; input.value = ""; });
+              return;
+            }
+            if (form.dataset.mode === "verify") {
+              var codeValue = String(form.elements.code.value || "").trim();
+              var newPassword = form.elements.password.value;
+              if (!codeValue) { window.alert("Enter the code sent to your email."); return; }
+              if (!/^\d{4,8}$/.test(codeValue)) { window.alert("Enter the numeric code from your email."); return; }
+              if (!newPassword) { window.alert("Enter a new password."); return; }
+              if (newPassword.length < 6) { window.alert("Use at least 6 characters for your new password."); return; }
+              if (!form.elements.confirm.value) { window.alert("Confirm your new password."); return; }
+              if (newPassword !== form.elements.confirm.value) { window.alert("The passwords do not match."); return; }
+              var verifyType = "recovery";
+              var verified = await fetch(supabaseUrl + "/auth/v1/verify", { method: "POST", headers: { apikey: supabaseKey, Authorization: "Bearer " + supabaseKey, "Content-Type": "application/json" }, body: JSON.stringify({ type: verifyType, email: email, token: codeValue }) });
+              var verifiedData = await verified.json().catch(function () { return {}; });
+              if (!verified.ok || !verifiedData.access_token) throw new Error("The code is invalid or expired. Request a new code and try again.");
+              if (!form.isConnected) return;
+              recoveryToken = verifiedData.access_token;
+              showRecovery("update", "Token verified. Saving your new password...");
+              // Keep the verified token in memory so a failed password update can be retried.
+              return await submitRecovery(event, form);
+            }
+            if (!email) { window.alert("Enter your registered email address."); return; }
+            var authHeaders = { apikey: supabaseKey, "Content-Type": "application/json" };
+            var response = await fetch(supabaseUrl + "/auth/v1/recover", { method: "POST", headers: authHeaders, body: JSON.stringify({ email: email }) });
+            var responseData = await response.json().catch(function () { return {}; });
+            if (!response.ok) {
+              if (response.status === 429) throw new Error("Please wait before requesting another reset token.");
+              throw new Error("Could not send the reset token. " + (responseData.msg || responseData.message || responseData.error_description || "The email service is unavailable. Please try again later."));
+            }
+            if (!form.isConnected) return;
+            form.dataset.recoveryEmail = email;
+            showRecovery("verify", "If an account exists for this email, a reset token has been sent. Enter it below.");
+          } catch (error) {
+            status.textContent = error.message || "Something went wrong. Please try again.";
+          } finally {
+            submit.disabled = false;
+          }
+        }
+
+        document.addEventListener("click", function (event) {
+          var forgot = event.target.closest && event.target.closest(".forgot-password-link");
+          if (!forgot) return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          showRecovery("request");
+        }, true);
+
+        recoveryToken = parseRecoveryToken();
+        if (recoveryToken) showRecovery("update");
+      })();
+    </script>
+    <style>
+      #parishlink-recovery-modal { position: fixed; inset: 0; z-index: 100000; display: grid; place-items: center; padding: 18px; background: rgba(24, 43, 37, .48); backdrop-filter: blur(8px); }
+      .parishlink-recovery-dialog { width: min(520px, 100%); padding: 30px; border: 1px solid #dce5dc; border-radius: 18px; color: #283f37; background: rgba(255,255,255,.96); box-shadow: 0 24px 70px rgba(20, 42, 32, .22); }
+      .parishlink-recovery-dialog h2, .parishlink-recovery-dialog p { margin: 0; }
+      .parishlink-recovery-dialog h2 { margin: 4px 0 8px; font: 500 1.7rem/1.25 Lora, Georgia, serif; }
+      .parishlink-recovery-dialog .workspace__eyebrow { color: #376851; font: 700 .68rem/1.2 'DM Sans', sans-serif; letter-spacing: .16em; }
+      .parishlink-recovery-copy { color: #60756c; font: 400 .9rem/1.6 'DM Sans', sans-serif; }
+      .parishlink-recovery-form { display: grid; gap: 15px; margin-top: 22px; }
+      .parishlink-recovery-form label { display: grid; gap: 6px; color: #283f37; font: 600 .82rem/1.3 'DM Sans', sans-serif; }
+      .parishlink-recovery-form input { min-height: 46px; padding: 10px 12px; border: 1px solid #b9cabe; border-radius: 8px; color: #283f37; background: #fff; font: 400 .95rem/1.3 'DM Sans', sans-serif; }
+      .parishlink-recovery-passwords { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .parishlink-recovery-status { min-height: 22px; color: #376851; font: 600 .82rem/1.4 'DM Sans', sans-serif; }
+      .parishlink-recovery-close { float: right; width: 34px; height: 34px; border: 1px solid #dce5dc; border-radius: 8px; color: #376851; background: #fff; font-size: 1.25rem; cursor: pointer; }
+      .parishlink-recovery-form .primary-action { width: 100%; min-height: 46px; color: #fff; background: #376851; border: 1px solid #376851; border-radius: 8px; cursor: pointer; }
+      @media (max-width: 560px) { .parishlink-recovery-dialog { padding: 22px; } .parishlink-recovery-passwords { grid-template-columns: 1fr; } }
+    </style>
   </body>
 </html>

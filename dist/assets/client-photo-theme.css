@@ -1,0 +1,254 @@
+/* Shared cathedral photo for login + client dashboard. */
+html[data-design="heaven"] {
+  --dio-photo: url("./backgrounddioses.jpg");
+  --dio-glass: rgba(255, 255, 255, 0.78);
+  --dio-glass-strong: rgba(255, 255, 255, 0.9);
+  --dio-glass-soft: rgba(247, 248, 244, 0.62);
+  --dio-stroke: rgba(255, 255, 255, 0.55);
+}
+
+html[data-design="heaven"],
+html[data-design="heaven"] body {
+  background:
+    linear-gradient(180deg, rgba(247, 248, 244, 0.22), rgba(236, 241, 237, 0.34)),
+    var(--dio-photo) center center / cover no-repeat fixed !important;
+}
+
+html[data-design="heaven"] #root,
+html[data-design="heaven"] #root .scene,
+html[data-design="heaven"] #root .scene--login,
+html[data-design="heaven"] #root .scene--user-workspace,
+html[data-design="heaven"] #root .dashboard-frame,
+html[data-design="heaven"] #root .dashboard-frame--user,
+html[data-design="heaven"] #root .workspace,
+html[data-design="heaven"] #root .overview-shell {
+  background: transparent !important;
+}
+
+html[data-design="heaven"] #root .login-grid {
+  border: 1px solid var(--dio-stroke) !important;
+  background: var(--dio-glass) !important;
+  box-shadow: 0 22px 70px rgba(22, 36, 30, 0.16) !important;
+  backdrop-filter: blur(18px) saturate(1.12) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.12) !important;
+}
+
+html[data-design="heaven"] #root .login-card {
+  background: transparent !important;
+}
+
+html[data-design="heaven"] #root .login-card--intro {
+  min-height: 620px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.18) 42%, rgba(18, 32, 28, 0.28) 100%),
+    var(--dio-photo) center 38% / cover no-repeat !important;
+}
+
+html[data-design="heaven"] #root .login-card--intro::after {
+  display: none !important;
+}
+
+html[data-design="heaven"] #root .login-card--intro > :is(.workspace__eyebrow, h2, .login-copy, .login-spotlight) {
+  position: relative;
+  z-index: 2;
+}
+
+html[data-design="heaven"] #root .login-card--intro > .workspace__eyebrow {
+  display: block !important;
+  margin: 0 0 18px !important;
+  color: var(--heaven-accent) !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+html[data-design="heaven"] #root .login-card--intro > h2 {
+  display: block !important;
+  margin: 0 0 18px !important;
+  color: var(--heaven-ink) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.7) !important;
+}
+
+html[data-design="heaven"] #root .login-card--intro > .login-copy {
+  display: block !important;
+  max-width: 38ch;
+  margin: 0 !important;
+  color: var(--heaven-ink) !important;
+  font-weight: 500 !important;
+  line-height: 1.75 !important;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.8) !important;
+}
+
+html[data-design="heaven"] #root .login-card--intro > .login-spotlight {
+  display: block !important;
+  width: fit-content;
+  margin-top: 26px !important;
+  padding: 9px 14px !important;
+  border: 1px solid rgba(66, 108, 88, 0.2) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.62) !important;
+  box-shadow: 0 8px 24px rgba(24, 38, 32, 0.08) !important;
+}
+
+html[data-design="heaven"] #root .login-card--form {
+  background: var(--dio-glass-strong) !important;
+}
+
+html[data-design="heaven"] #root .login-role-tabs {
+  background: var(--dio-glass-soft) !important;
+}
+
+html[data-design="heaven"] #root .login-role-tab.is-active {
+  background: var(--dio-glass-strong) !important;
+}
+
+html[data-design="heaven"] #root .sidebar,
+html[data-design="heaven"] #root .dashboard-frame--user .sidebar,
+html[data-design="heaven"] #root .workspace__topbar,
+html[data-design="heaven"] #root .workspace__topbar--user {
+  background: var(--dio-glass) !important;
+  border-color: var(--dio-stroke) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.1) !important;
+}
+
+html[data-design="heaven"] #root .nav-item.is-active,
+html[data-design="heaven"] #root .nav-item:hover {
+  background: rgba(237, 243, 238, 0.82) !important;
+}
+
+html[data-design="heaven"] #root :is(.glass-card, .user-home-card, .user-home-announcement, .user-chat-card, .page-card, .certificate-service-card) {
+  background: var(--dio-glass-strong) !important;
+  border-color: var(--dio-stroke) !important;
+  box-shadow: 0 10px 30px rgba(24, 38, 32, 0.08) !important;
+  backdrop-filter: blur(14px) saturate(1.08) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.08) !important;
+}
+
+html[data-design="heaven"] #root .user-home-dashboard {
+  gap: 18px;
+}
+
+html[data-design="heaven"] #root .user-home-hero,
+html[data-design="heaven"] #root .parish-portal__hero,
+html[data-design="heaven"] #root .parish-hero,
+html[data-design="heaven"] #root .announcement-hero,
+html[data-design="heaven"] #root .user-support-hero {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid var(--dio-stroke) !important;
+  border-radius: 22px !important;
+  background:
+    linear-gradient(100deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.58) 38%, rgba(255, 255, 255, 0.08) 72%),
+    var(--dio-photo) center 42% / cover no-repeat !important;
+  box-shadow: 0 16px 40px rgba(22, 36, 30, 0.1) !important;
+}
+
+html[data-design="heaven"] #root .user-home-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100% !important;
+  height: 72px !important;
+  background: linear-gradient(180deg, transparent, rgba(247, 248, 244, 0.55)) !important;
+  opacity: 1;
+  pointer-events: none;
+}
+
+html[data-design="heaven"] #root .user-home-hero__copy {
+  max-width: 58%;
+  position: relative;
+  z-index: 2;
+}
+
+html[data-design="heaven"] #root .user-home-hero__copy p {
+  color: var(--heaven-accent) !important;
+}
+
+html[data-design="heaven"] #root .user-home-hero__copy h3,
+html[data-design="heaven"] #root .user-home-hero__copy span {
+  color: var(--heaven-ink) !important;
+}
+
+html[data-design="heaven"] #root .user-home-actions {
+  position: relative;
+  z-index: 3;
+  margin-top: -36px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+html[data-design="heaven"] #root .user-home-action {
+  min-height: 148px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--dio-glass-strong) !important;
+  border: 1px solid var(--dio-stroke) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 28px rgba(22, 36, 30, 0.08) !important;
+  backdrop-filter: blur(14px) saturate(1.08) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.08) !important;
+}
+
+html[data-design="heaven"] #root .user-home-action__arrow {
+  display: block;
+  position: absolute;
+  top: 22px;
+  right: 18px;
+  color: var(--heaven-muted) !important;
+}
+
+html[data-design="heaven"] #root .user-home-announcement__body {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 52%, rgba(255, 255, 255, 0.18) 100%),
+    var(--dio-photo) center right / cover no-repeat !important;
+}
+
+html[data-design="heaven"] #root .user-mass-date {
+  background: rgba(237, 243, 238, 0.86) !important;
+}
+
+@media (max-width: 900px) {
+  html[data-design="heaven"] #root .user-home-hero,
+  html[data-design="heaven"] #root .parish-portal__hero {
+    min-height: 240px;
+    padding: 28px 22px !important;
+    border-radius: 0 0 28px 28px !important;
+  }
+
+  html[data-design="heaven"] #root .user-home-hero__copy {
+    max-width: 78%;
+  }
+
+  html[data-design="heaven"] #root .user-home-actions {
+    margin: -28px 0 0;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  html[data-design="heaven"] #root .user-home-action {
+    min-height: 92px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 16px 18px 16px 16px;
+  }
+
+  html[data-design="heaven"] #root .user-home-action__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  html[data-design="heaven"] #root .login-card--intro {
+    min-height: 220px;
+  }
+}
+
+@media print {
+  html[data-design="heaven"] body {
+    background: #fff !important;
+  }
+}

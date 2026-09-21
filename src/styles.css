@@ -97,10 +97,12 @@ html[data-design="heaven"] {
   --heaven-accent-hover: #335543;
   --heaven-gold: #816b38;
   --heaven-shadow: 0 6px 26px #29433506;
-  --page-bg: var(--heaven-paper);
-  --panel-bg: var(--heaven-surface);
-  --panel-bg-strong: var(--heaven-soft);
-  --panel-photo-bg: var(--heaven-surface);
+  --page-bg: url("../backgrounddioses.jpg");
+  --panel-bg: rgba(255, 255, 255, 0.78);
+  --panel-bg-strong: rgba(255, 255, 255, 0.9);
+  --panel-photo-bg:
+    linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
+    url("../backgrounddioses.jpg");
   --panel-stroke: var(--heaven-line);
   --text-primary: var(--heaven-ink);
   --text-secondary: var(--heaven-muted);
@@ -171,19 +173,19 @@ html[data-design="heaven"] #root :where(a) { color: var(--heaven-accent); text-u
 html[data-design="heaven"] :focus-visible { outline: 3px solid #799dbe !important; outline-offset: 3px !important; }
 html[data-design="heaven"] ::selection { background: #dce9da; color: #244032; }
 
-html[data-design="heaven"] #root .scene { padding: 0 !important; background: var(--heaven-paper) !important; }
+html[data-design="heaven"] #root .scene { padding: 0 !important; background: transparent !important; }
 html[data-design="heaven"] #root :is(.scene__watermark, .scene__glow, .dashboard-frame::before) { display: none !important; }
 html[data-design="heaven"] #root .dashboard-frame {
   width: 100%; min-height: 100dvh; padding: 0; gap: 0;
   grid-template-columns: 250px minmax(0, 1fr) !important;
   border: 0 !important; border-radius: 0 !important; box-shadow: none !important;
-  background: var(--heaven-paper) !important; backdrop-filter: none !important;
+  background: transparent !important; backdrop-filter: none !important;
 }
 html[data-design="heaven"] #root .sidebar {
   position: sticky; top: 0; height: 100dvh; padding: 30px 18px 22px;
-  gap: 25px; border: 0 !important; border-right: 1px solid var(--heaven-line) !important;
+  gap: 25px; border: 0 !important; border-right: 1px solid rgba(255, 255, 255, 0.48) !important;
   border-radius: 0 !important; box-shadow: none !important;
-  background: var(--heaven-surface) !important; backdrop-filter: none !important;
+  background: rgba(255, 255, 255, 0.78) !important; backdrop-filter: blur(18px) saturate(1.1) !important;
 }
 html[data-design="heaven"] #root .sidebar__brand { flex-direction: row !important; text-align: left !important; align-items: center !important; justify-content: flex-start !important; height: auto !important; min-height: 0 !important; padding: 0 8px 24px; gap: 12px; border-bottom: 1px solid var(--heaven-line); }
 html[data-design="heaven"] #root .sidebar__brand > div:last-child { display: block !important; min-width: 0; }
@@ -209,8 +211,8 @@ html[data-design="heaven"] #root .nav-item.is-active::after { display: none; }
 html[data-design="heaven"] #root .nav-item--logout { margin-top: auto; }
 html[data-design="heaven"] #root .sidebar__footer { padding: 14px 8px 0; border: 0 !important; border-top: 1px solid var(--heaven-line) !important; border-radius: 0; box-shadow: none !important; background: transparent !important; }
 html[data-design="heaven"] #root .sidebar__footer :is(p, span, strong) { font-size: .68rem !important; color: var(--heaven-muted); font-weight: 400; }
-html[data-design="heaven"] #root .workspace { gap: 0; min-width: 0; background: var(--heaven-paper) !important; }
-html[data-design="heaven"] #root .workspace__topbar { overflow: visible; z-index: 30; margin: 0; padding: 22px 38px; min-height: 96px; border: 0 !important; border-bottom: 1px solid var(--heaven-line) !important; border-radius: 0; background: var(--heaven-surface) !important; box-shadow: none !important; backdrop-filter: none !important; }
+html[data-design="heaven"] #root .workspace { gap: 0; min-width: 0; background: transparent !important; }
+html[data-design="heaven"] #root .workspace__topbar { overflow: visible; z-index: 30; margin: 0; padding: 22px 38px; min-height: 96px; border: 0 !important; border-bottom: 1px solid rgba(255, 255, 255, 0.48) !important; border-radius: 0; background: rgba(255, 255, 255, 0.78) !important; box-shadow: none !important; backdrop-filter: blur(16px) saturate(1.08) !important; }
 html[data-design="heaven"] #root .workspace__topbar h2 { font-size: 1.2rem !important; }
 html[data-design="heaven"] #root .workspace__headline :is(p, h2) { margin: 0 0 4px; }
 html[data-design="heaven"] #root .workspace__subtitle { font-size: .78rem !important; }
@@ -301,9 +303,9 @@ html[data-design="heaven"] #root .login-grid {
   backdrop-filter: blur(2px);
 }
 html[data-design="heaven"] #root .login-card { margin: 0; padding: 45px; border: 0 !important; border-radius: 0; box-shadow: none !important; backdrop-filter: none !important; }
-html[data-design="heaven"] #root .login-card--intro { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; position: relative; background: rgba(239, 243, 237, 0.82) !important; overflow: hidden; min-height: 660px; gap: 0; }
-html[data-design="heaven"] #root .login-card--form { background: rgba(255, 255, 255, 0.72) !important; }
-html[data-design="heaven"] #root .login-card--intro::after { content: ''; display: block; background: url('./sanctuary.svg') center / contain no-repeat; width: calc(100% + 44px); height: 300px; margin: auto -22px -26px; opacity: .95; position: static; flex: 0 0 300px; pointer-events: none; }
+html[data-design="heaven"] #root .login-card--intro { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; position: relative; background: linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.18) 42%, rgba(18, 32, 28, 0.28) 100%), url("../backgrounddioses.jpg") center 38% / cover no-repeat !important; overflow: hidden; min-height: 660px; gap: 0; }
+html[data-design="heaven"] #root .login-card--form { background: rgba(255, 255, 255, 0.9) !important; }
+html[data-design="heaven"] #root .login-card--intro::after { display: none; }
 html[data-design="heaven"] #root .login-card--intro > .workspace__eyebrow { margin: 0 0 22px; font-size: .65rem !important; color: var(--heaven-accent) !important; }
 html[data-design="heaven"] #root .login-card--intro h2 { margin: 0 0 20px; max-width: 360px; font-size: clamp(2.25rem, 3.8vw, 3.15rem) !important; line-height: 1.12 !important; }
 html[data-design="heaven"] #root .login-copy { max-width: 350px; font-size: .93rem !important; font-weight: 400 !important; color: var(--heaven-muted) !important; line-height: 1.8; margin: 0; }
@@ -338,8 +340,8 @@ html[data-design="heaven"] #root .login-card--register { gap: 22px; }
 html[data-design="heaven"] #root .login-register-grid { grid-template-columns: 1fr; }
 
 html[data-design="heaven"] #root .user-home-dashboard { display: grid; gap: 24px; background: transparent !important; overflow: visible; }
-html[data-design="heaven"] #root :is(.user-home-hero, .parish-portal__hero) { position: relative; padding: 32px !important; min-height: 205px; border: 1px solid var(--heaven-line) !important; border-radius: 17px !important; background: var(--heaven-soft) !important; box-shadow: none !important; overflow: hidden; }
-html[data-design="heaven"] #root .user-home-hero::after { content: ''; position: absolute; left: auto; top: auto; right: 0; bottom: -32px; width: 300px; height: 270px; background: url('./sanctuary.svg') center / contain no-repeat; pointer-events: none; }
+html[data-design="heaven"] #root :is(.user-home-hero, .parish-portal__hero) { position: relative; padding: 32px !important; min-height: 260px; border: 1px solid rgba(255, 255, 255, 0.5) !important; border-radius: 20px !important; background: linear-gradient(100deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.08) 74%), url("../backgrounddioses.jpg") center 42% / cover no-repeat !important; box-shadow: 0 16px 40px rgba(22, 36, 30, 0.1) !important; overflow: hidden; }
+html[data-design="heaven"] #root .user-home-hero::after { content: ''; position: absolute; inset: auto 0 0 0; width: 100%; height: 72px; background: linear-gradient(180deg, transparent, rgba(247, 248, 244, 0.45)); pointer-events: none; }
 html[data-design="heaven"] #root .user-home-hero__copy { padding: 0 !important; max-width: 65%; position: relative; z-index: 1; }
 html[data-design="heaven"] #root .user-home-hero__copy p { margin: 0 0 12px; font-size: .65rem !important; color: var(--heaven-accent) !important; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
 html[data-design="heaven"] #root .user-home-hero__copy h3 { font-size: 2.3rem !important; margin: 0 0 14px; }
