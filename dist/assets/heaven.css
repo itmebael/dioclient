@@ -94,7 +94,7 @@ html[data-design=heaven] dialog::backdrop { background: #172c2566; backdrop-filt
 #root .login-panel__brand p { margin: 4px 0 0; font-size: .85rem; }
 #root .login-grid { grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--heaven-line); border-radius: 24px; overflow: hidden; background: var(--heaven-surface); }
 #root .login-card { padding: 44px; border: 0 !important; border-radius: 0; gap: 22px; background: var(--heaven-surface) !important; }
-#root .login-card--intro { background: var(--heaven-soft) !important; position: relative; }
+#root .login-card--intro { background: var(--heaven-soft) !important; position: relative; border: 2px solid #000 !important; }
 #root .login-card--intro h2 { font-size: clamp(2.5rem,4vw,3.6rem); max-width: 390px; line-height: 1.15; }
 #root .login-card--intro::after { content: ''; display: block; height: 220px; margin-top: 8px; background: url('./heaven-church.svg') center bottom / contain no-repeat; }
 #root .login-card--intro .login-copy { font-size: 1rem; line-height: 1.9; font-weight: 400; }

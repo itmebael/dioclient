@@ -1,0 +1,19 @@
+@media screen {
+  html[data-design="heaven"] #root#root .member-preferences select { width: 100%; padding: 10px 12px; }
+  html[data-design="heaven"] #root#root .member-preference-switch { display: inline-flex; gap: 10px; align-items: center; padding: 8px 12px; min-height: 44px; background: var(--heaven-surface); color: var(--heaven-ink); border: 1px solid var(--heaven-line); border-radius: 12px; }
+  .member-preference-switch__track { display: flex; width: 38px; height: 22px; padding: 3px; border-radius: 20px; background: #81778f; }
+  .member-preference-switch__track > span { width: 16px; height: 16px; border-radius: 50%; background: white; }
+  [aria-checked="true"] .member-preference-switch__track { justify-content: flex-end; background: #783eda; }
+  html[data-design="heaven"] #root#root .member-preference-status { min-height: 24px; margin: 0; color: var(--heaven-muted); font-size: .78rem; }
+  html[data-design="heaven"] #root#root .member-prayer-feed { grid-column: 1 / -1; }
+  .member-prayer-feed__item { padding: 16px; background: var(--heaven-soft); border-radius: 14px; overflow-wrap: anywhere; }
+  .member-prayer-feed__item p { white-space: pre-wrap; }
+  html[data-design="heaven"][data-theme="dark"] #root#root .scene {
+    --text-primary: var(--heaven-ink); --text-secondary: var(--heaven-muted); --text-dim: var(--heaven-muted);
+    --panel-bg: var(--heaven-surface); --panel-bg-strong: var(--heaven-surface);
+  }
+  html[data-design="heaven"][data-theme="dark"] #root#root .scene--user-workspace :is(.user-panel,.user-support-chat__body,.parish-secretary-chat__body,.user-request-card,.settings-item,.user-profile-summary) { color: var(--heaven-ink); }
+  html[data-design="heaven"][data-theme="dark"] #root#root .scene--user-workspace :is(.settings-item,.user-panel__header,.user-profile-edit-form) :is(h4,strong,label) { color: var(--heaven-ink) !important; }
+  html[data-design="heaven"][data-theme="dark"] #root#root .scene--user-workspace :is(.settings-item,.user-panel__header) span:not(.status-badge) { color: var(--heaven-muted) !important; }
+  html[data-design="heaven"][data-theme="dark"] #root#root .scene--user-workspace :is(input,select,textarea) { background: var(--heaven-surface) !important; color: var(--heaven-ink) !important; border-color: var(--heaven-line) !important; }
+}

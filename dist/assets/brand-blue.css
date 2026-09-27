@@ -1,0 +1,945 @@
+/* ParishLink blue brand palette for the built client login and dashboard. */
+html[data-design="heaven"] {
+  --heaven-accent: #5299d1;
+  --heaven-accent-hover: #397cc2;
+  --heaven-sky: #eaf4fb;
+}
+
+html[data-design="heaven"] #root .scene--login {
+  background: linear-gradient(145deg, #f5faff, #e6f2fb) !important;
+}
+
+html[data-design="heaven"] #root .scene--login .login-panel__brand h1,
+html[data-design="heaven"] #root .scene--login .login-mode-link,
+html[data-design="heaven"] #root .scene--login :is(.forgot-password-link, .login-terms-link) {
+  color: #397cc2 !important;
+}
+
+html[data-design="heaven"] #root .scene--login .login-card--intro {
+  color: #fff !important;
+  background: linear-gradient(135deg, #397cc2 0%, #5299d1 52%, #59a6d6 100%) !important;
+}
+
+html[data-design="heaven"] #root .scene--login .login-card--intro :is(h2, p, .workspace__eyebrow, .login-copy) {
+  color: #fff !important;
+}
+
+html[data-design="heaven"] #root .scene--login .login-role-tab.is-active {
+  color: #286cae !important;
+  background: #e7f3fc !important;
+  border-color: #c5e0f3 !important;
+}
+
+html[data-design="heaven"] #root .scene--login .login-field :is(input, select, textarea):focus {
+  border-color: #4d91ce !important;
+  outline-color: #59a6d640 !important;
+}
+
+html[data-design="heaven"] #root .scene--login input[type="checkbox"] { accent-color: #4d91ce !important; }
+
+html[data-design="heaven"] #root .scene--login .login-submit:not(:disabled),
+html[data-design="heaven"] #root .scene--login .primary-action:not(:disabled) {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6 0%, #4d91ce 52%, #397cc2 100%) !important;
+  border-color: #4d91ce !important;
+  box-shadow: 0 3px 0 #326eae !important;
+}
+
+html[data-design="heaven"] #root .scene--login .login-submit:not(:disabled):hover,
+html[data-design="heaven"] #root .scene--login .primary-action:not(:disabled):hover {
+  background: linear-gradient(105deg, #4d91ce, #397cc2) !important;
+}
+
+html[data-design="heaven"] #root .dashboard-frame :is(.sidebar__brand, .sidebar__brand h1) {
+  background-color: #397cc2;
+}
+
+html[data-design="heaven"] #root .dashboard-frame .sidebar__brand {
+  background: linear-gradient(145deg, #397cc2, #5299d1 58%, #59a6d6) !important;
+}
+
+html[data-design="heaven"] #root .dashboard-frame .nav-item.is-active {
+  color: #286cae !important;
+  background: #e7f3fc !important;
+}
+
+html[data-design="heaven"] #root .dashboard-frame :is(.primary-action, .certificate-service-action, .ucs-send):not(:disabled) {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6, #4d91ce 52%, #397cc2) !important;
+  border-color: #4d91ce !important;
+}
+
+/* The login styles use #root#root selectors, so match their specificity here. */
+html[data-design="heaven"] #root#root .scene--login .login-panel__brand h1,
+html[data-design="heaven"] #root#root .scene--login .login-panel__brand .sidebar__caption,
+html[data-design="heaven"] #root#root .scene--login :is(.login-mode-link, .forgot-password-link, .login-terms-link) {
+  color: #397cc2 !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-panel__topbar .icon-button {
+  color: #397cc2 !important;
+  background: #eaf4fb !important;
+  border-color: #c5e0f3 !important;
+  box-shadow: 0 3px 0 #d6eaf7 !important;
+}
+
+/* Put the logo inside the login card and remove the separate top header. */
+html[data-design="heaven"] #root#root .scene--login .login-panel__topbar {
+  display: none !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-panel {
+  gap: 0 !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--form::before {
+  display: none !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  width: 148px;
+  height: 92px;
+  margin: 0 auto 8px;
+  background: url("/dist/assets/logo.png") center / contain no-repeat;
+  filter: drop-shadow(0 3px 4px #24478218);
+  align-self: center;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    width: 120px;
+    height: 74px;
+  }
+}
+
+/* Marian login composition: logo at the top left, artwork on the right. */
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  padding-top: 108px !important;
+  background:
+    linear-gradient(90deg, rgba(37, 75, 143, .72) 0%, rgba(49, 93, 168, .44) 48%, rgba(49, 93, 168, .04) 78%),
+    url("/dist/assets/virgen-maria-anunciacion.png") right center / cover no-repeat !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::after {
+  display: none !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  top: 22px !important;
+  left: 32px !important;
+  width: 96px !important;
+  height: 64px !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  background: #fff url("/dist/assets/logo.png") center / contain no-repeat !important;
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+    padding-top: 100px !important;
+    background-position: center, right center !important;
+  }
+
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    top: 18px !important;
+    left: 24px !important;
+    width: 88px !important;
+    height: 58px !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* Member dashboard composition matching the Marian login reference. */
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user {
+  background: #fff !important;
+  border-right: 1px solid #e4eaf2 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  min-height: 88px !important;
+  margin: 0 !important;
+  padding: 14px 18px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #edf1f6 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__crest {
+  flex: 0 0 44px !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand h1 {
+  color: #254b8f !important;
+  font-size: 1.06rem !important;
+  line-height: 1.2 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__caption {
+  display: block !important;
+  margin-top: 3px !important;
+  color: #64748b !important;
+  font-size: .68rem !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand::after { display: none !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__nav { gap: 4px !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item {
+  min-height: 42px !important;
+  color: #34445e !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item :is(svg, .nav-item__icon) { color: #526b91 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active {
+  color: #254b8f !important;
+  background: #e8f2ff !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active :is(svg, .nav-item__icon) { color: #2563b8 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+  min-height: 190px !important;
+  padding: 28px 34px !important;
+  border: 1px solid #dce8f7 !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(90deg, rgba(232, 243, 255, .98) 0%, rgba(232, 243, 255, .92) 40%, rgba(232, 243, 255, .14) 75%),
+    url("/dist/assets/virgen-maria-anunciacion.png") right 38% / auto 150% no-repeat !important;
+  box-shadow: 0 4px 12px #2447820c !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy { max-width: 56% !important; gap: 6px !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy :is(p, h3, span) { color: #173d75 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy h3 {
+  margin: 2px 0 !important;
+  font-size: clamp(2rem, 3.3vw, 2.7rem) !important;
+  letter-spacing: -.04em;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy p { font-size: .8rem !important; font-weight: 700 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy h3::after { display: none !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-actions { gap: 12px !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action {
+  min-height: 150px !important;
+  padding: 16px !important;
+  border: 1px solid #e4eaf3 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 10px #1d35570a !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(1) { background: #f4f8ff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(2) { background: #f1faf7 !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(3) { background: #f8f5ff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(4) { background: #fff6f2 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(1) .user-home-action__icon { color: #2877d3 !important; background: #e2efff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(2) .user-home-action__icon { color: #16866c !important; background: #ddf6ed !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(3) .user-home-action__icon { color: #7341c7 !important; background: #efe5ff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(4) .user-home-action__icon { color: #d84f36 !important; background: #ffe6dc !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-card, .user-home-announcement, .user-chat-card) {
+  background: #fff !important;
+  border: 1px solid #e3eaf3 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 3px 12px #1d35570a !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-card__header button,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-announcement__top button {
+  color: #2563b8 !important;
+  background: #fff !important;
+  border: 1px solid #e2eaf5 !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  width: 112px !important;
+  height: 112px !important;
+  padding: 12px !important;
+  border-radius: 50% !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    width: 96px !important;
+    height: 96px !important;
+  }
+}
+
+/* Final login artwork and logo placement overrides. */
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  padding-top: 108px !important;
+  background:
+    linear-gradient(90deg, rgba(37, 75, 143, .72) 0%, rgba(49, 93, 168, .44) 48%, rgba(49, 93, 168, .04) 78%),
+    url("/dist/assets/virgen-maria-anunciacion.png") right center / cover no-repeat !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::after { display: none !important; }
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  top: 22px !important;
+  left: 32px !important;
+  width: 96px !important;
+  height: 64px !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  background: #fff url("/dist/assets/logo.png") center / contain no-repeat !important;
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+    padding-top: 100px !important;
+    background-position: center, right center !important;
+  }
+
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    top: 18px !important;
+    left: 24px !important;
+    width: 88px !important;
+    height: 58px !important;
+    border-radius: 10px !important;
+  }
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  padding-top: 108px !important;
+  background:
+    linear-gradient(90deg, rgba(37, 75, 143, .72) 0%, rgba(49, 93, 168, .44) 48%, rgba(49, 93, 168, .04) 78%),
+    url("/dist/assets/virgen-maria-anunciacion.png") right center / cover no-repeat !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::after { display: none !important; }
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  top: 22px !important;
+  left: 32px !important;
+  width: 96px !important;
+  height: 64px !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  background: #fff url("/dist/assets/logo.png") center / contain no-repeat !important;
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+    padding-top: 100px !important;
+    background-position: center, right center !important;
+  }
+
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    top: 18px !important;
+    left: 24px !important;
+    width: 88px !important;
+    height: 58px !important;
+    border-radius: 10px !important;
+  }
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  position: relative !important;
+  padding-top: 132px !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  position: absolute !important;
+  top: 20px !important;
+  left: 50% !important;
+  z-index: 2;
+  display: block !important;
+  width: 132px !important;
+  height: 84px !important;
+  margin: 0 !important;
+  padding: 5px !important;
+  align-self: auto !important;
+  border: 1px solid #e1e7f0;
+  border-radius: 14px;
+  background: #fff url("/dist/assets/logo.png") center / contain no-repeat !important;
+  box-shadow: 0 5px 0 #dce6f3, 0 10px 20px #17365d22 !important;
+  transform: translateX(-50%) !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+    padding-top: 112px !important;
+  }
+
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    top: 16px !important;
+    width: 112px !important;
+    height: 72px !important;
+  }
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-grid {
+  box-shadow: 0 5px 0 #d6eaf7, 0 24px 50px #397cc21a !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  color: #fff !important;
+  background: linear-gradient(135deg, #397cc2 0%, #5299d1 52%, #59a6d6 100%) !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro :is(h2, p, .workspace__eyebrow, .login-copy, .login-spotlight__topline) {
+  color: #fff !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-role-tab.is-active,
+html[data-design="heaven"] #root#root .scene--login .status-badge--green {
+  color: #286cae !important;
+  background: #e7f3fc !important;
+  border-color: #c5e0f3 !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login :is(.login-submit, .login-google):disabled {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6, #4d91ce 52%, #397cc2) !important;
+  border-color: #4d91ce !important;
+  box-shadow: 0 3px 0 #326eae !important;
+  opacity: .62;
+}
+
+html[data-design="heaven"] #root#root .scene--login :is(.login-submit, .login-google):not(:disabled) {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6, #4d91ce 52%, #397cc2) !important;
+  border-color: #4d91ce !important;
+  box-shadow: 0 3px 0 #326eae !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-field :is(input, select, textarea):focus {
+  border-color: #4d91ce !important;
+  outline: 3px solid #59a6d640 !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login input[type="checkbox"] { accent-color: #4d91ce !important; }
+
+/* Carry the login palette through the client dashboard after its page styles. */
+html[data-design="heaven"] #root#root .scene--user-workspace,
+html[data-design="heaven"] #root#root .scene--workspace {
+  --heaven-accent: #5299d1 !important;
+  --heaven-accent-hover: #397cc2 !important;
+  --heaven-sky: #eaf4fb !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar__brand {
+  background: linear-gradient(135deg, #397cc2, #5299d1 55%, #59a6d6) !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar__brand .sidebar__caption,
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar__brand h1 { color: #fff !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar__brand::after,
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar__footer::before { color: #e5f3fc !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .nav-item.is-active {
+  color: #286cae !important;
+  background: #e7f3fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-mass-date {
+  background: linear-gradient(135deg, #5299d1, #397cc2) !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-action__icon, .user-home-action--blue .user-home-action__icon) {
+  color: #397cc2 !important;
+  background: #e7f3fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.primary-action, .secondary-action, .filter-button, .live-button, .certificate-service-action, .ucs-send, .ucs-remind__cta, .user-chat-card button):not(:disabled) {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6, #4d91ce 52%, #397cc2) !important;
+  border-color: #4d91ce !important;
+  box-shadow: 0 3px 0 #326eae !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.status-badge--blue, .user-request-status--blue) {
+  color: #286cae !important;
+  background: #e7f3fc !important;
+  border-color: #c5e0f3 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame:not(.dashboard-frame--user) .sidebar__brand {
+  background: linear-gradient(135deg, #397cc2, #5299d1 55%, #59a6d6) !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame:not(.dashboard-frame--user) .nav-item.is-active {
+  color: #286cae !important;
+  background: #e7f3fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame:not(.dashboard-frame--user) :is(.primary-action, .secondary-action, .filter-button, .live-button, .certificate-service-action, .ucs-send):not(:disabled) {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6, #4d91ce 52%, #397cc2) !important;
+  border-color: #4d91ce !important;
+}
+
+/* Match the member dashboard's prominent welcome banner and cards to login. */
+html[data-design="heaven"] #root#root .scene--user-workspace {
+  background: #eff7fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user,
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell {
+  background: #eff7fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+  background: linear-gradient(120deg, #397cc2 0%, #5299d1 54%, #59a6d6 100%) !important;
+  border: 1px solid #4d91ce !important;
+  box-shadow: 0 5px 0 #326eae, 0 18px 38px #397cc226 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero :is(h1, h2, h3, p, span, strong) {
+  color: #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero::after {
+  display: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active {
+  color: #fff !important;
+  background: linear-gradient(105deg, #59a6d6, #4d91ce 52%, #397cc2) !important;
+  border-color: #4d91ce !important;
+  box-shadow: 0 3px 0 #326eae !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active :is(svg, span) {
+  color: #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-action, .user-home-card, .user-panel, .user-stream-card, .user-appointment-card, .overview-shell__card) {
+  background-color: #f7fbfe !important;
+  border-color: #d3e8f6 !important;
+  box-shadow: 0 3px 0 #dcecf7 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:is(:hover, :focus-visible) {
+  background: #edf7fd !important;
+  border-color: #a9d2ed !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action__icon {
+  color: #397cc2 !important;
+  background: linear-gradient(145deg, #e8f5fc, #cce7f7) !important;
+  box-shadow: 0 3px 0 #9bc9e7 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-hero__copy p, .user-home-hero__copy h3::after, .user-home-action > span:last-child) {
+  color: #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.overview-shell__tools .icon-button, .workspace__topbar .icon-button, .workspace__topbar .filter-button, .overview-shell__tools .secondary-action) {
+  color: #397cc2 !important;
+  background: #eaf4fb !important;
+  border-color: #c5e0f3 !important;
+  box-shadow: 0 3px 0 #d6eaf7 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action--gold .user-home-action__icon,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action--blue .user-home-action__icon {
+  color: #397cc2 !important;
+  background: linear-gradient(145deg, #e8f5fc, #cce7f7) !important;
+}
+
+/* Dark foregrounds keep the pale dashboard surfaces readable. */
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(
+  .workspace__topbar,
+  .overview-shell,
+  .user-home-actions,
+  .user-home-grid,
+  .user-home-announcement,
+  .user-home-card,
+  .user-home-action,
+  .user-request-row,
+  .empty-state,
+  .user-chat-card
+) :is(h1, h2, h3, h4, p, span, strong, small, label, button) {
+  color: #111827 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(
+  .sidebar--user .nav-item:not(.is-active),
+  .sidebar--user .nav-item:not(.is-active) .nav-item__icon,
+  .sidebar--user .nav-item:not(.is-active) svg,
+  .workspace__topbar .icon-button,
+  .workspace__topbar .user-topbar-menu,
+  .workspace__topbar .profile-pill,
+  .overview-shell__tools .icon-button,
+  .user-home-action__arrow,
+  .user-home-action__icon,
+  .user-home-announcement__top svg,
+  .user-request-row__icon,
+  .user-request-row__icon svg
+) {
+  color: #111827 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand :is(h1, span),
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero :is(h1, h2, h3, p, span, strong),
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active,
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active :is(svg, span),
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.primary-action, .user-chat-card button):not(:disabled) {
+  color: #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action {
+  background: #f7fbfe !important;
+  border: 1px solid #d3e8f6 !important;
+  box-shadow: 0 3px 0 #dcecf7 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(
+  .user-home-action--blue .user-home-action__icon,
+  .user-home-action--gold .user-home-action__icon,
+  .user-home-action--green .user-home-action__icon,
+  .user-home-action__icon
+) {
+  color: #111827 !important;
+  background: #e5f2fb !important;
+  border: 1px solid #c5e0f3 !important;
+  box-shadow: 0 3px 0 #c5e0f3 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action__icon svg,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action__icon svg * {
+  color: #111827 !important;
+  stroke: #111827 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(
+  .user-home-card__header button,
+  .user-home-announcement__top button,
+  .overview-shell__tools button
+) {
+  color: #111827 !important;
+  background: #e5f2fb !important;
+  border: 1px solid #c5e0f3 !important;
+  box-shadow: 0 2px 0 #c5e0f3 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-request-row__icon svg,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-announcement__top svg {
+  color: #111827 !important;
+  stroke: #111827 !important;
+}
+
+/* Refined royal blue theme: one strong brand color, quiet surfaces, light borders. */
+html[data-design="heaven"] #root#root .scene--user-workspace {
+  --heaven-accent: #315da8 !important;
+  --heaven-accent-hover: #254b8f !important;
+  --heaven-sky: #edf3fb !important;
+  background: #f6f8fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user,
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell {
+  background: #f6f8fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+  background: linear-gradient(120deg, #254b8f 0%, #315da8 54%, #4776bd 100%) !important;
+  border-color: #315da8 !important;
+  box-shadow: 0 3px 0 #244782 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+  min-height: 236px !important;
+  padding: 34px 40px !important;
+  border-radius: 18px !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy h3 {
+  font-size: clamp(2rem, 3.2vw, 2.8rem) !important;
+  letter-spacing: -0.035em;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active {
+  background: #315da8 !important;
+  border-color: #315da8 !important;
+  box-shadow: 0 2px 0 #244782 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(
+  .user-home-action,
+  .user-home-card,
+  .user-home-announcement,
+  .user-chat-card,
+  .user-request-row
+) {
+  background: #fff !important;
+  border: 1px solid #e1e7f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 8px #1b37600a !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:is(:hover, :focus-visible) {
+  background: #f9fbff !important;
+  border-color: #aebfdd !important;
+  box-shadow: 0 5px 16px #1b376010 !important;
+  transform: translateY(-1px);
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action__icon {
+  width: 48px !important;
+  height: 48px !important;
+  color: #315da8 !important;
+  background: #edf3fb !important;
+  border: 0 !important;
+  border-radius: 13px !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-card__header button,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-announcement__top button {
+  color: #315da8 !important;
+  background: #fff !important;
+  border: 1px solid #d8e1ef !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-request-row__icon {
+  color: #315da8 !important;
+  background: #edf3fb !important;
+  border-color: #e3ebf7 !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-request-status--blue {
+  color: #315da8 !important;
+  background: #edf3fb !important;
+  border: 1px solid #dce6f4 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.primary-action, .user-chat-card button):not(:disabled) {
+  color: #fff !important;
+  background: #315da8 !important;
+  border: 1px solid #315da8 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__caption {
+  color: #eaf0fb !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .workspace__topbar :is(.icon-button, .user-topbar-menu) {
+  color: #315da8 !important;
+  background: #fff !important;
+  border: 1px solid #e1e7f0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the sidebar brand as one clean logo and wordmark treatment. */
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand h1 {
+  color: #fff !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__crest {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__crest img {
+  display: block;
+  object-fit: contain !important;
+  background: transparent !important;
+  filter: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand {
+  background: #eaf3fc !important;
+  border: 1px solid #d8e6f6 !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand h1 {
+  color: #254b8f !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand .sidebar__caption {
+  color: #334b70 !important;
+}
+
+/* Gentle dimensionality for the light royal-blue dashboard. */
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand {
+  position: relative;
+  border: 1px solid #c9dcf2 !important;
+  border-radius: 18px !important;
+  background: linear-gradient(155deg, #fff 0%, #edf5fd 42%, #dceafb 100%) !important;
+  box-shadow:
+    0 8px 18px #24478220,
+    0 3px 0 #c2d6ee,
+    inset 0 1px 0 #fff !important;
+  transform: perspective(900px) rotateX(1deg);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand:hover {
+  transform: perspective(900px) rotateX(0) translateY(-2px);
+  box-shadow: 0 12px 24px #24478226, 0 3px 0 #c2d6ee, inset 0 1px 0 #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__crest img {
+  filter: drop-shadow(0 4px 4px #24478222) !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+  border: 1px solid #6f8fc5 !important;
+  box-shadow: 0 8px 0 #244782, 0 16px 30px #24478224, inset 0 1px 0 #ffffff55 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action,
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-card, .user-home-announcement, .user-chat-card) {
+  border: 1px solid #dce5f1 !important;
+  box-shadow: 0 4px 0 #e5ebf4, 0 8px 18px #1c37610c, inset 0 1px 0 #fff !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:hover,
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-card, .user-home-announcement, .user-chat-card):hover {
+  transform: translateY(-3px);
+  border-color: #c6d7ec !important;
+  box-shadow: 0 6px 0 #dce6f3, 0 14px 24px #1c376118, inset 0 1px 0 #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action__icon {
+  box-shadow: 0 3px 0 #cad9ec, inset 0 1px 0 #fff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-design="heaven"] #root#root .dashboard-frame--user :is(.sidebar__brand, .user-home-action, .user-home-card, .user-home-announcement, .user-chat-card) {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Match the login header to the light, dimensional dashboard branding. */
+html[data-design="heaven"] #root#root .scene--login .login-panel__topbar {
+  padding: 16px 22px !important;
+  border: 1px solid #d5e2f2 !important;
+  border-radius: 18px !important;
+  background: linear-gradient(155deg, #fff 0%, #f5f8fd 58%, #eaf2fc 100%) !important;
+  box-shadow: 0 7px 0 #dce6f3, 0 12px 24px #24478212, inset 0 1px 0 #fff !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-panel__brand h1 {
+  color: #254b8f !important;
+  background: transparent !important;
+  letter-spacing: -.025em;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-panel__brand .sidebar__caption {
+  color: #52647f !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-panel__crest img {
+  filter: drop-shadow(0 3px 4px #24478220) !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-panel__topbar .icon-button {
+  border: 1px solid #d5e2f2 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(155deg, #fff, #edf4fc) !important;
+  color: #254b8f !important;
+  box-shadow: 0 3px 0 #dce6f3, inset 0 1px 0 #fff !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  width: 112px !important;
+  height: 112px !important;
+  padding: 12px !important;
+  border-radius: 50% !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    width: 96px !important;
+    height: 96px !important;
+  }
+}
+
+/* Final login artwork and logo placement overrides. */
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  padding-top: 108px !important;
+  background:
+    linear-gradient(90deg, rgba(37, 75, 143, .72) 0%, rgba(49, 93, 168, .44) 48%, rgba(49, 93, 168, .04) 78%),
+    url("/dist/assets/virgen-maria-anunciacion.png") right center / cover no-repeat !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::after { display: none !important; }
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  top: 22px !important;
+  left: 32px !important;
+  width: 96px !important;
+  height: 64px !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  background: #fff url("/dist/assets/logo.png") center / contain no-repeat !important;
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+    padding-top: 100px !important;
+    background-position: center, right center !important;
+  }
+
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+    top: 18px !important;
+    left: 24px !important;
+    width: 88px !important;
+    height: 58px !important;
+    border-radius: 10px !important;
+  }
+}
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  border: 2px solid #000 !important;
+}
+html[data-design="heaven"] #root#root .scene--login .login-card--form .auth-notice {
+  color: #283f37 !important;
+  background: #edf3ee !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--form .auth-notice :is(strong, span) {
+  color: #283f37 !important;
+}

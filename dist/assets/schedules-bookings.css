@@ -1,0 +1,125 @@
+/* Shared calendar and request workspace, using the portal's simple blue design. */
+#root#root#root .dashboard-frame--user .overview-shell:has(.schedules-bookings) > .overview-shell__header {
+  padding: 8px 0 20px !important; margin: 0 !important; border: 0 !important;
+  background: transparent !important; box-shadow: none !important;
+  & :is(h3,span) { color: #244b7a !important; -webkit-text-fill-color: currentColor !important; }
+  & .screen-tag { display: none !important; }
+}
+#root#root#root .dashboard-frame--user .schedules-bookings {
+  display: grid !important; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr) !important;
+  gap: 20px !important; align-items: start !important;
+  grid-template-rows: auto min-content 1fr !important;
+  & .schedules-calendar-panel, & .user-appointment-layout { display: contents !important; }
+  & .schedules-calendar-panel > .user-panel__header { display: none !important; }
+  & .schedules-calendar-panel > :not(.user-appointment-layout) { grid-column: 1 / -1 !important; }
+  & .schedule-filters, & .booking-kind { display: flex; gap: 8px; flex-wrap: wrap; }
+  & :is(.schedule-filters,.booking-kind) button {
+    min-height: 42px; padding: 9px 15px; border: 1px solid #d8e4f2; border-radius: 8px;
+    background: #fff; color: #496581; font-size: .85rem; font-weight: 600; cursor: pointer;
+  }
+  & :is(.schedule-filters,.booking-kind) button[aria-pressed="true"] { background: #e8f2ff; color: #145fbb; border-color: #85b5ec; }
+  & .user-appointment-calendar {
+    display: grid !important; grid-template-columns: minmax(0,1fr) !important; min-width: 0 !important;
+    grid-column: 1 !important; grid-row: 2 !important; width: 100% !important; padding: 16px !important; gap: 8px !important;
+    border: 1px solid #dce7f4 !important; border-radius: 14px !important; background: #fff !important;
+  }
+  & .user-appointment-calendar > * { min-width: 0 !important; width: 100% !important; max-width: 100% !important; }
+  & .user-appointment-calendar :is(.diocese-calendar__grid,.diocese-calendar__weekdays) { grid-template-columns: repeat(7,minmax(0,1fr)) !important; }
+  & .diocese-calendar__toolbar { margin-bottom: 0 !important; }
+  & .diocese-calendar__toolbar h4 { color: #244b7a !important; font-size: 1.05rem !important; }
+  & .secondary-action { color: #2464a9 !important; background: #f5f9ff !important; border: 1px solid #dce7f4 !important; box-shadow: none !important; }
+  & .user-appointment-legend { display: flex !important; flex-wrap: wrap !important; gap: 12px 20px !important; padding: 8px 0 16px !important; font-size: .8rem !important; }
+  & .user-appointment-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  & .user-appointment-legend__dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; }
+  & .user-appointment-legend__dot--open { background: #2c9d6b !important; }
+  & .user-appointment-legend__dot--busy { background: #d79b26 !important; }
+  & .user-appointment-legend__dot--full { background: #d55757 !important; }
+  & .diocese-calendar__weekdays { font-size: .8rem !important; padding: 8px 0 !important; }
+  & .user-appointment-day {
+    position: relative; min-height: 48px !important; padding: 6px 9px !important; border-radius: 8px !important;
+    background: #f8fafc !important; box-shadow: none !important; color: #718197 !important;
+  }
+  & .user-appointment-day.is-available { background: #f2faf6 !important; border-color: #d1e9dc !important; color: #23694b !important; box-shadow: none !important; }
+  & .user-appointment-day.is-available.has-event { background: #fff9ed !important; border-color: #ead8ae !important; color: #82611c !important; }
+  & .user-appointment-day.is-unavailable:not(.is-disabled) { background: #fff1f1 !important; color: #a13e3e !important; border-color: #ebcccc !important; }
+  & .user-appointment-day.is-selected { outline: 2px solid #2777d0 !important; outline-offset: -2px; background: #eaf3ff !important; color: #155fb2 !important; border-color: #2777d0 !important; box-shadow: none !important; }
+  & .user-appointment-day.is-today:not(.is-selected) { outline: 1px solid #80addd !important; outline-offset: -1px !important; }
+  & .user-appointment-day::after { content: ''; display: block; width: 6px; height: 6px; margin: 6px auto 0; border-radius: 50%; background: #2c9d6b; }
+  & .user-appointment-day.has-event::after { background: #d79b26; }
+  & .user-appointment-day.is-unavailable::after { background: #d55757; }
+  & .user-appointment-day.is-disabled::after { background: #bac5d2; }
+  & .diocese-calendar__events { display: none !important; }
+  & .user-appointment-side { grid-column: 1 !important; grid-row: 3 !important; min-width: 0; }
+  & .user-appointment-side__section, & .schedules-request-panel {
+    padding: 22px !important; border: 1px solid #dce7f4 !important; border-radius: 14px !important;
+    background: #fff !important; box-shadow: none !important; min-width: 0 !important;
+  }
+  & .user-appointment-side__section + .user-appointment-side__section { display: none !important; }
+  & .user-appointment-side__section h4 { color: #244b7a !important; font-size: 1.15rem !important; }
+  & .schedules-request-panel { grid-column: 2 !important; grid-row: 2 / 4 !important; display: grid !important; gap: 16px !important; padding: 20px !important; border-radius: 10px !important; }
+  & .schedules-request-panel > .user-panel__header { display: grid !important; gap: 6px !important; }
+  & .schedules-request-panel > .user-panel__header h4 { font-size: 1.05rem !important; }
+  & .user-appointment-form { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 14px !important; }
+  & .user-appointment-form[hidden] { display: none !important; }
+  & .login-field { min-width: 0; }
+  & .login-field :is(input,select) { width: 100% !important; min-width: 0 !important; min-height: 44px !important; }
+  & .primary-action { min-height: 44px !important; padding: 10px 18px !important; background: #246dc2 !important; color: #fff !important; border: 0 !important; border-radius: 8px !important; box-shadow: none !important; }
+  & .user-appointment-form > button { grid-column: 1 / -1 !important; }
+  & > .user-panel:not(.schedules-calendar-panel):not(.schedules-request-panel) { display: none !important; }
+  & .schedules-request-panel > .screen-grid { display: block !important; }
+  & .schedules-request-panel .screen-grid > .user-panel { padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+  & .schedules-request-panel .screen-grid > .user-panel > .user-panel__header { display: none !important; }
+  & .user-certificate-booking { display: grid !important; grid-template-columns: minmax(0,1fr) !important; gap: 14px !important; }
+  & .user-certificate-booking__selector { display: block !important; }
+  & .user-certificate-booking__summary, & .ucs-toolbar { display: none !important; }
+  & .user-certificate-booking > .detail-list { display: block !important; }
+  & .user-certificate-booking__option { min-height: 0 !important; padding: 16px !important; gap: 18px !important; border: 1px solid #dce7f4 !important; border-radius: 10px !important; background: #f7faff !important; box-shadow: none !important; }
+  & .user-certificate-booking__option[hidden] { display: none !important; }
+  & .detail-list__item { min-width: 0; overflow-wrap: anywhere; }
+  & .booking-kind { display: grid !important; grid-template-columns: minmax(0,1fr) !important; gap: 6px !important; width: 100% !important; margin: 0 !important; }
+  & .schedules-request-panel :is(label, .login-field) { display: grid !important; gap: 6px !important; margin: 0 !important; }
+  & .schedules-request-panel .login-field > span { color: #526780 !important; font-size: .8rem !important; font-weight: 500 !important; letter-spacing: 0 !important; text-transform: none !important; }
+  & .schedules-request-panel :is(input,select) { height: 44px !important; padding: 10px 12px !important; border: 1px solid #d9e2ed !important; border-radius: 6px !important; background: #fff !important; box-shadow: none !important; font-size: .875rem !important; }
+  & .schedules-request-panel :is(input,select):focus-visible { outline: 2px solid #74a5dc !important; outline-offset: 2px; }
+  & .schedules-request-panel .user-certificate-booking > .detail-list { display: block !important; }
+  & .schedules-request-panel :is(.ucs-remind,.ucs-wrap) { display: none !important; }
+  & .schedules-request-panel .user-certificate-booking__selector { padding: 0 !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+  & .schedules-request-panel { scroll-margin-top: 80px; }
+  & .schedules-request-panel .screen-grid { margin: 0 !important; gap: 14px !important; }
+  & .certificate-inline { margin-top: 16px; min-width: 0; }
+  & .certificate-inline .certificate-booking-modal__dialog {
+    position: static !important; display: grid !important; gap: 16px !important;
+    width: 100% !important; min-width: 0 !important; max-width: none !important;
+    height: auto !important; max-height: none !important; overflow: visible !important;
+    margin: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important;
+    background: transparent !important; box-shadow: none !important;
+  }
+  & .certificate-inline :is(.certificate-booking-modal__header,.certificate-booking-modal__service) { display: grid !important; gap: 8px; }
+  & .certificate-inline .certificate-booking-modal__fields { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 14px !important; padding: 0 !important; }
+  & .certificate-inline .certificate-booking-modal__fields > div { grid-column: 1 / -1 !important; min-width: 0 !important; }
+  & .certificate-inline .certificate-booking-modal__fields > div :is(p,span) { margin: 0 !important; font-size: .8rem !important; line-height: 1.5 !important; }
+  & .certificate-inline .login-field:has(input[readonly]) { display: grid !important; }
+  & .certificate-inline .certificate-booking-modal__actions { display: flex !important; padding: 0 !important; margin: 0 !important; border: 0 !important; }
+  & .certificate-inline .certificate-booking-modal__actions .secondary-action { display: none !important; }
+  & .schedules-request-panel .primary-action { width: 100% !important; font-size: .875rem !important; font-weight: 600 !important; }
+}
+@media(max-width:900px) {
+  #root#root#root .dashboard-frame--user .schedules-bookings {
+    grid-template-columns: minmax(0,1fr) !important; gap: 14px !important;
+    grid-template-rows: none !important;
+    & .schedules-request-panel, & .user-appointment-side, & .user-appointment-calendar { grid-column: 1 !important; grid-row: auto !important; }
+  }
+}
+@media(max-width:480px) {
+  #root#root#root .dashboard-frame--user .schedules-bookings {
+    & .user-appointment-calendar, & .user-appointment-side__section, & .schedules-request-panel { padding: 14px !important; }
+    & .schedule-filters button { flex: 1 1 auto; padding-inline: 9px; font-size: .75rem; }
+    & .user-appointment-legend { font-size: .7rem !important; gap: 8px !important; }
+    & .diocese-calendar__toolbar { gap: 6px !important; }
+    & .diocese-calendar__toolbar h4 { font-size: .85rem !important; }
+    & .diocese-calendar__toolbar button { padding: 7px !important; font-size: .75rem !important; min-width: 0 !important; }
+    & .diocese-calendar__grid, & .diocese-calendar__weekdays { gap: 3px !important; }
+    & .user-appointment-day { min-height: 48px !important; padding: 5px 2px !important; }
+    & .user-appointment-form, & .certificate-inline .certificate-booking-modal__fields { grid-template-columns: minmax(0,1fr) !important; }
+  }
+}

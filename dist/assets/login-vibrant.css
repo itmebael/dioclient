@@ -1,0 +1,78 @@
+/* Login, registration and recovery share the portal's visual language. */
+@media screen {
+  html[data-design="heaven"] #root#root .scene--login { padding: 32px 24px !important; min-height: 100dvh; }
+  html[data-design="heaven"] #root#root .scene--login .login-shell { width: min(1080px,100%); margin: 0 auto; }
+  html[data-design="heaven"] #root#root .scene--login .login-panel { gap: 24px; }
+  html[data-design="heaven"] #root#root .scene--login .login-panel__topbar {
+    padding: 16px 20px; background: var(--heaven-surface) !important;
+    border: 1px solid var(--heaven-line); border-radius: 22px; box-shadow: var(--vibrant-shadow) !important;
+  }
+  html[data-design="heaven"] #root#root .scene--login .login-panel__brand { gap: 14px; }
+  html[data-design="heaven"] #root#root .scene--login .login-panel__crest { width: 52px !important; height: 60px !important; }
+  html[data-design="heaven"] #root#root .scene--login .login-panel__brand h1 { font-size: 1.4rem !important; color: var(--heaven-accent) !important; }
+  html[data-design="heaven"] #root#root .scene--login .login-panel__brand .sidebar__caption { color: var(--heaven-muted) !important; font-size: .8rem; margin-top: 4px; }
+  html[data-design="heaven"] #root#root .scene--login .login-panel__topbar .icon-button {
+    position: static; flex-shrink: 0; width: 44px; height: 44px; min-height: 44px;
+    background: var(--heaven-soft) !important; color: var(--heaven-accent) !important;
+    border: 1px solid var(--heaven-line) !important; border-radius: 12px; box-shadow: 0 3px 0 var(--heaven-line) !important;
+  }
+  html[data-design="heaven"] #root#root .scene--login .login-grid {
+    grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 8px; padding: 8px;
+    border-radius: 28px; background: var(--heaven-surface) !important; border: 1px solid var(--heaven-line) !important;
+    box-shadow: 0 5px 0 var(--heaven-line),0 24px 50px #58329314 !important;
+  }
+  html[data-design="heaven"] #root#root .scene--login .login-card { padding: 32px; min-width: 0; }
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; }
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro > h2 { max-width: 12ch; font-size: clamp(2rem,3vw,2.8rem) !important; }
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro > .login-copy { font-size: .9rem; font-weight: 400 !important; line-height: 1.75; }
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro::after {
+    content: ''; display: block !important; position: static !important; flex: 0 0 130px;
+    width: 130px; height: 130px; margin: 4px auto 0; background: url('./vibrant-church.svg') center / contain no-repeat !important;
+    opacity: 1; transform: rotate(-6deg); border: 0;
+  }
+  html[data-design="heaven"] #root#root .scene--login .login-card--form { border-radius: 20px; background: var(--heaven-surface) !important; }
+  html[data-design="heaven"] #root#root .scene--login .login-card--form h3 { color: var(--heaven-ink) !important; font-size: 1.65rem !important; }
+  html[data-design="heaven"] #root#root .scene--login :is(.login-card__header span,.login-terms-embed__text) { color: var(--heaven-muted) !important; }
+  html[data-design="heaven"] #root#root .scene--login .login-field span { color: var(--heaven-ink) !important; }
+  html[data-design="heaven"] #root#root .scene--login :is(input:not([type=checkbox]),select,textarea) {
+    min-width: 0; width: 100%; min-height: 48px; padding: 12px 14px;
+    border: 1px solid var(--heaven-line) !important; border-radius: 12px !important;
+    background: var(--heaven-bg) !important; color: var(--heaven-ink) !important;
+  }
+  html[data-design="heaven"] #root#root .scene--login input[type=password] { padding-right: 66px; }
+  html[data-design="heaven"] #root#root .scene--login input::placeholder { color: var(--heaven-muted); opacity: 1; }
+  html[data-design="heaven"] #root#root .scene--login input[type=checkbox] { accent-color: #783eda; }
+  html[data-design="heaven"] #root#root .scene--login :is(.forgot-password-link,.login-terms-link) { color: var(--heaven-accent) !important; }
+  html[data-design="heaven"] #root#root .scene--login :is(.login-create-account,.login-google) {
+    min-height: 48px; border-radius: 12px; padding: 12px 16px; background: var(--heaven-surface) !important;
+    color: var(--heaven-accent) !important; border: 1px solid var(--heaven-line) !important; box-shadow: 0 3px 0 var(--heaven-line);
+  }
+  html[data-design="heaven"] #root#root .scene--login :is(.login-submit,.login-google):disabled { opacity: 1; background: var(--heaven-soft) !important; color: var(--heaven-muted) !important; border-color: var(--heaven-line) !important; box-shadow: none !important; cursor: not-allowed; }
+  html[data-design="heaven"] #root#root .scene--login .login-google-divider { color: var(--heaven-muted); }
+  html[data-design="heaven"] .parishlink-recovery-dialog {
+    font-family: 'DM Sans','Segoe UI',sans-serif; border-radius: 24px; color: var(--heaven-ink); background: var(--heaven-surface);
+    border: 1px solid var(--heaven-line); box-shadow: 0 5px 0 var(--heaven-line),0 24px 60px #24134733;
+  }
+  html[data-design="heaven"] .parishlink-recovery-dialog h2 { font-family: 'Sora','Segoe UI',sans-serif; font-weight: 600; font-size: 1.5rem; }
+  html[data-design="heaven"] .parishlink-recovery-dialog :is(.workspace__eyebrow,.parishlink-recovery-status) { color: var(--heaven-accent); }
+  html[data-design="heaven"] .parishlink-recovery-copy { color: var(--heaven-muted); }
+  html[data-design="heaven"] .parishlink-recovery-form label { color: var(--heaven-ink); }
+  html[data-design="heaven"] .parishlink-recovery-form input { border-color: var(--heaven-line); border-radius: 12px; color: var(--heaven-ink); background: var(--heaven-bg); }
+  html[data-design="heaven"] .parishlink-recovery-form .primary-action { background: linear-gradient(120deg,#6531ce,#8845e7); border-color: #9968ed; border-radius: 12px; box-shadow: 0 3px 0 #4d249e; }
+  html[data-design="heaven"] .parishlink-recovery-close { color: var(--heaven-accent); background: var(--heaven-soft); border-color: var(--heaven-line); }
+  @media(max-width:760px) {
+    html[data-design="heaven"] #root#root .scene--login { padding: 16px !important; }
+    html[data-design="heaven"] #root#root .scene--login .login-grid { grid-template-columns: minmax(0,1fr); }
+    html[data-design="heaven"] #root#root .scene--login .login-card { padding: 24px; }
+    html[data-design="heaven"] #root#root .scene--login .login-card--intro::after { display: none !important; }
+    html[data-design="heaven"] #root#root .scene--login .login-card--intro > h2 { max-width: none; font-size: 1.8rem !important; }
+  }
+  @media(max-width:400px) {
+    html[data-design="heaven"] #root#root .scene--login .login-panel__topbar { padding: 14px; gap: 10px; }
+    html[data-design="heaven"] #root#root .scene--login .login-panel__brand { gap: 8px; }
+    html[data-design="heaven"] #root#root .scene--login .login-panel__crest { width: 36px !important; height: 42px !important; }
+    html[data-design="heaven"] #root#root .scene--login .login-panel__brand h1 { font-size: 1.1rem !important; }
+    html[data-design="heaven"] #root#root .scene--login .login-panel__brand .sidebar__caption { font-size: .7rem; }
+    html[data-design="heaven"] #root#root .scene--login .login-card { padding: 20px; }
+  }
+}

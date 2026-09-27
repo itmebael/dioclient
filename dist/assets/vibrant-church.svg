@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="tile" x1="30" y1="10" x2="160" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#d4baff"/><stop offset="1" stop-color="#8654df"/></linearGradient>
+    <linearGradient id="wall" x1="61" y1="67" x2="134" y2="158" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#e0d8ff"/></linearGradient>
+    <linearGradient id="roof"><stop stop-color="#ffc58f"/><stop offset="1" stop-color="#ff7b8d"/></linearGradient>
+  </defs>
+  <rect x="19" y="26" width="162" height="162" rx="44" fill="#392079" opacity=".25"/>
+  <rect x="19" y="15" width="162" height="162" rx="44" fill="url(#tile)" stroke="#eddbff" stroke-width="2"/>
+  <path d="M104 73l43 28v48l-43 18-45-24V99z" fill="#7652c0" opacity=".6"/>
+  <path d="M62 92l38-31 39 31v58H62z" fill="url(#wall)"/>
+  <path d="M100 61l39 31v58l14-9V91l-43-34z" fill="#b6a5e5"/>
+  <path d="M53 92l47-40 49 40-9 10-40-32-39 32z" fill="url(#roof)"/>
+  <path d="M95 30h10v11h10v9h-10v12H95V50H85v-9h10z" fill="#ffe6aa"/>
+  <path d="M87 151v-24a13 13 0 0126 0v24" fill="#8054c5"/>
+  <path d="M100 114v37" stroke="#b493e4" stroke-width="2"/>
+  <circle cx="100" cy="92" r="9" fill="#66d6f4" stroke="white" stroke-width="4"/>
+  <path d="M55 150h91v8H55z" fill="#f7efff"/>
+  <path d="M154 41v14m-7-7h14M43 122v10m-5-5h10" stroke="#fff2bf" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,76 @@
+/* Appointment presentation only; date availability remains application-owned. */
+@media screen {
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-appointment-layout) > .overview-shell__header {
+    padding: 26px 28px; margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+    border-radius: 24px; border: 1px solid #a48ae8;
+    background: radial-gradient(ellipse at 100% 0%,#dd91eb66,transparent 60%),linear-gradient(120deg,#4827b5,#7942df,#537cec);
+    box-shadow: 0 5px 0 #5127ae,0 16px 32px #6744c61a;
+  }
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-appointment-layout) > .overview-shell__header :is(h3,span) { color: white !important; }
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-appointment-layout) .screen-tag { background: #ffffff20 !important; border: 1px solid #ffffff40; border-radius: 10px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) > .user-panel {
+    padding: 26px; min-width: 0; display: grid; align-content: start; gap: 20px;
+    background: var(--heaven-surface) !important; border: 1px solid var(--heaven-line) !important;
+    border-radius: 24px; box-shadow: var(--vibrant-shadow) !important;
+  }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) > .user-panel--wide { grid-column: 1 / -1; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) .user-panel__header { gap: 10px; flex-wrap: wrap; margin: 0; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) .user-panel__header h4 { margin: 0; font-size: 1.05rem; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) .user-panel__header span { color: var(--heaven-muted); font-size: .8rem; }
+  html[data-design="heaven"] #root#root .user-appointment-layout { display: grid; grid-template-columns: minmax(0,2.2fr) minmax(240px,1fr); gap: 24px; align-items: start; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar { min-width: 0; padding: 0; border: 0; background: transparent !important; box-shadow: none; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .diocese-calendar__toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .diocese-calendar__toolbar h4 { font-size: 1rem; margin: 0; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .secondary-action { min-height: 40px; padding: 8px 14px; border-radius: 10px; background: var(--heaven-soft) !important; color: var(--heaven-accent) !important; border: 1px solid var(--heaven-line) !important; box-shadow: 0 3px 0 var(--heaven-line); }
+  html[data-design="heaven"] #root#root .user-appointment-legend { gap: 10px 16px; flex-wrap: wrap; padding: 12px 0; color: var(--heaven-muted); font-size: .72rem; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar :is(.diocese-calendar__weekdays,.diocese-calendar__grid) { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 6px; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .diocese-calendar__weekdays { padding: 10px 0; text-align: center; color: var(--heaven-muted); font-size: .7rem; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day {
+    min-width: 0; min-height: 88px; padding: 9px 6px; border-radius: 12px;
+    border: 1px solid var(--heaven-line) !important; background: var(--heaven-bg) !important;
+    color: var(--heaven-muted) !important; box-shadow: none !important;
+  }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day :is(strong,small) { color: inherit !important; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .diocese-calendar__events { min-width: 0; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .diocese-calendar__events small { font-size: .6rem; line-height: 1.3; white-space: normal; overflow-wrap: anywhere; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day.is-available { background: #e9f7f1 !important; border-color: #bcded0 !important; color: #1b6049 !important; box-shadow: 0 2px 0 #cee6dc !important; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day.has-event { background: #fff1df !important; color: #865015 !important; border-color: #efcf9e !important; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day.is-today { outline: 2px solid #9566df; outline-offset: -3px; }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day.is-selected {
+    background: linear-gradient(135deg,#7036df,#8b4be9) !important; color: #fff !important; border-color: #9968ed !important; box-shadow: 0 3px 0 #5227a9 !important;
+  }
+  html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  html[data-design="heaven"] #root#root .user-appointment-side { padding: 0; border: 0 !important; background: transparent !important; display: grid; gap: 18px; }
+  html[data-design="heaven"] #root#root .user-appointment-side__section { padding: 20px; margin: 0; border: 1px solid var(--heaven-line) !important; border-radius: 20px; background: linear-gradient(135deg,var(--heaven-surface),var(--heaven-soft)); }
+  html[data-design="heaven"] #root#root .user-appointment-side__section h4 { color: var(--heaven-ink) !important; font-size: 1.15rem; }
+  html[data-design="heaven"] #root#root .user-appointment-selected { display: grid; gap: 8px; margin: 14px 0; font-size: .78rem; color: var(--heaven-muted); }
+  html[data-design="heaven"] #root#root .user-appointment-open-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  html[data-design="heaven"] #root#root .user-appointment-open-list button { min-height: 44px; padding: 8px; border-radius: 10px; border: 1px solid var(--heaven-line); background: var(--heaven-surface); color: var(--heaven-ink); font-size: .75rem; }
+  html[data-design="heaven"] #root#root .user-appointment-open-list button.is-selected { color: var(--heaven-accent); background: var(--heaven-soft); border-color: #a17ae9; box-shadow: 0 3px 0 var(--heaven-line); }
+  html[data-design="heaven"] #root#root .user-appointment-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+  html[data-design="heaven"] #root#root .user-appointment-form .login-field { min-width: 0; }
+  html[data-design="heaven"] #root#root .user-appointment-form :is(input,select) { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; }
+  html[data-design="heaven"] #root#root .user-appointment-form .login-field > span { color: var(--heaven-ink) !important; font-size: .8rem; }
+  html[data-design="heaven"] #root#root .user-appointment-form > .primary-action { grid-column: 1 / -1; justify-self: start; width: auto; min-height: 46px; padding: 12px 24px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) :is(.mini-stat-grid,.user-prayer-list) { display: grid; grid-template-columns: minmax(0,1fr); gap: 14px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) :is(.mini-stat,.user-prayer-item) { display: grid; gap: 8px; padding: 20px; margin: 0; border: 1px solid var(--heaven-line); border-radius: 16px; background: var(--heaven-bg) !important; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) .mini-stat:nth-child(2) { background: var(--heaven-sky) !important; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) :is(.mini-stat,.user-prayer-item,.empty-state) strong { color: var(--heaven-ink) !important; line-height: 1.5; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) :is(.mini-stat,.user-prayer-item,.empty-state) :is(span,small) { color: var(--heaven-muted) !important; line-height: 1.65; font-size: .8rem; }
+  html[data-design="heaven"] #root#root .user-appointment-side .empty-state { padding: 16px; background: transparent !important; border: 1px dashed var(--heaven-line); border-radius: 14px; }
+  @media(max-width:1100px) {
+    html[data-design="heaven"] #root#root .user-appointment-layout { grid-template-columns: minmax(0,1fr); }
+    html[data-design="heaven"] #root#root .user-appointment-side { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  }
+  @media(max-width:600px) {
+    html[data-design="heaven"] #root#root .overview-shell:has(.user-appointment-layout) > .overview-shell__header { padding: 22px; }
+    html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout),
+    html[data-design="heaven"] #root#root .user-appointment-side,
+    html[data-design="heaven"] #root#root .user-appointment-form { grid-template-columns: minmax(0,1fr); }
+    html[data-design="heaven"] #root#root .screen-grid:has(.user-appointment-layout) > .user-panel { padding: 16px; }
+    html[data-design="heaven"] #root#root .user-appointment-calendar .user-appointment-day { min-height: 70px; padding: 6px 2px; border-radius: 8px; }
+    html[data-design="heaven"] #root#root .user-appointment-calendar :is(.diocese-calendar__weekdays,.diocese-calendar__grid) { gap: 3px; }
+    html[data-design="heaven"] #root#root .user-appointment-form > .primary-action { width: 100%; }
+  }
+}

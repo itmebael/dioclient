@@ -1,0 +1,52 @@
+@media screen {
+  #root#root#root#root .user-certificate-booking:has(.certificate-tabs) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 44px !important;
+    gap: 16px 12px !important;
+  }
+  #root#root#root#root .certificate-tabs {
+    grid-column: 1; grid-row: 1;
+    display: grid !important; grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px; padding: 0 0 8px; min-width: 0; overflow: visible;
+  }
+  #root#root#root#root .certificate-tabs button {
+    width: 100%; min-width: 0; height: 64px; min-height: 64px;
+    padding: 8px; white-space: normal; overflow-wrap: anywhere;
+    line-height: 1.35; font-size: .8rem; box-sizing: border-box;
+  }
+  #root#root#root#root .user-certificate-booking__selector { grid-row: 2; grid-column: 1 / -1; }
+  #root#root#root#root .user-certificate-booking > .detail-list { grid-row: 3; grid-column: 1 / -1; margin-top: 0; }
+  #root#root#root#root .ucs-remind-trigger {
+    grid-row: 1; grid-column: 2; align-self: start;
+    display: grid !important; place-items: center; gap: 4px; width: 44px; height: 64px;
+    padding: 8px 4px; border: 2px solid #d97706 !important; border-radius: 12px;
+    background: #fff3cd !important; color: #854400 !important; cursor: pointer;
+    visibility: visible !important; opacity: 1 !important;
+  }
+  #root#root#root#root .ucs-remind-trigger svg {
+    display: block !important; width: 24px; height: 24px;
+    visibility: visible !important; opacity: 1 !important; fill: none !important; stroke: #854400 !important;
+  }
+  #root#root#root#root .ucs-remind-trigger span { color: #854400 !important; -webkit-text-fill-color: #854400; font-size: 10px; font-weight: 700; line-height: 1; }
+  #root#root#root#root .certificate-inline .certificate-booking-modal__header { padding: 0 0 16px; border-bottom: 1px solid var(--heaven-line, #dce7f4); }
+  #root#root#root#root .certificate-inline .certificate-booking-modal__service { padding: 16px; border-radius: 12px; background: var(--heaven-soft, #edf5ff); }
+  #root#root#root#root .ucs-remind-trigger:focus-visible { outline: 3px solid #74a5dc; outline-offset: 3px; }
+  #root#root#root#root dialog.ucs-remind:not([open]) { display: none !important; }
+  #root#root#root#root dialog.ucs-remind[open] {
+    position: fixed; inset: 0; display: flex !important; flex-direction: column;
+    box-sizing: border-box; width: min(520px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px); overflow-y: auto; margin: auto;
+    padding: 28px; gap: 16px; border-radius: 20px;
+    background: var(--heaven-surface, #fff); color: var(--heaven-ink, #244b7a);
+    border: 1px solid var(--heaven-line, #dce7f4); box-shadow: 0 24px 80px #152d2540;
+  }
+  dialog.ucs-remind::backdrop { background: #152d2570; backdrop-filter: blur(4px); }
+  #root#root#root#root dialog.ucs-remind .ucs-remind__close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; }
+  @media (max-width: 1100px) {
+    #root#root#root#root .certificate-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    #root#root#root#root .certificate-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #root#root#root#root dialog.ucs-remind[open] { padding: 20px; }
+  }
+}

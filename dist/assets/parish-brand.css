@@ -1,0 +1,4 @@
+.brand-mark{width:68px;height:48px;overflow:hidden;border-radius:0}
+.brand-mark img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.brand-copy strong{font-size:.86rem;letter-spacing:.015em}
+.brand-copy small{font-size:.61rem}

@@ -1,0 +1,127 @@
+/* Certificate services share the dashboard's visual language. */
+@media screen {
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-certificate-booking) > .overview-shell__header {
+    padding: 26px 28px; margin-bottom: 24px; border-radius: 24px;
+    background: radial-gradient(ellipse at 100% 0%,#dd91eb66,transparent 60%),linear-gradient(120deg,#4827b5,#7942df,#537cec);
+    border: 1px solid #a48ae8; box-shadow: 0 5px 0 #5127ae,0 16px 32px #6744c61a;
+    gap: 16px; flex-wrap: wrap;
+  }
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-certificate-booking) > .overview-shell__header :is(h3,span) { color: #fff !important; }
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-certificate-booking) .screen-tag { background: #ffffff20 !important; border: 1px solid #ffffff40; border-radius: 10px; }
+  html[data-design="heaven"] #root#root .user-panel:has(.user-certificate-booking) {
+    padding: 0; background: transparent !important; border: 0 !important; box-shadow: none !important; min-width: 0;
+  }
+  html[data-design="heaven"] #root#root .user-panel:has(.user-certificate-booking) > .user-panel__header { padding: 4px 0 16px; gap: 12px; }
+  html[data-design="heaven"] #root#root .user-certificate-booking {
+    display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0,1.7fr); gap: 22px; align-items: start;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking__selector {
+    display: grid; gap: 20px; padding: 24px; min-width: 0;
+    background: var(--heaven-surface); border: 1px solid var(--heaven-line); border-radius: 24px;
+    box-shadow: var(--vibrant-shadow);
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking .ucs-wrap { padding: 0; border: 0; box-shadow: none; background: transparent; }
+  html[data-design="heaven"] #root#root .user-certificate-booking .ucs-field { border-radius: 12px; background: var(--heaven-bg); border-color: var(--heaven-line); }
+  html[data-design="heaven"] #root#root .user-certificate-booking .ucs-field svg { color: var(--heaven-accent); }
+  html[data-design="heaven"] #root#root .user-certificate-booking .ucs-field .ucs-input { padding-left: 38px !important; padding-right: 36px !important; width: 100%; min-width: 0; }
+  html[data-design="heaven"] #root#root .user-certificate-booking :is(.ucs-label,.login-field > span) { color: var(--heaven-ink) !important; font-size: .8rem; font-weight: 600; }
+  html[data-design="heaven"] #root#root .user-certificate-booking .ucs-meta { color: var(--heaven-muted); font-size: .75rem; }
+  html[data-design="heaven"] #root#root .user-certificate-booking__summary {
+    display: grid; gap: 12px; padding: 20px; border-radius: 18px;
+    background: linear-gradient(135deg,var(--heaven-soft),var(--heaven-sky)) !important; border: 1px solid var(--heaven-line) !important;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking__summary strong { font-family: 'Sora','Segoe UI',sans-serif !important; font-size: 1.05rem; color: var(--heaven-ink) !important; line-height: 1.4; }
+  html[data-design="heaven"] #root#root .user-certificate-booking__summary :is(span:not(.status-badge),small) { color: var(--heaven-muted) !important; line-height: 1.6; }
+  html[data-design="heaven"] #root#root .user-certificate-booking > .detail-list {
+    display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; min-width: 0;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option {
+    display: flex; flex-direction: column; align-items: stretch; justify-content: space-between;
+    gap: 22px; min-width: 0; min-height: 220px; padding: 24px;
+    background: var(--heaven-surface) !important; border: 1px solid var(--heaven-line) !important;
+    border-radius: 22px; box-shadow: var(--vibrant-shadow);
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option.is-selected {
+    background: linear-gradient(135deg,var(--heaven-surface),var(--heaven-soft)) !important;
+    border: 2px solid #a17ae9 !important; padding: 23px;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option .detail-list__meta { display: grid; gap: 10px; min-width: 0; }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option strong { color: var(--heaven-ink) !important; font-size: .95rem; line-height: 1.45; }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option .detail-list__meta span { color: var(--heaven-muted) !important; font-size: .8rem; line-height: 1.65; overflow-wrap: anywhere; }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option button { width: 100%; min-height: 44px; border-radius: 12px; }
+  html[data-design="heaven"] #root#root .user-certificate-booking__option .secondary-action {
+    color: var(--heaven-accent) !important; background: var(--heaven-soft) !important;
+    border: 1px solid var(--heaven-line) !important; box-shadow: 0 3px 0 var(--heaven-line);
+  }
+  html[data-design="heaven"] #root#root .ucs-remind {
+    position: relative; padding: 24px; gap: 18px; margin-bottom: 20px;
+    background: radial-gradient(circle at 0% 0%,#ffb36925,transparent 75%),var(--heaven-surface);
+    color: var(--heaven-ink); border: 1px solid var(--heaven-line); border-radius: 24px; box-shadow: var(--vibrant-shadow);
+  }
+  html[data-design="heaven"] #root#root .ucs-remind__icon {
+    width: 48px; height: 48px; border-radius: 15px; background: linear-gradient(135deg,#ffac65,#c34d22);
+    box-shadow: 0 4px 0 #a33d1c,inset 0 1px 0 #ffffff88;
+  }
+  html[data-design="heaven"] #root#root .ucs-remind__title { color: var(--heaven-ink); text-transform: none; flex-wrap: wrap; font-size: .95rem; line-height: 1.5; }
+  html[data-design="heaven"] #root#root .ucs-remind__list { color: var(--heaven-muted); margin-top: 12px; }
+  html[data-design="heaven"] #root#root .ucs-remind__list li { display: list-item; margin-left: 16px; list-style: disc; }
+  html[data-design="heaven"] #root#root .ucs-remind__list li::before { display: none; }
+  html[data-design="heaven"] #root#root .ucs-remind__slot { padding: 10px 12px; border-radius: 10px; }
+  html[data-design="heaven"] #root#root .ucs-remind__cta { min-height: 42px; border-radius: 12px; background: linear-gradient(120deg,#6531ce,#8845e7); color: #fff; box-shadow: 0 3px 0 #4d249e; }
+  html[data-design="heaven"] #root#root .ucs-remind__close { min-width: 32px; height: 32px; color: var(--heaven-muted); background: var(--heaven-soft); }
+  html[data-design="heaven"] #root#root .user-panel:has(.user-certificate-booking) > .auth-notice {
+    padding: 16px 20px; margin-bottom: 20px; border-radius: 16px;
+    background: var(--heaven-sky); border: 1px solid var(--heaven-line); color: var(--heaven-ink);
+  }
+  html[data-design="heaven"] #root#root .user-panel:has(.user-certificate-booking) > .auth-notice :is(strong,span) { color: var(--heaven-ink) !important; }
+  @media(max-width:1100px) {
+    html[data-design="heaven"] #root#root .user-certificate-booking { grid-template-columns: minmax(0,1fr); }
+  }
+  @media(max-width:600px) {
+    html[data-design="heaven"] #root#root .user-certificate-booking > .detail-list { grid-template-columns: minmax(0,1fr); }
+    html[data-design="heaven"] #root#root .overview-shell:has(.user-certificate-booking) > .overview-shell__header { padding: 22px; }
+    html[data-design="heaven"] #root#root :is(.user-certificate-booking__selector,.user-certificate-booking__option,.ucs-remind) { padding: 20px; }
+    html[data-design="heaven"] #root#root .user-certificate-booking__option.is-selected { padding: 19px; }
+    html[data-design="heaven"] #root#root .ucs-remind { flex-direction: column; }
+  }
+  .certificate-inline { width: 100%; min-width: 0; }
+  .certificate-inline .certificate-booking-modal__dialog {
+    width: 100%; max-width: none; max-height: none; overflow: visible;
+    margin: 0; box-shadow: none;
+  }
+  /* Service tabs use the existing React selection and booking handlers. */
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) {
+    grid-template-columns: minmax(0,1fr); gap: 0; padding: 24px;
+    background: var(--heaven-surface); border: 1px solid var(--heaven-line);
+    border-radius: 24px; box-shadow: var(--vibrant-shadow);
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__selector {
+    padding: 0 0 20px; border: 0; border-radius: 0; box-shadow: none; background: transparent;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__selector > :is(.login-field,.user-certificate-booking__summary) { display: none; }
+  html[data-design="heaven"] #root#root .certificate-tabs {
+    display: flex; gap: 8px; overflow-x: auto; max-width: 100%; padding: 4px 4px 16px;
+    border-bottom: 1px solid var(--heaven-line); scrollbar-width: thin;
+  }
+  html[data-design="heaven"] #root#root .certificate-tabs button {
+    flex: 0 0 auto; padding: 12px 16px; min-height: 46px; border-radius: 12px;
+    background: var(--heaven-bg); color: var(--heaven-muted); border: 1px solid var(--heaven-line);
+    font-size: .8125rem; font-weight: 600; white-space: nowrap;
+  }
+  html[data-design="heaven"] #root#root .certificate-tabs button[aria-selected="true"] {
+    background: linear-gradient(120deg,#6531ce,#8845e7); color: white;
+    border-color: #9764e7; box-shadow: 0 3px 0 #4d249e,0 7px 16px #6733c620;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) > .detail-list { grid-template-columns: minmax(0,1fr); margin-top: 20px; }
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__option {
+    padding: 28px; min-height: 210px; border: 1px solid var(--heaven-line) !important; box-shadow: none;
+  }
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__option strong { font-family: 'Sora','Segoe UI',sans-serif !important; font-size: 1.2rem; }
+  html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__option button { width: fit-content; min-width: 160px; padding: 12px 24px; }
+  html[data-design="heaven"] #root#root :is(.certificate-tabs button,.user-certificate-booking__option)[hidden] { display: none !important; }
+  @media(max-width:600px) {
+    html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) { padding: 16px; }
+    html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__option { padding: 20px; }
+    html[data-design="heaven"] #root#root .user-certificate-booking:has(.certificate-tabs) .user-certificate-booking__option button { width: 100%; }
+  }
+}

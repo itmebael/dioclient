@@ -1,0 +1,65 @@
+/* Live viewer and schedule, scoped away from other calendar screens. */
+@media screen {
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-live-viewer) > .overview-shell__header {
+    padding: 26px 28px; margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+    border-radius: 24px; border: 1px solid #a48ae8;
+    background: radial-gradient(ellipse at 100% 0%,#dd91eb66,transparent 60%),linear-gradient(120deg,#4827b5,#7942df,#537cec);
+    box-shadow: 0 5px 0 #5127ae,0 16px 32px #6744c61a;
+  }
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-live-viewer) > .overview-shell__header :is(h3,span) { color: #fff !important; }
+  html[data-design="heaven"] #root#root .overview-shell:has(.user-live-viewer) .screen-tag { background: #ffffff20 !important; border: 1px solid #ffffff40; border-radius: 10px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) {
+    display: grid; grid-template-columns: minmax(0,1.8fr) minmax(280px,1fr); gap: 22px; align-items: start;
+  }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) > .user-panel {
+    grid-column: auto; min-width: 0; padding: 24px; display: grid; gap: 20px;
+    border: 1px solid var(--heaven-line) !important; border-radius: 24px;
+    background: var(--heaven-surface) !important; box-shadow: var(--vibrant-shadow) !important;
+  }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-panel__header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin: 0; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-panel__header h4 { margin: 0; font-size: 1.05rem; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-panel__header > span { color: var(--heaven-muted) !important; font-size: .8rem; }
+  html[data-design="heaven"] #root#root .user-live-stream {
+    display: inline-flex; align-items: center; gap: 8px; width: auto; min-height: 38px; padding: 8px 12px;
+    color: var(--heaven-muted) !important; background: var(--heaven-bg) !important;
+    border: 1px solid var(--heaven-line); border-radius: 12px; font-size: .8rem;
+  }
+  html[data-design="heaven"] #root#root .user-live-stream:not(.is-live) .user-live-stream__dot { background: #89829c; box-shadow: none; }
+  html[data-design="heaven"] #root#root .user-live-stream.is-live { color: #176447 !important; background: #dff5e9 !important; }
+  html[data-design="heaven"] #root#root .user-live-stream.is-live .user-live-stream__dot { background: #168c5f; box-shadow: 0 0 0 4px #168c5f18; }
+  html[data-design="heaven"] #root#root .user-live-viewer {
+    position: relative; width: 100%; min-width: 0; aspect-ratio: 16 / 9; min-height: 250px; overflow: hidden;
+    border: 1px solid #654f99; border-radius: 20px; background: radial-gradient(ellipse at 80% 10%,#734bc555,transparent 65%),#211936;
+    box-shadow: inset 0 1px 0 #ffffff15;
+  }
+  html[data-design="heaven"] #root#root .user-live-viewer__img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  html[data-design="heaven"] #root#root .user-live-viewer:not(.is-live) .user-live-viewer__img { visibility: hidden; }
+  html[data-design="heaven"] #root#root .user-live-viewer__placeholder {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; padding: 26px; text-align: center; background: transparent;
+  }
+  html[data-design="heaven"] #root#root .user-live-viewer__placeholder::before {
+    content: ''; display: block; width: 64px; height: 64px; margin-bottom: 6px; border-radius: 20px;
+    background: #8b60cf url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='13' rx='3'/%3E%3Cpath d='m10 9 5 2.5-5 2.5V9ZM8 21h8'/%3E%3C/svg%3E") center / 32px no-repeat;
+    border: 1px solid #b69ae1; box-shadow: 0 5px 0 #543582,inset 0 1px 0 #ffffff55;
+  }
+  html[data-design="heaven"] #root#root .user-live-viewer__placeholder strong { font-family: 'Sora','Segoe UI',sans-serif !important; color: #fff !important; font-size: 1.1rem; line-height: 1.4; }
+  html[data-design="heaven"] #root#root .user-live-viewer__placeholder span { color: #d9ccec !important; font-size: .82rem; line-height: 1.6; }
+  html[data-design="heaven"] #root#root .user-live-controls { display: flex; justify-content: flex-end; }
+  html[data-design="heaven"] #root#root .user-live-watch-btn { min-height: 46px; padding: 12px 22px; }
+  html[data-design="heaven"] #root#root .user-live-watch-btn:disabled { background: var(--heaven-soft) !important; color: var(--heaven-muted) !important; border-color: var(--heaven-line) !important; box-shadow: none !important; opacity: 1; cursor: not-allowed; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-event-list { display: grid; gap: 14px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-event-item { display: grid; grid-template-columns: 62px minmax(0,1fr); gap: 14px; align-items: start; padding: 16px; border: 1px solid var(--heaven-line); border-radius: 18px; background: var(--heaven-bg); }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-event-item__day { display: grid; place-items: center; width: 62px; min-height: 60px; padding: 8px; border-radius: 14px; background: var(--heaven-soft) !important; color: var(--heaven-accent) !important; box-shadow: 0 3px 0 var(--heaven-line); font-weight: 700; font-size: .85rem; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-event-item strong { display: block; color: var(--heaven-ink) !important; font-size: .85rem; line-height: 1.5; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) .user-event-item span { display: block; margin-top: 6px; color: var(--heaven-muted) !important; font-size: .75rem; line-height: 1.6; }
+  @media(max-width:1100px) {
+    html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) { grid-template-columns: minmax(0,1fr); }
+  }
+  @media(max-width:600px) {
+    html[data-design="heaven"] #root#root .overview-shell:has(.user-live-viewer) > .overview-shell__header { padding: 22px; }
+    html[data-design="heaven"] #root#root .screen-grid:has(.user-live-viewer) > .user-panel { padding: 16px; }
+    html[data-design="heaven"] #root#root .user-live-viewer__placeholder { padding: 18px; }
+    html[data-design="heaven"] #root#root .user-live-watch-btn { width: 100%; }
+  }
+}

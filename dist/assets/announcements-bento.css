@@ -1,0 +1,67 @@
+/* Member notices use the same raised surfaces as the dashboard. */
+@media screen {
+  html[data-design="heaven"] #root#root .overview-shell:has(.announcement-hero--user) > .overview-shell__header {
+    padding: 26px 28px; margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+    border-radius: 24px; border: 1px solid #a48ae8;
+    background: radial-gradient(ellipse at 100% 0%,#dd91eb66,transparent 60%),linear-gradient(120deg,#4827b5,#7942df,#537cec);
+    box-shadow: 0 5px 0 #5127ae,0 16px 32px #6744c61a;
+  }
+  html[data-design="heaven"] #root#root .overview-shell:has(.announcement-hero--user) > .overview-shell__header :is(h3,span) { color: #fff !important; }
+  html[data-design="heaven"] #root#root .overview-shell:has(.announcement-hero--user) .screen-tag { background: #ffffff20 !important; border: 1px solid #ffffff40; border-radius: 10px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) > .user-panel {
+    min-width: 0; padding: 28px; margin: 0; border: 1px solid var(--heaven-line) !important;
+    border-radius: 24px; background: var(--heaven-surface) !important; box-shadow: var(--vibrant-shadow) !important;
+  }
+  html[data-design="heaven"] #root#root .screen-grid .announcement-hero--user {
+    background: radial-gradient(ellipse at 0% 0%,#ffab672a,transparent 60%),linear-gradient(125deg,var(--heaven-surface),var(--heaven-soft)) !important;
+  }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .user-panel__header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin: 0 0 20px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .user-panel__header h4 { margin: 8px 0; font-size: 1.2rem; color: var(--heaven-ink) !important; }
+  html[data-design="heaven"] #root#root .announcement-hero--user p { max-width: 65ch; margin: 0; font-size: .875rem; line-height: 1.7; color: var(--heaven-muted) !important; }
+  html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__eyebrow { color: var(--heaven-accent) !important; background: var(--heaven-soft); border-radius: 8px; padding: 6px 10px; font-size: .65rem; letter-spacing: .12em; }
+  html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__stats {
+    display: grid; place-content: center; gap: 4px; min-width: 106px; min-height: 106px; padding: 16px; text-align: center;
+    background: linear-gradient(135deg,#9c6aec,#6431c6) !important; border: 1px solid #b496e6; border-radius: 24px;
+    box-shadow: 0 5px 0 #4d249e,0 12px 24px #6431c622,inset 0 1px 0 #ffffff55;
+  }
+  html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__stats span { font-family: 'Sora','Segoe UI',sans-serif !important; color: white !important; font-size: 2.2rem; line-height: 1.1; }
+  html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__stats strong { color: #f4edff !important; font-size: .8rem; }
+  html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__chips span { padding: 8px 12px; border: 1px solid var(--heaven-line); border-radius: 10px; background: var(--heaven-surface) !important; color: var(--heaven-muted) !important; font-size: .75rem; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .announcement-board-panel .user-panel__header > span { color: var(--heaven-muted) !important; font-size: .8rem; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .announcement-board { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .announcement-board > .empty-state {
+    grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+    min-height: 250px; padding: 28px; text-align: center;
+    border: 1px dashed var(--heaven-line); border-radius: 20px; background: var(--heaven-bg) !important;
+  }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .empty-state::before {
+    content: ''; width: 60px; height: 60px; margin-bottom: 8px; border-radius: 18px;
+    background: #8954d6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 10 12-5v14L4 14v-4ZM8 16l1 5h3M20 9v6'/%3E%3C/svg%3E") center / 30px no-repeat;
+    border: 1px solid #b394e8; box-shadow: 0 4px 0 #593192,inset 0 1px 0 #ffffff66;
+  }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .empty-state strong { color: var(--heaven-ink) !important; font-size: 1rem; }
+  html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .empty-state span { color: var(--heaven-muted) !important; font-size: .85rem; line-height: 1.6; }
+  html[data-design="heaven"] #root#root .announcement-card--user {
+    display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 16px; padding: 22px; min-width: 0;
+    border: 1px solid var(--heaven-line); border-radius: 20px; background: var(--heaven-bg) !important; box-shadow: 0 3px 0 var(--heaven-line);
+  }
+  html[data-design="heaven"] #root#root .announcement-card--user::before { display: none; }
+  html[data-design="heaven"] #root#root .announcement-card--user .announcement-card__date { width: 64px; align-self: start; padding: 12px 8px; border-radius: 14px; background: var(--heaven-soft); color: var(--heaven-accent); box-shadow: 0 3px 0 var(--heaven-line); }
+  html[data-design="heaven"] #root#root .announcement-card--user .announcement-card__date :is(span,strong) { color: var(--heaven-accent) !important; }
+  html[data-design="heaven"] #root#root .announcement-card--user .announcement-card__body { min-width: 0; overflow-wrap: anywhere; }
+  html[data-design="heaven"] #root#root .announcement-card--user .announcement-card__topline { flex-wrap: wrap; gap: 8px; }
+  html[data-design="heaven"] #root#root .announcement-card--user :is(h5,p) { color: var(--heaven-ink) !important; }
+  html[data-design="heaven"] #root#root .announcement-card--user p { line-height: 1.7; font-size: .85rem; white-space: pre-wrap; }
+  html[data-design="heaven"] #root#root .announcement-card--user :is(small,.announcement-card__topline > span:not(.status-badge)) { color: var(--heaven-muted) !important; }
+  @media(max-width:1100px) {
+    html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) .announcement-board { grid-template-columns: minmax(0,1fr); }
+  }
+  @media(max-width:600px) {
+    html[data-design="heaven"] #root#root .overview-shell:has(.announcement-hero--user) > .overview-shell__header { padding: 22px; }
+    html[data-design="heaven"] #root#root .screen-grid:has(.announcement-hero--user) > .user-panel { padding: 20px; }
+    html[data-design="heaven"] #root#root .announcement-hero--user .announcement-hero__stats { min-width: 90px; min-height: 90px; }
+    html[data-design="heaven"] #root#root .announcement-card--user { padding: 16px; grid-template-columns: minmax(0,1fr); }
+  }
+}

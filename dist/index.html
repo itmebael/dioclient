@@ -9,94 +9,70 @@
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ParishLink · Your parish, closer</title>
-    <!-- User dashboard: light (white) theme only — runs before React reads localStorage. -->
-    <script>
-      (function () {
-        var SESSION_KEY = "diocese-dashboard-db-session";
-        var THEME_KEY = "diocese-dashboard-theme";
-        function getSession() {
-          try {
-            var raw = sessionStorage.getItem(SESSION_KEY);
-            if (raw) return JSON.parse(raw);
-          } catch (e) {}
-          try {
-            var raw2 = localStorage.getItem(SESSION_KEY);
-            if (raw2) return JSON.parse(raw2);
-          } catch (e) {}
-          return null;
-        }
-        function sessionRole() {
-          var s = getSession();
-          if (!s) return "";
-          var r = s.role;
-          if (!r && s.user) {
-            r = s.user.role ||
-              (s.user.user_metadata && s.user.user_metadata.role) ||
-              (s.user.app_metadata && s.user.app_metadata.role);
-          }
-          return String(r || "").toLowerCase();
-        }
-        function onLoginRoute() {
-          var h = (location.hash || "").replace(/^#/, "").toLowerCase();
-          return !h || h === "login";
-        }
-        function isUserHashRoute() {
-          var h = (location.hash || "").replace(/^#/, "").toLowerCase();
-          if (!h || h === "login") return false;
-          // Diocese/parish routes can sometimes share a "user-*" hash name in
-          // older builds. Never force light mode for staff roles.
-          var r = sessionRole();
-          if (r === "diocese" || r === "parish") return false;
-          return /^user-/.test(h) || h === "user-correction";
-        }
-        function isUserDashboard() {
-          if (onLoginRoute()) return false;
-          if (isUserHashRoute()) return true;
-          var r = sessionRole();
-          return r === "user" || r === "member" || r === "community";
-        }
-        function applyUserLightOnly() {
-          if (!isUserDashboard()) {
-            document.documentElement.removeAttribute("data-user-light-lock");
-            return;
-          }
-          document.documentElement.setAttribute("data-user-light-lock", "1");
-          try {
-            localStorage.setItem(THEME_KEY, "light");
-          } catch (e) {}
-          document.documentElement.setAttribute("data-theme", "light");
-        }
-        var _setItem = Storage.prototype.setItem;
-        Storage.prototype.setItem = function (key, val) {
-          if (key === THEME_KEY && isUserDashboard()) {
-            val = "light";
-          }
-          return _setItem.call(this, key, val);
-        };
-        var _getItem = Storage.prototype.getItem;
-        Storage.prototype.getItem = function (key) {
-          if (key === THEME_KEY && isUserDashboard()) {
-            return "light";
-          }
-          return _getItem.call(this, key);
-        };
-        applyUserLightOnly();
-        window.addEventListener("hashchange", applyUserLightOnly);
-        window.addEventListener("storage", function (e) {
-          if (e.key === SESSION_KEY) applyUserLightOnly();
-        });
-        setInterval(applyUserLightOnly, 1500);
-        try {
-          var mo = new MutationObserver(function () {
-            if (isUserDashboard() && document.documentElement.getAttribute("data-theme") !== "light") {
-              document.documentElement.setAttribute("data-theme", "light");
-            }
-          });
-          mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-        } catch (e) {}
-      })();
-    </script>
-    <script type="module" crossorigin src="/dist/assets/index-v20260422157000.js?v=google-login-20260920"></script>
+    <style>
+      #sf-toggle {
+        position: fixed;
+        z-index: 10000;
+        left: max(16px, env(safe-area-inset-left));
+        bottom: max(16px, env(safe-area-inset-bottom));
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 8px;
+        border: 1px solid rgba(87, 70, 137, .18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, .96);
+        box-shadow: 0 8px 24px rgba(38, 29, 66, .14);
+        color: #31264d;
+        font: 600 13px/1.2 system-ui, sans-serif;
+      }
+      #sf-toggle__label { padding: 0 3px; }
+      #sf-toggle button {
+        min-width: 36px;
+        min-height: 34px;
+        padding: 4px 8px;
+        border: 1px solid #ded8eb;
+        border-radius: 999px;
+        background: #fff;
+        color: #31264d;
+        font: 700 14px/1 system-ui, sans-serif;
+        cursor: pointer;
+      }
+      #sf-toggle button:hover:not(:disabled) { background: #f3effb; }
+      #sf-toggle button:focus-visible { outline: 3px solid #8a62d5; outline-offset: 2px; }
+      #sf-toggle button:disabled { opacity: .48; cursor: default; }
+      @media (max-width: 480px) {
+        #sf-toggle { left: 10px; bottom: max(10px, env(safe-area-inset-bottom)); gap: 4px; }
+      }
+      main[role="status"] {
+        min-height: 100vh;
+        box-sizing: border-box;
+        display: grid;
+        place-content: center;
+        gap: 14px;
+        padding: 24px;
+        color: #292443;
+        background: #f3effc;
+        font: 500 16px/1.5 'DM Sans', 'Segoe UI', sans-serif;
+        text-align: center;
+      }
+      main[role="status"]::before {
+        content: '';
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+        border: 3px solid rgba(112, 77, 174, .2);
+        border-top-color: #704dae;
+        border-radius: 50%;
+        animation: session-check-spin .8s linear infinite;
+      }
+      @keyframes session-check-spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        main[role="status"]::before { animation: none; }
+      }
+    </style>
+    <script type="module" crossorigin src="/dist/assets/index-v20260422157000.js?v=20260927-correction-tab"></script>
+    <script defer src="/dist/assets/dashboard-updates.js?v=20260927-send-message"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
     <link rel="stylesheet" href="/dist/assets/sidebar-brand-responsive.css?v=notification-dark-1">
     <style id="dio-user-management-style">
@@ -910,6 +886,20 @@
     <link rel="stylesheet" href="/dist/assets/client-photo-theme.css?v=dashboard-photo-20260921">
     <link rel="stylesheet" href="/dist/assets/login-polish.css?v=20260921">
     <link rel="stylesheet" href="/dist/assets/client-dashboard.css?v=20260921">
+    <link rel="stylesheet" href="/dist/assets/simple-parish.css?v=20260923">
+    <link rel="stylesheet" href="/dist/assets/vibrant.css?v=20260924-topbar">
+    <link rel="stylesheet" href="/dist/assets/home-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/certificate-bento.css?v=20260924-tabs">
+    <link rel="stylesheet" href="/dist/assets/mass-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/appointments-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/live-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/announcements-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/requests-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/profile-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/support-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/member-preferences.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/login-vibrant.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/brand-blue.css?v=20260927-login-feedback-1">
   </head>
   <body>
     <dialog id="login-terms-dialog" class="login-terms-dialog" aria-labelledby="login-terms-title">
@@ -1090,6 +1080,11 @@
       .ucs-remind__cta svg{width:14px;height:14px}
       .ucs-remind__close{align-self:flex-start;background:rgba(15,23,42,.05);border:none;color:#64748b;width:26px;height:26px;border-radius:8px;cursor:pointer;font:700 14px/1 system-ui;flex-shrink:0}
       .ucs-remind__close:hover{background:rgba(15,23,42,.1);color:#0f172a}
+      .user-certificate-booking > .ucs-remind-trigger {
+        grid-column: 2;
+        justify-self: end;
+        margin-top: 4px;
+      }
       @media (max-width:540px){
         .ucs-remind{flex-direction:column}
         .ucs-remind__close{position:absolute;right:10px;top:10px}
@@ -1286,6 +1281,11 @@
             if (show) { visibleOptionValues[o.value] = true; visibleCount++; }
           });
 
+          var bookingShell = sel.closest(".user-certificate-booking");
+          if (bookingShell) bookingShell.querySelectorAll('.certificate-tabs [role="tab"]').forEach(function (tab) {
+            tab.hidden = !visibleOptionValues[tab.dataset.serviceId];
+          });
+
           // Now filter the right-side visible service list. Each row is
           // ".user-certificate-booking__option" with <strong>NAME</strong>
           // inside .detail-list__meta.
@@ -1392,23 +1392,20 @@
         }
 
         function injectReminder(sel) {
-          // Anchor the reminder right below the "Request Certificate"
-          // header so it's the first thing users see before picking a
-          // service. Re-use the panel that owns the <select> as a home.
+          // Keep office guidance available without pushing the service tabs down.
           var panel = sel.closest(".user-panel") || sel.closest("article");
           if (!panel) return;
           if (panel.querySelector(".ucs-remind")) return;
-          if (window.sessionStorage && window.sessionStorage.getItem("ucs-remind-dismissed") === "1") return;
-
-          var banner = document.createElement("div");
+          var banner = document.createElement("dialog");
           banner.className = "ucs-remind";
-          banner.setAttribute("role", "status");
+          banner.id = "certificate-visit-reminder";
+          banner.setAttribute("aria-labelledby", "certificate-visit-reminder-title");
           banner.innerHTML =
             '<div class="ucs-remind__icon" aria-hidden="true">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
             '</div>' +
             '<div class="ucs-remind__body">' +
-              '<div class="ucs-remind__title">Before you visit the chapel <span class="ucs-remind__tag">Reminder</span></div>' +
+              '<div class="ucs-remind__title" id="certificate-visit-reminder-title">Before you visit the chapel <span class="ucs-remind__tag">Reminder</span></div>' +
               '<div>Please drop by the parish office only during these hours:</div>' +
               '<div class="ucs-remind__hours">' +
                 '<span class="ucs-remind__slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8:00 AM &ndash; 11:00 AM</span>' +
@@ -1426,18 +1423,43 @@
             '</div>' +
             '<button type="button" class="ucs-remind__close" aria-label="Dismiss reminder">&times;</button>';
 
-          var header = panel.querySelector(".user-panel__header");
-          if (header && header.parentElement === panel) {
-            header.insertAdjacentElement("afterend", banner);
-          } else {
-            panel.insertBefore(banner, panel.firstChild);
+          var trigger = document.createElement("button");
+          trigger.type = "button";
+          trigger.className = "ucs-remind-trigger";
+          trigger.title = "Office visit reminder";
+          trigger.setAttribute("aria-label", "Office visit reminder");
+          trigger.setAttribute("aria-haspopup", "dialog");
+          trigger.setAttribute("aria-controls", banner.id);
+          trigger.setAttribute("aria-expanded", "false");
+          trigger.innerHTML = banner.querySelector(".ucs-remind__icon").innerHTML + '<span aria-hidden="true">Note</span>';
+          trigger.querySelector("svg").setAttribute("aria-hidden", "true");
+          var booking = sel.closest(".user-certificate-booking");
+          var rightColumn = booking && booking.querySelector(".detail-list");
+          if (booking) {
+            if (rightColumn && rightColumn.parentElement === booking) {
+              booking.insertBefore(trigger, rightColumn.nextSibling);
+            } else {
+              booking.appendChild(trigger);
+            }
           }
-
+          panel.appendChild(banner);
+          trigger.addEventListener("click", function () {
+            banner.showModal();
+            trigger.setAttribute("aria-expanded", "true");
+          });
+          banner.addEventListener("close", function () {
+            trigger.setAttribute("aria-expanded", "false");
+            if (trigger.isConnected) trigger.focus();
+          });
+          banner.addEventListener("click", function (event) {
+            var bounds = banner.getBoundingClientRect();
+            if (event.target === banner && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) banner.close();
+          });
           banner.querySelector(".ucs-remind__close").addEventListener("click", function () {
-            try { window.sessionStorage.setItem("ucs-remind-dismissed", "1"); } catch (e) {}
-            banner.remove();
+            banner.close();
           });
           banner.querySelector(".ucs-remind__cta").addEventListener("click", function () {
+            banner.close();
             // Trigger the floating parish-diocese chat widget, or fall
             // back to the parish-secretary messaging section on the user
             // dashboard if it's on this page.
@@ -7404,5 +7426,16 @@
       .parishlink-recovery-form .primary-action { width: 100%; min-height: 46px; color: #fff; background: #376851; border: 1px solid #376851; border-radius: 8px; cursor: pointer; }
       @media (max-width: 560px) { .parishlink-recovery-dialog { padding: 22px; } .parishlink-recovery-passwords { grid-template-columns: 1fr; } }
     </style>
+    <link rel="stylesheet" href="/dist/assets/brand-blue.css?v=20260927-login-feedback-1">
+    <link rel="stylesheet" href="/dist/assets/dashboard-reference.css?v=20260925-5">
+    <link rel="stylesheet" href="/dist/assets/terms-dialog.css?v=20260925-1">
+    <link rel="stylesheet" href="/dist/assets/portal-screens.css?v=20260925-1">
+    <link rel="stylesheet" href="/dist/assets/member-pages.css?v=20260926-3">
+    <link rel="stylesheet" href="/dist/assets/parish-typography.css?v=1">
+    <link rel="stylesheet" href="/dist/assets/live-dashboard-design.css?v=service-actions-20260927-3">
+    <link rel="stylesheet" href="/dist/assets/schedules-bookings.css?v=20260927-full-fields-3">
+    <link rel="stylesheet" href="/dist/assets/certificate-controls.css?v=20260927-2">
+    <link rel="stylesheet" href="/dist/assets/parish-bulletin.css?v=20260927-1">
+    <script src="/dist/assets/preview-user.js?v=20260927-4"></script>
   </body>
 </html>

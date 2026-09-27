@@ -1,0 +1,155 @@
+/* Shared light royal-blue language for the member portal's inner screens. */
+html[data-design="heaven"] #root#root .scene--user-workspace {
+  --heaven-accent: #315da8 !important;
+  --heaven-accent-hover: #254b8f !important;
+  --heaven-line: #e1e8f1 !important;
+  --heaven-surface: #fff !important;
+  --heaven-soft: #edf4fc !important;
+  background: #f6f8fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user,
+html[data-design="heaven"] #root#root .dashboard-frame--user .workspace,
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) {
+  background: #f6f8fc !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) {
+  padding: 26px clamp(18px, 3vw, 38px) 40px !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) > .overview-shell__header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 22px !important;
+  padding: 0 0 16px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e1e8f1 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .screen-title-block h3,
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell__header h3 {
+  color: #173d75 !important;
+  font-size: clamp(1.45rem, 2vw, 1.9rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.025em;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .screen-subtitle,
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell__header p {
+  color: #53647b !important;
+  font-weight: 500 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  .user-panel,
+  .user-certificate-booking,
+  .user-appointment-calendar,
+  .user-appointment-side,
+  .user-appointment-form,
+  .user-appointment-open-list,
+  .user-live-stream,
+  .announcement-card--user,
+  .announcement-hero--user,
+  .user-request-card,
+  .user-profile-summary,
+  .user-profile-edit-form,
+  .settings-item,
+  .user-support-chat,
+  .user-support-side,
+  .user-support-mode-card,
+  .user-support-switch-card,
+  .user-support-topics,
+  .user-chat-card
+) {
+  color: #1f2937 !important;
+  background: #fff !important;
+  border: 1px solid #e1e8f1 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 12px #1d35570a, inset 0 1px 0 #fff !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  h1, h2, h3, h4, h5, strong, label, th
+) {
+  color: #172b49 !important;
+  font-weight: 750 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  p, span, small, td, li, .screen-subtitle
+) {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  input:not([type="checkbox"]), select, textarea
+) {
+  min-height: 44px;
+  color: #172b49 !important;
+  background: #fff !important;
+  border: 1px solid #d5dfec !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 2px #152b4808 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(input, select, textarea):focus {
+  border-color: #6d94cd !important;
+  outline: 3px solid #315da822 !important;
+  outline-offset: 1px;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) input[type="checkbox"],
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) input[type="radio"] {
+  accent-color: #315da8 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  .primary-action, .login-submit, .user-request-card__button, .user-request-cancel-btn,
+  .user-profile-edit-button, .user-support-chat button, .user-appointment-form button,
+  .user-certificate-booking button, .user-live-stream button
+):not(:disabled) {
+  color: #fff !important;
+  background: #315da8 !important;
+  border: 1px solid #315da8 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 0 #244782 !important;
+  font-weight: 700 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  .secondary-action, .filter-button, .user-support-mode-tab, .user-appointment-day, .user-certificate-booking__option
+) {
+  color: #315da8 !important;
+  background: #fff !important;
+  border: 1px solid #dce5f0 !important;
+  border-radius: 10px !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  .nav-item__icon, svg, .user-live-stream__dot
+) {
+  color: #315da8;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(
+  .status-badge--blue, .user-request-card__status, .user-request-status--blue
+) {
+  color: #28558f !important;
+  background: #eaf2fc !important;
+  border: 1px solid #d7e4f5 !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) {
+    padding: 20px 16px 32px !important;
+  }
+}

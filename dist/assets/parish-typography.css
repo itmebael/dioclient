@@ -1,0 +1,7 @@
+/* Shared by the design preview and authenticated member portal. */
+:root {
+  --parish-body-font: 'DM Sans', Arial, sans-serif;
+  --parish-heading-font: 'Manrope', Arial, sans-serif;
+}
+body, button, input, select, textarea { font-family: var(--parish-body-font); }
+.dashboard-shell :is(h1, h2, .action-title, .brand-copy strong) { font-family: var(--parish-heading-font); }

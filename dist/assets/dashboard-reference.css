@@ -1,0 +1,184 @@
+/* Light Marian member dashboard styling. Loaded after the built app's theme CSS. */
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user {
+  background: #fff !important;
+  border-right: 1px solid #e4eaf2 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  min-height: 88px !important;
+  margin: 0 !important;
+  padding: 14px 18px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #edf1f6 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__crest {
+  flex: 0 0 44px !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand h1 {
+  color: #254b8f !important;
+  font-size: 1.06rem !important;
+  line-height: 1.2 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__caption {
+  display: block !important;
+  margin-top: 3px !important;
+  color: #64748b !important;
+  font-size: .68rem !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand::after { display: none !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__nav { gap: 4px !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item {
+  min-height: 42px !important;
+  color: #34445e !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item :is(svg, .nav-item__icon) { color: #526b91 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active {
+  color: #254b8f !important;
+  background: #e8f2ff !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active :is(svg, .nav-item__icon) { color: #2563b8 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active > span:not(.nav-item__icon) {
+  color: #254b8f !important;
+  -webkit-text-fill-color: #254b8f !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active .nav-item__icon svg {
+  color: #2563b8 !important;
+  stroke: #2563b8 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item.is-active {
+  border: 2px solid #7ba8e3 !important;
+  box-shadow: 0 2px 0 #d1e2f8 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+  min-height: 190px !important;
+  padding: 28px 34px !important;
+  border: 1px solid #dce8f7 !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(90deg, rgba(232, 243, 255, .10) 0%, rgba(232, 243, 255, 0) 58%),
+    url("/dist/assets/header.png") center 25% / cover no-repeat !important;
+  box-shadow: 0 4px 12px #2447820c !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy { max-width: 56% !important; gap: 6px !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy :is(p, h3, span) { color: #173d75 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy h3 {
+  margin: 2px 0 !important;
+  font-size: clamp(2rem, 3.3vw, 2.7rem) !important;
+  letter-spacing: -.04em;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy p { font-size: .8rem !important; font-weight: 700 !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy h3::after { display: none !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-actions { gap: 12px !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action {
+  min-height: 150px !important;
+  padding: 16px !important;
+  border: 1px solid #e4eaf3 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 10px #1d35570a !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(1) { background: #f4f8ff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(2) { background: #f1faf7 !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(3) { background: #f8f5ff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(4) { background: #fff6f2 !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(1) .user-home-action__icon { color: #2877d3 !important; background: #e2efff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(2) .user-home-action__icon { color: #16866c !important; background: #ddf6ed !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(3) .user-home-action__icon { color: #7341c7 !important; background: #efe5ff !important; }
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(4) .user-home-action__icon { color: #d84f36 !important; background: #ffe6dc !important; }
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-card, .user-home-announcement, .user-chat-card) {
+  background: #fff !important;
+  border: 1px solid #e3eaf3 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 3px 12px #1d35570a !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-card__header button,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-announcement__top button {
+  color: #2563b8 !important;
+  background: #fff !important;
+  border: 1px solid #e2eaf5 !important;
+  box-shadow: none !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action__icon { box-shadow: none !important; }
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero {
+    min-height: 220px !important;
+    background-size: cover !important;
+    background-position: center, center 25% !important;
+  }
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy { max-width: 68% !important; }
+}
+
+/* Stronger type and soft abstract surfaces for clearer dashboard hierarchy. */
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .sidebar__brand h1,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy h3,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action strong,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-card__header h4,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-request-row strong {
+  font-weight: 800 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .sidebar--user .nav-item,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-hero__copy p,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action > span:not(.user-home-action__icon),
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-card__header button,
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-request-row span,
+html[data-design="heaven"] #root#root .dashboard-frame--user .empty-state {
+  font-weight: 600 !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(1) {
+  background: radial-gradient(ellipse at 100% 0%, #d7e8ff99, transparent 58%), linear-gradient(145deg, #fff, #f4f8ff) !important;
+}
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(2) {
+  background: radial-gradient(ellipse at 100% 0%, #c9f1e399, transparent 58%), linear-gradient(145deg, #fff, #f1faf7) !important;
+}
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(3) {
+  background: radial-gradient(ellipse at 100% 0%, #e3d5ff99, transparent 58%), linear-gradient(145deg, #fff, #f8f5ff) !important;
+}
+html[data-design="heaven"] #root#root .dashboard-frame--user .user-home-action:nth-child(4) {
+  background: radial-gradient(ellipse at 100% 0%, #ffd9ca99, transparent 58%), linear-gradient(145deg, #fff, #fff6f2) !important;
+}
+
+html[data-design="heaven"] #root#root .dashboard-frame--user :is(.user-home-card, .user-home-announcement, .user-chat-card) {
+  background: radial-gradient(ellipse at 100% 0%, #e5f1ff65, transparent 44%), linear-gradient(145deg, #fff, #fbfdff) !important;
+  border-color: #dce6f2 !important;
+  box-shadow: 0 4px 14px #1d355710, inset 0 1px 0 #fff !important;
+}
