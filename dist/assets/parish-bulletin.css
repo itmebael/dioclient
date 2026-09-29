@@ -1,4 +1,6 @@
 .parish-bulletin { display: grid; gap: 20px; min-width: 0; }
+.parish-bulletin .bulletin-intro,
+.parish-bulletin .bulletin-notice[role="status"] { display: none !important; }
 .bulletin-intro { display: flex; justify-content: space-between; align-items: start; gap: 20px; }
 .bulletin-intro h4, .bulletin-post h4 { margin: 0 0 10px; color: var(--heaven-ink, #244b7a); }
 .bulletin-intro p { margin: 0 0 10px; max-width: 760px; }

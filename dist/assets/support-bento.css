@@ -60,6 +60,44 @@
   html[data-design="heaven"] #root#root .user-support-side :is(.secondary-action,.user-support-topics button) { border: 1px solid var(--heaven-line) !important; border-radius: 12px; background: var(--heaven-surface) !important; color: var(--heaven-accent) !important; padding: 12px; min-height: 44px; box-shadow: 0 3px 0 var(--heaven-line); }
   html[data-design="heaven"] #root#root .user-support-side .detail-list { display: grid; gap: 12px; }
   html[data-design="heaven"] #root#root .user-support-side .detail-list__item { padding: 16px; border: 1px solid var(--heaven-line); border-radius: 14px; background: var(--heaven-bg); }
+
+  /* Keep the secretary thread as the primary view; the side card owns mode switching. */
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-support-hero) > .user-support-mode-card {
+    display: none !important;
+  }
+  html[data-design="heaven"] #root#root .user-support-chat .user-panel__header > div > span {
+    display: none !important;
+  }
+  html[data-design="heaven"] #root#root .user-support-chat .user-panel__header > div::after {
+    content: "Send a message to the Parish Secretary for assistance with certificates, bookings, schedules, requirements, and other parish-related concerns.";
+    display: block;
+    max-width: 72ch;
+    margin-top: 7px;
+    color: var(--heaven-muted);
+    font-size: .82rem;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+  html[data-design="heaven"] #root#root .user-support-chat .parish-secretary-chat__body {
+    min-height: 180px;
+    max-height: 520px;
+  }
+  html[data-design="heaven"] #root#root .user-support-chat .parish-secretary-chat__body .empty-state {
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 2px 0;
+    border: 0;
+    text-align: left;
+  }
+  html[data-design="heaven"] #root#root .user-support-chat .parish-secretary-chat__body .empty-state::before,
+  html[data-design="heaven"] #root#root .user-support-chat .parish-secretary-chat__body .empty-state :is(strong, span) {
+    display: none !important;
+  }
+  html[data-design="heaven"] #root#root .user-support-chat .parish-secretary-chat__body .empty-state::after {
+    content: "No messages yet.";
+    color: var(--heaven-muted);
+    font-size: .82rem;
+  }
   @media(max-width:1100px) {
     html[data-design="heaven"] #root#root .screen-grid:has(.user-support-hero) { grid-template-columns: minmax(0,1fr); }
     html[data-design="heaven"] #root#root .user-support-hero { flex-direction: column; align-items: flex-start !important; }

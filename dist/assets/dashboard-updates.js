@@ -128,11 +128,153 @@
     });
   }
 
+  function removeAccountDetailsMenuItem() {
+    document.querySelectorAll(".profile-menu__item").forEach((item) => {
+      const title = item.querySelector("strong")?.textContent.trim();
+      const description = item.querySelector("span")?.textContent.trim();
+      if (title === "Profile" && description === "View account details") item.remove();
+    });
+  }
+
+  function enhanceAppointmentBooking() {
+    const panel = document.querySelector(".schedules-request-panel");
+    const daySection = document.querySelector(".user-appointment-side__section");
+    if (!panel || !daySection) return;
+
+    const form = panel.querySelector(".user-appointment-form");
+    const bookingType = form?.querySelector('[name="appointmentType"]');
+    if (form && bookingType) {
+      const fields = [...form.querySelectorAll("label")];
+      const nameField = fields.find((field) => field.querySelector('[name="appointmentName"]'));
+      const fatherField = fields.find((field) => field.querySelector('[name="appointmentFatherName"]'));
+      const typeField = fields.find((field) => field.querySelector('[name="appointmentType"]'));
+      const massField = form.querySelector('[data-apt-field="massType"]');
+      const blessingField = form.querySelector('[data-apt-field="otherDetails"]');
+      const timeSelect = form.querySelector('[name="appointmentTime"]');
+      if (nameField) {
+        const label = nameField.querySelector("span");
+        if (label && label.textContent !== "Name") label.textContent = "Name";
+        const input = nameField.querySelector("input");
+        if (input && input.placeholder !== "Individual, BEC, or Barangay name") input.placeholder = "Individual, BEC, or Barangay name";
+      }
+      if (fatherField) {
+        fatherField.hidden = true;
+        const input = fatherField.querySelector("input");
+        if (input) {
+          input.required = false;
+          if (!input.value) input.value = "Not Provided";
+        }
+      }
+      const typeLabel = typeField?.querySelector("span");
+      if (typeLabel && typeLabel.textContent !== "Booking Type") typeLabel.textContent = "Booking Type";
+      const refreshFields = () => {
+        const selected = bookingType.value;
+        const isMass = selected === "Mass booking";
+        const isBlessing = selected === "Blessing request";
+        const fatherInput = fatherField?.querySelector("input");
+        if (fatherInput) {
+          fatherInput.required = false;
+          if (!fatherInput.value) fatherInput.value = "Not Provided";
+        }
+        if (massField) massField.hidden = !isMass;
+        if (blessingField) blessingField.hidden = !isBlessing;
+        const massLabel = massField?.querySelector("span");
+        if (massLabel && massLabel.textContent !== "Mass Details: Type of Mass") massLabel.textContent = "Mass Details: Type of Mass";
+        const massInput = massField?.querySelector("input");
+        const blessingInput = blessingField?.querySelector("input");
+        if (massInput) massInput.required = isMass;
+        if (blessingInput) {
+          blessingInput.required = isBlessing;
+          const label = blessingField.querySelector("span");
+          if (label && label.textContent !== "Blessing Details") label.textContent = "Blessing Details";
+          const placeholder = "Describe the blessing or item requested";
+          if (blessingInput.placeholder !== placeholder) blessingInput.placeholder = placeholder;
+        }
+      };
+      if (!form.dataset.bookingFieldsBound) {
+        form.dataset.bookingFieldsBound = "1";
+        bookingType.addEventListener("change", () => window.setTimeout(refreshFields, 0));
+        form.addEventListener("reset", () => window.setTimeout(refreshFields, 0));
+      }
+      refreshFields();
+      if (timeSelect) [...timeSelect.options].forEach((option) => {
+        option.hidden = option.disabled;
+      });
+    }
+
+    let overlay = document.querySelector(".appointment-booking-overlay");
+    if (!overlay) {
+      overlay = document.createElement("div");
+      overlay.className = "appointment-booking-overlay";
+      overlay.hidden = true;
+      overlay.setAttribute("aria-hidden", "true");
+      (panel.closest(".dashboard-frame--user") || document.body).append(overlay);
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay || event.target.closest("[data-booking-close]")) closeBooking();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !overlay.hidden) closeBooking();
+      });
+    }
+
+    if (!panel.querySelector("[data-booking-close]")) {
+      const close = document.createElement("button");
+      close.type = "button";
+      close.className = "appointment-booking-close";
+      close.setAttribute("data-booking-close", "");
+      close.setAttribute("aria-label", "Close booking form");
+      close.textContent = "Close";
+      close.addEventListener("click", closeBooking);
+      panel.querySelector(".user-panel__header")?.append(close);
+    }
+
+    let bookButton = daySection.querySelector(".appointment-book-here");
+    if (!bookButton) {
+      bookButton = document.createElement("button");
+      bookButton.type = "button";
+      bookButton.className = "appointment-book-here";
+      bookButton.textContent = "Book here";
+      bookButton.addEventListener("click", openBooking);
+      daySection.append(bookButton);
+    }
+
+    function openBooking() {
+      overlay.hidden = false;
+      overlay.setAttribute("aria-hidden", "false");
+      panel.classList.add("is-booking-open");
+      document.body.classList.add("has-appointment-booking");
+      window.setTimeout(() => panel.querySelector('[name="appointmentName"]')?.focus(), 0);
+    }
+    function closeBooking() {
+      overlay.hidden = true;
+      overlay.setAttribute("aria-hidden", "true");
+      document.querySelectorAll(".schedules-request-panel.is-booking-open").forEach((openPanel) => {
+        openPanel.classList.remove("is-booking-open");
+      });
+      document.body.classList.remove("has-appointment-booking");
+    }
+
+  }
+
+  function fixScheduleEyebrowEncoding() {
+    document.querySelectorAll('.workspace__eyebrow').forEach((label) => {
+      if (/^DayÃ¢â‚¬â„¢s schedule$/.test(label.textContent.trim())) {
+        label.textContent = 'Day’s schedule';
+      }
+    });
+  }
+
   const observer = new MutationObserver(() => {
     updateDashboard();
     addConfessionOption();
+    enhanceAppointmentBooking();
+    removeAccountDetailsMenuItem();
+    fixScheduleEyebrowEncoding();
   });
   observer.observe(document.documentElement, { childList: true, subtree: true });
   updateDashboard();
   addConfessionOption();
+  enhanceAppointmentBooking();
+  removeAccountDetailsMenuItem();
+  fixScheduleEyebrowEncoding();
 })();

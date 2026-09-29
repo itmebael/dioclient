@@ -1,0 +1,10 @@
+@media print {
+  @page {
+    margin: 1in;
+  }
+
+  .certificate-booking-modal__dialog {
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+}

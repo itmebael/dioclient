@@ -180,6 +180,138 @@
     font-weight: 700 !important;
   }
 
+  html[data-design="heaven"] #root#root .dashboard-frame--user article.user-panel--wide:has(.user-profile-summary) {
+    padding: clamp(20px, 3vw, 32px) !important;
+    border: 1px solid #dce6f2 !important;
+    border-radius: 22px !important;
+    background: linear-gradient(145deg, #fff 0%, #f7faff 100%) !important;
+    box-shadow: 0 16px 42px rgba(28, 55, 91, .08) !important;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user article.user-support-hero {
+    display: none !important;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary {
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    margin: 0 0 26px !important;
+    padding: 20px !important;
+    border: 1px solid #e3ebf5 !important;
+    border-radius: 18px !important;
+    background: linear-gradient(120deg, #f4f8ff, #fff) !important;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary__avatar {
+    flex: 0 0 88px !important;
+    width: 88px !important;
+    height: 88px !important;
+    min-width: 88px !important;
+    min-height: 88px !important;
+    aspect-ratio: 1 / 1 !important;
+    overflow: hidden !important;
+    border: 3px solid #fff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 16px rgba(29, 66, 117, .2) !important;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary__avatar[style*="background-image"] > svg {
+    opacity: 0;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .profile-avatar-upload {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .profile-avatar-upload > span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 15px;
+    border: 1px solid #cbdaf0;
+    border-radius: 12px;
+    background: #fff;
+    color: #28579a;
+    box-shadow: 0 3px 9px rgba(28, 67, 120, .08);
+    font-size: .82rem;
+    font-weight: 750;
+    transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .profile-avatar-upload:hover > span {
+    transform: translateY(-1px);
+    background: #f0f6ff;
+    box-shadow: 0 6px 14px rgba(28, 67, 120, .13);
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .profile-avatar-upload small {
+    color: #536985;
+    font-size: .72rem;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary > div:last-child {
+    display: grid;
+    min-width: 0;
+    gap: 3px;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary > div:last-child strong {
+    color: #173d75;
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary > div:last-child span,
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary > div:last-child small {
+    color: #60718a;
+    font-size: .82rem;
+    overflow-wrap: anywhere;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-edit-form {
+    gap: 16px !important;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-edit-form .login-field > span {
+    color: #354b68;
+    font-size: .8rem;
+    font-weight: 750;
+  }
+
+  html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-edit-form .login-submit {
+    min-height: 48px;
+    border-radius: 13px !important;
+    box-shadow: 0 7px 16px rgba(34, 88, 157, .18);
+  }
+
+  @media (max-width: 620px) {
+    html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary {
+      flex-wrap: wrap;
+      gap: 14px !important;
+      padding: 16px !important;
+    }
+    html[data-design="heaven"] #root#root .dashboard-frame--user .user-profile-summary__avatar {
+      flex-basis: 72px !important;
+      width: 72px !important;
+      height: 72px !important;
+      min-width: 72px !important;
+      min-height: 72px !important;
+    }
+  }
+
   @media (max-width: 760px) {
     html[data-design="heaven"] #root#root .dashboard-frame--user :is(
       .overview-shell:has(.user-certificate-booking), .overview-shell:has(.user-event-list),

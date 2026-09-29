@@ -10,6 +10,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ParishLink · Your parish, closer</title>
     <style>
+      /* Keep the certificate request form focused on the service choices. */
+      .user-panel__header--stack,
+      .ucs-wrap {
+        display: none !important;
+      }
+      .dashboard-frame--user article.user-panel--wide:has(> .user-request-booking-list) > .user-panel__header {
+        display: none !important;
+      }
+      .dashboard-frame--user .user-panel__header:has(.user-profile-edit-button) > div {
+        display: none !important;
+      }
+      /* The inline certificate form belongs to its service card, so avoid
+         drawing nested cards around the same content. */
+      .user-certificate-booking__option .certificate-booking-modal__dialog {
+        width: 100% !important;
+        max-height: none !important;
+        gap: 16px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      .user-certificate-booking__option .certificate-booking-modal__service {
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+      }
+      .user-certificate-booking__option > .detail-list__meta {
+        display: none !important;
+      }
+      .user-certificate-booking__option .certificate-booking-modal__header {
+        display: none !important;
+      }
+      .user-certificate-booking .certificate-tabs button {
+        color: #244b7a !important;
+        background: #edf5ff !important;
+        border: 1px solid #d5e3f4 !important;
+        box-shadow: none !important;
+        transition: color .16s ease, background-color .16s ease, border-color .16s ease;
+      }
+      .user-certificate-booking .certificate-tabs button[aria-selected="true"] {
+        color: #fff !important;
+        background: #245db5 !important;
+        border-color: #245db5 !important;
+        box-shadow: 0 3px 8px rgba(36, 93, 181, .22) !important;
+      }
+      .user-certificate-booking .certificate-tabs button:hover:not([aria-selected="true"]) {
+        background: #dcecff !important;
+        border-color: #b9d2f1 !important;
+      }
+      .user-certificate-booking .certificate-tabs button:focus-visible {
+        outline: 3px solid rgba(36, 93, 181, .3) !important;
+        outline-offset: 2px;
+      }
       #sf-toggle {
         position: fixed;
         z-index: 10000;
@@ -71,8 +127,9 @@
         main[role="status"]::before { animation: none; }
       }
     </style>
-    <script type="module" crossorigin src="/dist/assets/index-v20260422157000.js?v=20260927-correction-tab"></script>
-    <script defer src="/dist/assets/dashboard-updates.js?v=20260927-send-message"></script>
+    <script type="module" crossorigin src="/dist/assets/index-v20260422157000.js?v=20260929-remove-bulletin-intro"></script>
+    <script defer src="/dist/assets/dashboard-updates.js?v=20260929-fix-schedule-encoding"></script>
+    <script defer src="/dist/assets/profile-avatar-upload.js?v=20260929-react-safe-avatar"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
     <link rel="stylesheet" href="/dist/assets/sidebar-brand-responsive.css?v=notification-dark-1">
     <style id="dio-user-management-style">
@@ -896,7 +953,7 @@
     <link rel="stylesheet" href="/dist/assets/announcements-bento.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/requests-bento.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/profile-bento.css?v=20260924">
-    <link rel="stylesheet" href="/dist/assets/support-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/support-bento.css?v=20260929-chat-layout">
     <link rel="stylesheet" href="/dist/assets/member-preferences.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/login-vibrant.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/brand-blue.css?v=20260927-login-feedback-1">
@@ -1405,20 +1462,20 @@
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
             '</div>' +
             '<div class="ucs-remind__body">' +
-              '<div class="ucs-remind__title" id="certificate-visit-reminder-title">Before you visit the chapel <span class="ucs-remind__tag">Reminder</span></div>' +
+              '<div class="ucs-remind__title" id="certificate-visit-reminder-title">Parish Visit Reminders <span class="ucs-remind__tag">Reminder</span></div>' +
+              '<div class="ucs-remind__availability" role="status"><span aria-hidden="true"></span><strong>Active Status:</strong> Staff availability not shown</div>' +
               '<div>Please drop by the parish office only during these hours:</div>' +
               '<div class="ucs-remind__hours">' +
                 '<span class="ucs-remind__slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8:00 AM &ndash; 11:00 AM</span>' +
                 '<span class="ucs-remind__slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 2:00 PM &ndash; 5:00 PM</span>' +
               '</div>' +
               '<ul class="ucs-remind__list">' +
-                '<li>Bring a <strong>valid government-issued ID</strong> when claiming your certificate.</li>' +
-                '<li>Arrive a few minutes early so the parish secretary can verify your record.</li>' +
+                '<li>Please bring the necessary requirements based on the certificate requested.</li>' +
                 '<li>Can&rsquo;t come in person? You may chat the parish first to confirm availability.</li>' +
               '</ul>' +
-              '<button type="button" class="ucs-remind__cta" aria-label="Open the parish chat">' +
+              '<button type="button" class="ucs-remind__cta" aria-label="Chat with the Parish">' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' +
-                'Chat the parish' +
+                'Chat with the Parish' +
               '</button>' +
             '</div>' +
             '<button type="button" class="ucs-remind__close" aria-label="Dismiss reminder">&times;</button>';
@@ -3028,6 +3085,9 @@
         }
         function apply(v) {
           document.documentElement.style.setProperty("--sf-scale", String(v));
+          // The scale variable was being saved but no stylesheet consumed it.
+          // Scale the root size so rem/em-based dashboard text responds to the controls.
+          document.documentElement.style.fontSize = (16 * v) + "px";
           updateButtons(v);
         }
         function updateButtons(v) {
@@ -3095,30 +3155,11 @@
     </script>
 
     <!-- ================================================================
-         Global "Church" -> "Chapel" label rewriter.
-         Covers sidebar nav buttons, topbar headings, breadcrumbs, badges
-         and any other UI chrome that still says "Church". Runs on every
-         DOM change so it also catches items rendered after navigation.
+         Preserve the parish's Church terminology throughout the interface.
          ================================================================ -->
     <script>
       (function () {
-        // Ordered list of word-level swaps. Longer phrases must come
-        // first so "Parish Church" is handled before the generic
-        // "Church" -> "Chapel" rule fires.
-        var SWAPS = [
-          [/\bParish Church\b/g,     "Parish Chapel"],
-          [/\bparish church\b/g,     "parish chapel"],
-          [/\bUser Church\b/g,       "User Chapel"],
-          [/\bChurch Information\b/g,"Chapel Information"],
-          [/\bChurch Hours\b/gi,     "Chapel Hours"],
-          [/\bChurch Schedule\b/gi,  "Chapel Schedule"],
-          [/\bChurch or parish\b/gi, "Chapel or parish"],
-          [/\bthe Church\b/g,        "the Chapel"],
-          [/\bChurches\b/g,          "Chapels"],
-          [/\bchurches\b/g,          "chapels"],
-          [/\bChurch\b/g,            "Chapel"],
-          [/\bchurch\b/g,            "chapel"]
-        ];
+        var SWAPS = [];
 
         // Only rewrite short UI-chrome nodes. Longer blocks (record
         // descriptions, certificate body text, user-entered data, etc.)
@@ -7430,12 +7471,144 @@
     <link rel="stylesheet" href="/dist/assets/dashboard-reference.css?v=20260925-5">
     <link rel="stylesheet" href="/dist/assets/terms-dialog.css?v=20260925-1">
     <link rel="stylesheet" href="/dist/assets/portal-screens.css?v=20260925-1">
-    <link rel="stylesheet" href="/dist/assets/member-pages.css?v=20260926-3">
+    <link rel="stylesheet" href="/dist/assets/member-pages.css?v=20260929-hide-support-hero">
     <link rel="stylesheet" href="/dist/assets/parish-typography.css?v=1">
     <link rel="stylesheet" href="/dist/assets/live-dashboard-design.css?v=service-actions-20260927-3">
-    <link rel="stylesheet" href="/dist/assets/schedules-bookings.css?v=20260927-full-fields-3">
+    <link rel="stylesheet" href="/dist/assets/schedules-bookings.css?v=20260929-booking-form-flow">
     <link rel="stylesheet" href="/dist/assets/certificate-controls.css?v=20260927-2">
-    <link rel="stylesheet" href="/dist/assets/parish-bulletin.css?v=20260927-1">
+    <link rel="stylesheet" href="/dist/assets/parish-bulletin.css?v=20260929-remove-bulletin-intro">
     <script src="/dist/assets/preview-user.js?v=20260927-4"></script>
+    <style id="certificate-tabs-final-fix">
+      html body #root#root#root#root .user-certificate-booking {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        grid-template-columns: minmax(0, 1fr) 44px !important;
+      }
+      html body #root#root#root#root .user-certificate-booking .certificate-tabs {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+        overflow: hidden !important;
+      }
+      html body #root#root#root#root .user-certificate-booking .certificate-tabs button {
+        min-width: 0 !important;
+        color: #244b7a !important;
+        background: #fff !important;
+        border: 1px solid #cbd9eb !important;
+        box-shadow: none !important;
+      }
+      html body #root#root#root#root .user-certificate-booking .certificate-tabs button[aria-selected="true"] {
+        color: #fff !important;
+        background: #245db5 !important;
+        border-color: #245db5 !important;
+        box-shadow: 0 3px 8px rgba(36, 93, 181, .22) !important;
+      }
+      html body #root#root#root#root .user-certificate-booking .certificate-tabs button:hover:not([aria-selected="true"]) {
+        background: #edf5ff !important;
+        border-color: #9bbce5 !important;
+      }
+      html body #root#root#root#root .user-certificate-booking .certificate-tabs button:focus-visible {
+        outline: 3px solid rgba(36, 93, 181, .3) !important;
+        outline-offset: 2px;
+      }
+      html body #root#root#root#root dialog.ucs-remind[open] {
+        gap: 16px !important;
+        padding: 26px !important;
+        border: 1px solid #dce7f4 !important;
+        border-radius: 20px !important;
+        background: #fff !important;
+        color: #244b7a !important;
+        box-shadow: 0 24px 72px rgba(26, 57, 96, .18) !important;
+      }
+      html body #root#root#root#root .ucs-remind__icon {
+        color: #245db5 !important;
+        background: #eaf3ff !important;
+        box-shadow: none !important;
+      }
+      html body #root#root#root#root .ucs-remind__title .ucs-remind__tag {
+        color: #245db5 !important;
+        background: #eaf3ff !important;
+      }
+      html body #root#root#root#root .ucs-remind__availability {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        width: fit-content !important;
+        margin: 0 0 8px !important;
+        padding: 6px 10px !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 999px !important;
+        background: #f8fafc !important;
+        color: #64748b !important;
+        font: 500 12px/1.3 system-ui, sans-serif !important;
+      }
+      html body #root#root#root#root .ucs-remind__availability strong {
+        color: #475569 !important;
+        font-weight: 700 !important;
+      }
+      html body #root#root#root#root .ucs-remind__availability > span {
+        width: 8px !important;
+        height: 8px !important;
+        flex: 0 0 8px !important;
+        border-radius: 50% !important;
+        background: #94a3b8 !important;
+      }
+      html body #root#root#root#root .ucs-remind__slot {
+        color: #38577e !important;
+        background: #f7faff !important;
+        border-color: #dce7f4 !important;
+        box-shadow: none !important;
+      }
+      html body #root#root#root#root .ucs-remind__slot svg { color: #245db5 !important; }
+      html body #root#root#root#root .ucs-remind__list li::before { background: #6d91c3 !important; }
+      html body #root#root#root#root .ucs-remind__cta {
+        min-height: 44px !important;
+        padding: 10px 16px !important;
+        border: 1px solid #245db5 !important;
+        border-radius: 11px !important;
+        background: #245db5 !important;
+        color: #fff !important;
+        box-shadow: 0 2px 0 #1b4a91 !important;
+      }
+      html body #root#root#root#root .ucs-remind__cta:focus-visible {
+        outline: 3px solid rgba(36, 93, 181, .28) !important;
+        outline-offset: 3px !important;
+      }
+      html body #root#root#root#root .dashboard-frame--user article.user-panel:has(> .user-prayer-list) {
+        display: none !important;
+      }
+      html body #root#root#root#root .overview-shell--user:has(.announcement-board-panel) .announcement-hero {
+        display: none !important;
+      }
+      html body #root#root#root#root .dashboard-frame--user article.user-panel:has(> .user-event-list) > .user-panel__header {
+        display: none !important;
+      }
+      html body #root#root#root#root .dashboard-frame--user article.user-panel:has(> .user-panel__header .user-live-stream) > .user-panel__header h4 {
+        display: none !important;
+      }
+      .sunday-mass-list { display: grid; gap: 10px; }
+      .sunday-mass-item {
+        display: grid; grid-template-columns: 105px minmax(0, 1fr) auto; align-items: center;
+        gap: 12px; padding: 12px 14px; border: 1px solid #dce7f4; border-radius: 12px;
+        background: #f8fbff; color: #244b7a;
+      }
+      .sunday-mass-item time { font-weight: 800; white-space: nowrap; }
+      .sunday-mass-item span { font-weight: 650; }
+      .sunday-mass-item small { color: #647b99; font-size: .78rem; }
+      @media (max-width: 560px) {
+        .sunday-mass-item { grid-template-columns: 1fr auto; gap: 4px 10px; }
+        .sunday-mass-item time { grid-column: 1 / -1; }
+      }
+      @media (max-width: 700px) {
+        html body #root#root#root#root .user-certificate-booking .certificate-tabs {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/dist/assets/parishlink-dashboard-blue.css?v=20260929-remove-certificate-divider">
+    <link rel="stylesheet" href="/dist/assets/certificate-booking-print.css?v=20260929-1">
   </body>
 </html>

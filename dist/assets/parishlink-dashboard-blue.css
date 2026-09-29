@@ -1,0 +1,271 @@
+/* Shared blue palette and clearer selected states across the ParishLink dashboard. */
+@media screen {
+  html[data-design="heaven"] #root#root .scene {
+    --heaven-bg: #eaf1f9 !important;
+    --heaven-paper: #eaf1f9 !important;
+    --heaven-surface: #ffffff !important;
+    --heaven-soft: #e3eef9 !important;
+    --heaven-sky: #d4e5f5 !important;
+    --heaven-ink: #183652 !important;
+    --heaven-muted: #526a82 !important;
+    --heaven-line: #bfd1e3 !important;
+    --heaven-accent: #2869a6 !important;
+    --heaven-accent-hover: #1e568f !important;
+    --vibrant-shadow: 0 12px 28px rgba(34, 72, 111, .10), 0 3px 0 #cfdeed, inset 0 1px 0 #fff !important;
+    background-color: #eaf1f9 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.overview-shell,.workspace,.workspace__main) {
+    background-color: #eaf1f9 !important;
+  }
+
+  html[data-design="heaven"] #root#root .sidebar {
+    background: #f5f8fc !important;
+    border-color: #c4d5e7 !important;
+  }
+
+  html[data-design="heaven"] #root#root .sidebar .nav-item {
+    color: #294863 !important;
+    background: #eaf2fa !important;
+    border-color: #c8d9ea !important;
+    box-shadow: 0 2px 0 #d2e0ed, inset 0 1px 0 #fff !important;
+  }
+
+  html[data-design="heaven"] #root#root .sidebar .nav-item:is(.is-active,.active,[aria-current="page"]) {
+    color: #fff !important;
+    background: linear-gradient(135deg, #2869a6, #397fb7) !important;
+    border-color: #2869a6 !important;
+    box-shadow: 0 4px 0 #1d5489, 0 8px 18px rgba(35, 93, 148, .2) !important;
+  }
+
+  html[data-design="heaven"] #root#root .sidebar .nav-item:is(.is-active,.active,[aria-current="page"]) :is(span,svg) {
+    color: #fff !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.user-home-card,.user-home-announcement,.user-chat-card,.glass-card,.page-card,.user-panel,.user-summary-card,.certificate-service-card,.user-support-mode-card,.detail-list__item) {
+    color: #183652 !important;
+    background: linear-gradient(145deg, #fff 0%, #f3f7fc 100%) !important;
+    border-color: #c2d3e4 !important;
+    box-shadow: 0 8px 22px rgba(36, 73, 111, .09), 0 2px 0 #d4e0ec !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.user-home-action,.user-home-action:nth-child(3n)) {
+    color: #183652 !important;
+    background: linear-gradient(145deg, #fff 0%, #edf4fb 100%) !important;
+    border-color: #bdd1e5 !important;
+    box-shadow: 0 7px 18px rgba(36, 73, 111, .1), 0 3px 0 #ceddeb !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.user-home-action strong,.user-home-card h4,.user-home-announcement h4,.user-chat-card h4,.user-panel h4,.page-card h3) {
+    color: #183652 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.user-home-action span,.user-home-card p,.user-home-announcement p,.user-chat-card p,.user-panel p) {
+    color: #526a82 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is([role="tablist"],.certificate-tabs,.user-support-mode-tabs,.parish-calendar-tabs,.user-support-mode-card) {
+    background-color: #dce9f6 !important;
+    border-color: #bdcfe2 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is([role="tab"],.certificate-tabs button,.user-support-mode-tab,.parish-calendar-tab) {
+    color: #36536f !important;
+    background: #edf4fb !important;
+    border-color: #c4d6e8 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is([role="tab"][aria-selected="true"],.certificate-tabs button[aria-selected="true"],.user-support-mode-tab.is-active,.parish-calendar-tab.is-active,.is-selected) {
+    color: #fff !important;
+    background: linear-gradient(135deg, #2869a6, #397fb7) !important;
+    border-color: #2869a6 !important;
+    box-shadow: 0 3px 0 #1d5489 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.user-home-action__icon,.nav-item__icon,.icon-button) {
+    color: #2869a6 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(input,select,textarea) {
+    border-color: #b8ccdf !important;
+    background-color: #fff !important;
+    color: #183652 !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.primary-action,.login-submit,.primary-button,.user-primary-button,.certificate-request-button):not(:disabled) {
+    color: #fff !important;
+    background: linear-gradient(120deg, #347bb4, #2869a6) !important;
+    border-color: #2869a6 !important;
+    box-shadow: 0 3px 0 #1d5489, 0 7px 16px rgba(35, 93, 148, .17) !important;
+  }
+
+  html[data-design="heaven"] #root#root :is(.secondary-action,.filter-button):not(:disabled) {
+    color: #245d91 !important;
+    background: #e3eef9 !important;
+    border-color: #b9cfe3 !important;
+    box-shadow: 0 2px 0 #cfdeec !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row {
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    padding: 16px 18px !important;
+    color: #183652 !important;
+    background: linear-gradient(120deg, #fff 0%, #f3f7fc 100%) !important;
+    border: 1px solid #bfd1e3 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 3px 10px rgba(31, 69, 108, .07) !important;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row:hover {
+    border-color: #8eafd0 !important;
+    box-shadow: 0 7px 18px rgba(31, 69, 108, .12) !important;
+    transform: translateY(-1px);
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row > div {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row > div strong {
+    color: #183652 !important;
+    font-size: .9rem;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row > div span {
+    color: #526a82 !important;
+    font-size: .78rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row__icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    color: #2869a6 !important;
+    background: #dceafa !important;
+    border: 1px solid #bdd3e8 !important;
+    border-radius: 14px !important;
+    box-shadow: inset 0 1px 0 #fff !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row__icon svg {
+    width: 23px;
+    height: 23px;
+    color: currentColor !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-row__icon--green {
+    color: #247454 !important;
+    background: #e3f3eb !important;
+    border-color: #bfdccb !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-status {
+    width: fit-content;
+    padding: 6px 11px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 750;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-status--blue {
+    color: #205989 !important;
+    background: #dceafa !important;
+    border-color: #bad1e8 !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-request-status--green {
+    color: #226548 !important;
+    background: #e3f3eb !important;
+    border-color: #bfdccb !important;
+  }
+
+  html[data-design="heaven"] #root#root .detail-list__meta:has(> strong[data-ucs-orig="Baptismal Certificate"]) {
+    display: none !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option:has(> .certificate-inline) {
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 26px !important;
+    border: 1px solid #bfd1e3 !important;
+    border-radius: 20px !important;
+    background: linear-gradient(145deg, #fff 0%, #f5f8fc 100%) !important;
+    box-shadow: 0 10px 26px rgba(31, 69, 108, .09), 0 3px 0 #d2dfeb !important;
+    gap: 20px !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option:has(> .certificate-inline) > .detail-list__meta {
+    margin: 0 0 18px;
+    padding: 0 0 16px;
+    border-bottom: 1px solid #d5e1ed;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option:has(> .certificate-inline) > .detail-list__meta strong {
+    color: #183652 !important;
+    font-size: 1.1rem;
+    font-weight: 750;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option:has(> .certificate-inline) > .detail-list__meta span {
+    color: #526a82 !important;
+    font-size: .86rem;
+    line-height: 1.6;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option:has(> .certificate-inline) .certificate-booking-modal__header {
+    padding: 0 0 14px;
+    border-bottom: 1px solid #d5e1ed;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option:has(> .certificate-inline) .certificate-booking-modal__fields {
+    gap: 16px !important;
+  }
+
+  html[data-design="heaven"] #root#root .certificate-booking-modal__fields > .certificate-booking-modal__section-title {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  html[data-design="heaven"] #root#root .user-certificate-booking__option[id*="Baptismal"] > .detail-list__meta {
+    display: none !important;
+  }
+
+  @media (max-width: 600px) {
+    html[data-design="heaven"] #root#root .user-request-row {
+      grid-template-columns: 42px minmax(0, 1fr) !important;
+      gap: 10px 12px;
+      padding: 14px !important;
+    }
+    html[data-design="heaven"] #root#root .user-request-row__icon {
+      width: 42px;
+      height: 42px;
+    }
+    html[data-design="heaven"] #root#root .user-request-status {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+}
