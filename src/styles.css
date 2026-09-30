@@ -7340,6 +7340,15 @@ html[data-theme="dark"] .parish-calendar-tab.is-active {
   font-weight: 800;
 }
 
+.user-home-hero__copy .member-hero-eyebrow {
+  color: #a77d25;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .user-home-hero__copy h3 {
   margin: 4px 0 8px;
   color: #0f172a;
@@ -7355,6 +7364,29 @@ html[data-theme="dark"] .parish-calendar-tab.is-active {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
+}
+
+.user-home-hero__copy .member-hero-location {
+  color: #3a4656;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 700px) {
+  .user-home-hero {
+    min-height: 220px;
+    padding: 28px 22px;
+  }
+
+  .user-home-hero__copy {
+    max-width: 100%;
+  }
+
+  .user-home-hero__copy h3 {
+    max-width: 22ch;
+    font-size: clamp(1.65rem, 7vw, 2.2rem);
+    line-height: 1.15;
+  }
 }
 
 .dio-assistant {
