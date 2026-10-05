@@ -14,6 +14,8 @@ create table if not exists public.diocese_service_bookings (
   father_last_name text,
   service_name text not null,
   booked_by uuid references auth.users (id) on delete set null default auth.uid(),
+  requester_name text,
+  requester_relationship text,
   requester_age integer,
   requester_gender text,
   requester_birthday date,
@@ -22,6 +24,7 @@ create table if not exists public.diocese_service_bookings (
   booking_status text not null default 'Booked',
   booking_date date not null default current_date,
   booking_time time,
+  notes text,
   certificate_file_name text,
   certificate_file_type text,
   certificate_file_size bigint,
@@ -88,6 +91,12 @@ alter table public.diocese_service_bookings
 
 alter table public.diocese_service_bookings
   add column if not exists booked_by uuid references auth.users (id) on delete set null default auth.uid();
+
+alter table public.diocese_service_bookings
+  add column if not exists requester_name text;
+
+alter table public.diocese_service_bookings
+  add column if not exists requester_relationship text;
 
 alter table public.diocese_service_bookings
   add column if not exists requester_age integer;
@@ -361,3 +370,6 @@ $$;
 
 grant execute on function public.get_parish_booking_calendar_rows(text, date, date)
   to anon, authenticated;
+
+alter table public.diocese_service_bookings
+  add column if not exists notes text;

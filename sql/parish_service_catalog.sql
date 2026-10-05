@@ -97,8 +97,7 @@ create table if not exists public.parish_service_catalog (
   display_order int not null default 100,
   is_active boolean not null default true,
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
-  unique (coalesce(lower(parish_name), ''), lower(service_name), lower(subtype))
+  updated_at timestamptz not null default now()
 );
 
 -- Backfill columns for upgrades where the table pre-existed
@@ -116,6 +115,12 @@ alter table public.parish_service_catalog
   add column if not exists created_at timestamptz not null default now();
 alter table public.parish_service_catalog
   add column if not exists updated_at timestamptz not null default now();
+
+-- Expressions belong in a unique index rather than a table UNIQUE constraint.
+create unique index if not exists parish_service_catalog_parish_service_subtype_uidx
+  on public.parish_service_catalog (
+    (coalesce(lower(parish_name), '')), lower(service_name), lower(subtype)
+  );
 
 create index if not exists parish_service_catalog_service_idx
   on public.parish_service_catalog (lower(service_name), display_order);
@@ -214,6 +219,7 @@ values
   (null, 'Certificate Request', 'Confirmation Certificate', null, false,  20),
   (null, 'Certificate Request', 'Marriage Certificate',     null, false,  30),
   (null, 'Certificate Request', 'Death Certificate',        null, false,  40),
+  (null, 'Certificate Request', 'Good Moral Certificate',   'Certification of good moral character', false, 50),
   (null, 'Certificate Request', 'Others',                   'Describe another certificate request', true, 999),
 
   -- Blessings sub-types
@@ -225,7 +231,7 @@ values
 
   -- Generic fallback so the UI never has an empty subtype list
   (null, 'Others', 'Others', 'Describe your request', true, 999)
-on conflict (coalesce(lower(parish_name), ''), lower(service_name), lower(subtype))
+on conflict ((coalesce(lower(parish_name), '')), lower(service_name), lower(subtype))
 do update set
   description      = excluded.description,
   requires_details = excluded.requires_details,

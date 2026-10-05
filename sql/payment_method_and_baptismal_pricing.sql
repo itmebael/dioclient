@@ -1,5 +1,5 @@
 -- Add payment method + pricing fields to bookings.
--- Requirement: allow "GCash" or "Personal payment", and default Baptismal to 520 + 80 fee = 600.
+-- Requirement: allow "GCash" or "Personal payment", and set certificate payments to PHP 100 with no additional fee.
 -- Safe to re-run.
 
 alter table public.diocese_service_bookings
@@ -33,22 +33,20 @@ security definer
 set search_path = public, auth
 as $$
 declare
-  v_is_baptismal boolean := false;
+  v_is_certificate boolean := false;
 begin
-  v_is_baptismal := lower(coalesce(new.service_name,'')) like '%baptism%';
+  v_is_certificate := (lower(coalesce(new.service_name,'')) like '%baptism%' or lower(coalesce(new.service_name,'')) like '%certificate%');
 
   -- If Personal payment, fee is always zero.
   if lower(coalesce(new.payment_method,'')) = 'personal' then
     new.payment_fee := 0;
   end if;
 
-  -- Default pricing for Baptismal only when not provided.
-  if v_is_baptismal then
-    if new.payment_amount is null then new.payment_amount := 520; end if;
-    -- Apply fee only when not Personal payment.
-    if lower(coalesce(new.payment_method,'')) <> 'personal' then
-      if new.payment_fee is null then new.payment_fee := 80; end if;
-    end if;
+  -- Certificate payments have a fixed amount and no payment-method surcharge.
+  if v_is_certificate then
+    new.payment_amount := 100;
+    new.payment_fee := 0;
+    new.cost := 100;
   end if;
 
   -- Keep total consistent when any amount/fee present.
@@ -68,7 +66,7 @@ $$;
 
 drop trigger if exists diocese_service_bookings_apply_pricing_trg on public.diocese_service_bookings;
 create trigger diocese_service_bookings_apply_pricing_trg
-before insert or update of service_name, payment_amount, payment_fee, payment_total
+before insert or update of service_name, payment_method, payment_amount, payment_fee, payment_total
 on public.diocese_service_bookings
 for each row
 execute function public.diocese_service_bookings_apply_pricing();

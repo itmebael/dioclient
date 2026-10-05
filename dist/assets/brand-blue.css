@@ -943,3 +943,38 @@ html[data-design="heaven"] #root#root .scene--login .login-card--form .auth-noti
 html[data-design="heaven"] #root#root .scene--login .login-card--form .auth-notice :is(strong, span) {
   color: #283f37 !important;
 }
+
+/* Simplify the intro panel to a centered ParishLink logo. */
+html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 0 !important;
+  padding: 28px !important;
+  border: 0 !important;
+  background: #f7f9fc !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro > * {
+  display: none !important;
+}
+
+html[data-design="heaven"] #root#root .scene--login .login-card--intro::before {
+  position: static !important;
+  display: block !important;
+  flex: 0 1 auto !important;
+  width: clamp(120px, 17vw, 190px) !important;
+  height: clamp(90px, 13vw, 150px) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: url("/dist/assets/logo.png") center / contain no-repeat !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="heaven"] #root#root .scene--login .login-card--intro {
+    display: none !important;
+  }
+}

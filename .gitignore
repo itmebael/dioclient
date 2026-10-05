@@ -16,3 +16,7 @@ _gg_extract.txt
 .design-browser-new/
 site-build/
 .auth-browser/
+.design-browser-actions/
+.layout-browser/
+.spacing-browser/
+.spacing-browser2/

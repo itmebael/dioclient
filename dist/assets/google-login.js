@@ -1,3 +1,5 @@
+import { ADDRESS_OPTIONS } from './address-options.js';
+
 export async function startGoogleLogin(request, baseUrl) {
   const settings = await request('/auth/v1/settings');
   if (!settings?.external?.google) {
@@ -43,13 +45,27 @@ function completeGoogleProfile(user, token, request, parishes) {
       <label>Parish<select name="parish_id" required><option value="">Choose your parish</option></select></label>
       <label>Phone number<input name="phone_number" type="tel" autocomplete="tel" required></label>
       <label>Birthdate<input name="birthdate" type="date" required></label>
-      <label>Address<input name="address" autocomplete="street-address" required></label>
+      <label>Address<select name="address" required><option value="">Select your address</option></select></label>
+      <label class="google-profile-address-other" hidden>Please specify your address<input name="address_other" autocomplete="street-address" disabled></label>
       <label>Civil status<select name="civil_status" required><option value="">Choose your status</option><option>Single</option><option>Married</option><option>Widowed</option><option>Separated</option></select></label>
       <p role="alert" class="google-profile-error"></p>
       <button type="submit">Continue to dashboard</button>
       <button type="button" class="google-profile-cancel">Cancel</button>
     </form>`;
     const form = dialog.querySelector('form');
+    for (const address of ADDRESS_OPTIONS) {
+      form.elements.address.add(new Option(address, address));
+    }
+    form.elements.address.add(new Option('Others: (Please specify)', '__other__'));
+    const otherAddress = form.elements.address_other;
+    form.elements.address.addEventListener('change', () => {
+      const isOther = form.elements.address.value === '__other__';
+      dialog.querySelector('.google-profile-address-other').hidden = !isOther;
+      otherAddress.disabled = !isOther;
+      otherAddress.required = isOther;
+      otherAddress.setCustomValidity('');
+    });
+    otherAddress.addEventListener('input', () => otherAddress.setCustomValidity(''));
     form.elements.full_name.value = user.user_metadata?.display_name || user.user_metadata?.full_name || '';
     for (const parish of Array.isArray(parishes) ? parishes : []) {
       form.elements.parish_id.add(new Option(parish.parish_name, parish.id));
@@ -59,12 +75,22 @@ function completeGoogleProfile(user, token, request, parishes) {
     dialog.querySelector('.google-profile-cancel').onclick = cancel;
     form.onsubmit = async event => {
       event.preventDefault();
+      const profile = Object.fromEntries(new FormData(form));
+      if (profile.address === '__other__') {
+        profile.address = otherAddress.value.trim();
+        if (!profile.address) {
+          otherAddress.setCustomValidity('Please specify your address.');
+          otherAddress.reportValidity();
+          return;
+        }
+      }
+      delete profile.address_other;
       const submit = form.querySelector('[type=submit]');
       submit.disabled = true;
       try {
         await request('/rest/v1/registered_users', {
           method: 'POST', accessToken: token,
-          body: { ...Object.fromEntries(new FormData(form)), id: user.id, email: user.email, profile_picture_url: null },
+          body: { ...profile, id: user.id, email: user.email, profile_picture_url: null },
         });
         dialog.remove();
         resolve();

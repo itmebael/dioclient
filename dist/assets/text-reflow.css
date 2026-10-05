@@ -1,0 +1,48 @@
+/* Let rem-based text grow without clipping fixed dashboard dimensions. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root .dashboard-frame--user {
+    --sidebar-width: min(360px, calc(260px * var(--sf-scale, 1.15) / 1.15));
+    & .sidebar__brand { padding-inline: .25rem !important; gap: .5rem !important; }
+    & .sidebar__crest { flex: 0 0 2.5rem !important; width: 2.5rem !important; min-width: 2.5rem !important; }
+    & .sidebar__brand > div:not(.sidebar__crest) { min-width: 0 !important; flex: 1 !important; }
+    & .sidebar__brand :is(h1, .sidebar__caption),
+    & .nav-item > span:not(.nav-item__icon) {
+      min-width: 0 !important; white-space: normal !important;
+      overflow: visible !important; text-overflow: clip !important;
+      overflow-wrap: anywhere !important;
+    }
+    & .sidebar__brand h1 { line-height: 1.25 !important; }
+    & .nav-item { height: auto !important; flex-shrink: 0 !important; line-height: 1.4 !important; }
+    & .sidebar__nav { flex-shrink: 0 !important; padding-bottom: 80px !important; }
+    & .workspace__topbar--user { height: auto !important; padding-block: .5rem !important; }
+    & .workspace__actions { min-width: 0 !important; max-width: 100% !important; }
+    & .profile-pill { min-width: 0 !important; }
+    & .profile-pill :is(div, strong, span) { min-width: 0 !important; white-space: normal !important; overflow-wrap: anywhere !important; }
+    & .user-home-actions { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)) !important; }
+    & .user-home-action { height: auto !important; }
+    & .user-home-action strong { white-space: normal !important; overflow-wrap: anywhere !important; }
+    & .user-home-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)) !important; }
+    & .user-home-card__header { flex-wrap: wrap !important; }
+    & .user-home-card__header h4 { min-width: 0 !important; overflow-wrap: anywhere !important; }
+    & .user-home-card__header button { flex-shrink: 0 !important; }
+    & .user-mass-date { width: 2.8rem !important; min-width: 2.8rem !important; height: auto !important; min-height: 3.4rem !important; }
+    & .user-mass-detail { min-width: 0 !important; overflow-wrap: anywhere !important; }
+    & .user-request-row { display: flex !important; flex-wrap: wrap !important; }
+    & .user-request-row > div { flex: 1 1 9rem !important; min-width: 0 !important; overflow-wrap: anywhere !important; }
+    & .user-request-row__icon { flex-shrink: 0 !important; }
+    & .user-request-status { max-width: 100% !important; white-space: normal !important; }
+  }
+}
+
+@media screen and (min-width: 701px) {
+  html[data-design="heaven"] body #root#root#root#root#root#root .dashboard-frame--user {
+    & .sidebar--user { width: var(--sidebar-width) !important; }
+    & .workspace { margin-left: var(--sidebar-width) !important; }
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1050px) {
+  html[data-design="heaven"] body #root#root#root#root#root#root .dashboard-frame--user {
+    --sidebar-width: min(32vw, calc(260px * var(--sf-scale, 1.15) / 1.15));
+  }
+}

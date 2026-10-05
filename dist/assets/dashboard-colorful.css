@@ -1,0 +1,101 @@
+/* Colorful member dashboard surfaces. Scoped away from login and print layouts. */
+@media screen {
+  html body #root#root#root#root#root#root .dashboard-frame--user {
+    & :is(.user-home-action,.user-home-card,.user-home-announcement,.user-chat-card,.user-panel,.user-summary-card,.member-service-tile,.user-certificate-booking,.user-profile-summary,.user-support-chat,.user-support-mode-card) {
+      --card-start: #e4efff;
+      --card-end: #f5f9ff;
+      --card-accent: #2563b9;
+      --card-line: #b7d2f5;
+      background: linear-gradient(135deg,var(--card-start),var(--card-end)) !important;
+      border: 1px solid var(--card-line) !important;
+      border-top: 4px solid var(--card-accent) !important;
+      box-shadow: 0 8px 24px #0c214b20, inset 0 1px 0 #ffffffb3 !important;
+    }
+    & :is(.user-home-action,.user-home-card,.user-panel,.user-summary-card,.member-service-tile,.user-support-mode-card):nth-child(3n + 2),
+    & .user-certificate-booking {
+      --card-start: #eee3ff; --card-end: #faf5ff; --card-accent: #7540bc; --card-line: #d5bdf1;
+    }
+    & :is(.user-home-action,.user-home-card,.user-panel,.user-summary-card,.member-service-tile,.user-support-mode-card):nth-child(3n),
+    & .user-home-announcement {
+      --card-start: #ffe6d8; --card-end: #fff7ee; --card-accent: #b94c28; --card-line: #f3c4ac;
+    }
+    & :is(.user-chat-card,.user-profile-summary,.user-support-chat),
+    & .user-home-card:has(.user-mass-preview),
+    & .member-service-tile--green {
+      --card-start: #d9f4e9; --card-end: #f0fcf6; --card-accent: #13785c; --card-line: #a8ddc9;
+    }
+    & .member-service-tile--purple {
+      --card-start: #eee3ff; --card-end: #faf5ff; --card-accent: #7540bc; --card-line: #d5bdf1;
+    }
+    & .member-service-tile--coral {
+      --card-start: #ffe6d8; --card-end: #fff7ee; --card-accent: #b94c28; --card-line: #f3c4ac;
+    }
+    & .user-home-hero {
+      box-sizing: border-box !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      justify-self: stretch !important;
+      height: auto !important;
+      min-height: 160px !important;
+      padding: 18px 28px !important;
+      background: #fff url('/dist/assets/header.png?v=20261004-welcome-artwork') center / 100% 100% no-repeat !important;
+      border-color: #b9cef0 !important;
+      box-shadow: 0 10px 30px #081c4b30, inset 0 1px 0 #fff !important;
+    }
+    & .user-home-hero__copy :is(h3,p,span,strong) {
+      color: #173c78 !important; -webkit-text-fill-color: #173c78 !important;
+    }
+    & .user-home-hero__copy h3 {
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      -webkit-text-stroke: 5px #245db5 !important;
+      letter-spacing: 0.015em !important;
+      word-spacing: 0.12em !important;
+      line-height: 1.3 !important;
+      paint-order: stroke fill;
+      text-shadow: 0 1px 2px #173c7833;
+    }
+    & :is(.user-home-action,.member-service-tile) {
+      transition: transform .2s ease, box-shadow .2s ease !important;
+    }
+    & :is(.user-home-action,.member-service-tile):hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 14px 28px #0c214b30, inset 0 1px 0 #fff !important;
+    }
+    & :is(.user-home-action__icon,.member-service-icon) {
+      color: #fff !important; background: var(--card-accent) !important;
+      box-shadow: 0 4px 10px #16386720 !important;
+    }
+    & .user-home-action__icon svg { color: #fff !important; }
+    & .user-home-action__arrow {
+      color: var(--card-accent) !important; background: #ffffffc9 !important;
+    }
+    & :is(.user-home-action strong,.member-service-tile strong,.user-home-card__header h4,.user-panel__header h4,.user-home-announcement__top > span) {
+      color: #20334f !important;
+    }
+    & .user-home-action > span:not(.user-home-action__icon):not(.user-home-action__arrow),
+    & .member-service-tile small { color: #4c5b72 !important; }
+    & .user-home-dashboard :is(.empty-state,.user-mass-preview,.user-request-row) {
+      background: #ffffffb8 !important; border-color: var(--card-line,#bed2eb) !important;
+      box-shadow: none !important;
+    }
+    & .user-home-dashboard .empty-state span { color: #506179 !important; }
+    & .user-home-dashboard :is(.user-home-card__header,.user-home-announcement__top) button {
+      color: var(--card-accent) !important; border-color: var(--card-line) !important; background: #ffffffd9 !important;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html body #root#root#root#root#root#root .dashboard-frame--user .user-home-hero {
+    min-height: 140px !important;
+    padding: 16px 20px !important;
+    background: linear-gradient(90deg, #fffffff2, #ffffffc9 65%, #ffffff70), url('/dist/assets/header.png?v=20261004-welcome-artwork') right center / cover no-repeat !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body #root#root#root#root#root#root .dashboard-frame--user :is(.user-home-action,.member-service-tile) {
+    transition: none !important; transform: none !important;
+  }
+}

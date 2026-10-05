@@ -1,0 +1,15 @@
+.announcement-photos { margin-top: 16px; }
+.announcement-photos__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.announcement-photos__grid button { padding: 0; overflow: hidden; border: 1px solid #dce7f4; border-radius: 10px; background: #f8fbff; cursor: zoom-in; }
+.announcement-photos__grid img { display: block; width: 100%; height: 160px; object-fit: cover; }
+.announcement-photo-viewer { width: min(900px, 90vw); max-height: 90vh; padding: 18px; border: 0; border-radius: 16px; color: #244b7a; background: #fff; }
+.announcement-photo-viewer::backdrop { background: rgba(10, 25, 45, .8); }
+.announcement-photo-viewer__header, .announcement-photo-viewer__controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 8px 0; }
+.announcement-photo-viewer > img { display: block; width: 100%; max-height: 65vh; object-fit: contain; }
+.announcement-photo-viewer button, .financial-reports-panel > div[role=alert] button { padding: 8px 14px; border: 1px solid #cadcf0; border-radius: 8px; background: #edf5ff; color: #244b7a; cursor: pointer; }
+.announcement-photos button:focus-visible, .announcement-photo-viewer button:focus-visible { outline: 3px solid #245db5; outline-offset: 3px; }
+.financial-reports-panel .announcement-card__body { min-width: 0; width: 100%; }
+
+/* Omit the supplementary text beside the announcements section titles. */
+.announcement-board-panel > .user-panel__header > span,
+.financial-reports-panel > .user-panel__header > span { display: none !important; }

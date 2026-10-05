@@ -51,7 +51,10 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), serveFaviconIco()],
     server: {
       // Browser verification artifacts are not application sources.
-      watch: { ignored: ["**/.design-browser*/**", "**/.auth-browser/**", "**/.design-preview/**", "**/site-build/**"] },
+      watch: {
+        // Match the directory itself so Chokidar never enters locked browser caches.
+        ignored: (filePath) => /(?:^|\/)(?:\.(?:design-browser[^/]*|spacing-browser[^/]*|auth-browser|layout-browser|design-preview)|site-build)(?:\/|$)/.test(filePath.replace(/\\/g, "/")),
+      },
       port,
       strictPort,
       host: "0.0.0.0",

@@ -63,3 +63,6 @@
     html[data-design="heaven"] #root#root .user-live-watch-btn { width: 100%; }
   }
 }
+
+/* The stream viewer fills the space after removing the schedule panel. */
+html[data-design="heaven"] #root#root#root .screen-grid:has(.user-live-viewer) { grid-template-columns: minmax(0, 1fr) !important; }

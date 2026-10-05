@@ -1,0 +1,186 @@
+/* Size the stream to the space left below the workspace toolbar. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user {
+    & .workspace:has(.user-live-viewer) {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100dvh !important;
+      min-height: 0 !important;
+    }
+    & .workspace:has(.user-live-viewer) > .workspace__topbar {
+      flex: 0 0 auto !important;
+    }
+    & .workspace__main:has(.user-live-viewer) {
+      display: flex !important;
+      flex: 1 1 0 !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+    }
+    & .overview-shell:has(.user-live-viewer) {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 1 0 !important;
+      min-height: 0 !important;
+      width: 100% !important;
+      padding: clamp(12px, 2vh, 20px) clamp(12px, 2vw, 24px) !important;
+      gap: 12px !important;
+    }
+    & .overview-shell:has(.user-live-viewer) > .overview-shell__header {
+      flex: 0 0 auto !important;
+      margin: 0 !important;
+      padding: 0 0 10px !important;
+    }
+    & .screen-grid:has(.user-live-viewer) {
+      flex: 1 1 0 !important;
+      min-height: 0 !important;
+      grid-template-rows: minmax(0, 1fr) !important;
+      align-items: stretch !important;
+    }
+    & .screen-grid:has(.user-live-viewer) > .user-panel {
+      min-height: 0 !important;
+      grid-template-rows: auto minmax(0, 1fr) auto !important;
+      gap: 12px !important;
+      padding: clamp(12px, 2vh, 20px) !important;
+    }
+    & .user-live-viewer {
+      height: 100% !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+    }
+    & .user-live-viewer__img { object-fit: contain !important; }
+    & .user-live-viewer__placeholder {
+      gap: 8px !important;
+      padding: 12px !important;
+    }
+    & .user-live-viewer__placeholder::before {
+      width: clamp(28px, 7vh, 64px) !important;
+      height: clamp(28px, 7vh, 64px) !important;
+      flex-shrink: 0;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+/* Responsive text stays within the banner's light area. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user {
+    & .user-home-hero__copy {
+      width: min(48%, 38rem) !important;
+      max-width: 100% !important;
+      gap: clamp(8px, 1.2vh, 16px) !important;
+      align-self: center !important;
+    }
+    & .user-home-hero__copy p {
+      margin: 0 !important;
+      font-size: clamp(.7rem, .9vw, .9rem) !important;
+      font-weight: 700 !important;
+      letter-spacing: .06em !important;
+      line-height: 1.4 !important;
+    }
+    & .user-home-hero__copy h3 {
+      margin: 0 !important;
+      font-size: clamp(1.25rem, 2.2vw, 2.4rem) !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0 !important;
+      word-spacing: 0 !important;
+      overflow-wrap: normal !important;
+      text-wrap: balance;
+    }
+    & .user-home-hero__copy > span {
+      font-size: clamp(.8rem, 1.1vw, 1.05rem) !important;
+      font-weight: 600 !important;
+      line-height: 1.5 !important;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user .user-home-hero__copy {
+    width: 70% !important;
+  }
+}
+/* Let the hero absorb unused viewport space while preserving content height. */
+@media screen and (min-width: 901px) {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user {
+    & .workspace:has(.overview-shell--user-dashboard) {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 100dvh !important;
+    }
+    & .workspace:has(.overview-shell--user-dashboard) > .workspace__topbar {
+      flex: 0 0 auto !important;
+    }
+    & .workspace__main:has(.overview-shell--user-dashboard) {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 0 auto !important;
+    }
+    & .overview-shell--user-dashboard {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 0 auto !important;
+      box-sizing: border-box !important;
+      padding: 16px 24px !important;
+      min-height: 0 !important;
+      align-content: start !important;
+    }
+    & .user-home-dashboard {
+      display: grid !important;
+      flex: 1 0 auto !important;
+      grid-template-rows: minmax(auto, 1fr) auto auto !important;
+      width: 100% !important;
+      min-height: 0 !important;
+      gap: 14px !important;
+      align-content: start !important;
+    }
+    & .user-home-hero {
+      height: auto !important;
+      min-height: 0 !important;
+      align-content: center !important;
+      padding: 12px 24px !important;
+    }
+    & .user-home-actions {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+      margin: 0 !important;
+    }
+    & .user-home-action {
+      min-height: 76px !important;
+      padding: 14px 16px !important;
+    }
+    & .user-home-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+      align-items: stretch !important;
+      min-height: 0 !important;
+    }
+    & .user-home-card {
+      min-height: 0 !important;
+      padding: 16px !important;
+      gap: 12px !important;
+      align-content: start !important;
+    }
+    & .user-home-card__header {
+      margin: 0 !important;
+      min-height: 0 !important;
+      gap: 8px !important;
+    }
+    & :is(.user-request-list, .user-mass-preview-list) {
+      min-height: 0 !important;
+      max-height: max(160px, calc(100dvh - 390px)) !important;
+      overflow-y: auto;
+      gap: 10px !important;
+    }
+    & :is(.user-request-row, .user-mass-preview) {
+      min-height: 0 !important;
+      padding: 10px 12px !important;
+      gap: 10px !important;
+    }
+    & .user-mass-date {
+      min-height: 64px !important;
+      padding: 6px 10px !important;
+    }
+    & .user-home-card .empty-state {
+      min-height: 100px !important;
+      padding: 16px !important;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" data-design="heaven">
   <head>
+    <link rel="stylesheet" href="/dist/assets/certificate-steps.css?v=20261004-1" />
     <meta charset="UTF-8" />
     <!-- This CSP meta tag allows Vite to use eval() for hot-reloading in development -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: blob:;">
@@ -20,6 +21,14 @@
       }
       .dashboard-frame--user .user-panel__header:has(.user-profile-edit-button) > div {
         display: none !important;
+      }
+      .dashboard-frame--user .user-panel__header:has(.user-profile-edit-button)::before,
+      .dashboard-frame--user .user-panel__header:has(.user-profile-edit-button)::after {
+        content: none !important;
+        display: none !important;
+      }
+      .dashboard-frame--user .user-panel__header .user-profile-edit-button {
+        margin-left: auto !important;
       }
       /* The inline certificate form belongs to its service card, so avoid
          drawing nested cards around the same content. */
@@ -127,8 +136,13 @@
         main[role="status"]::before { animation: none; }
       }
     </style>
-    <script type="module" crossorigin src="/dist/assets/index-v20260422157000.js?v=20260929-remove-bulletin-intro"></script>
-    <script defer src="/dist/assets/dashboard-updates.js?v=20260929-fix-schedule-encoding"></script>
+    <script>
+      if (location.hash === "#user-bulletin") {
+        history.replaceState(null, "", location.pathname + location.search + "#user-dashboard");
+      }
+    </script>
+    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261005-parish-presence-7"></script>
+    <script defer src="/dist/assets/dashboard-updates.js?v=20261004-complete-booking-fields"></script>
     <script defer src="/dist/assets/profile-avatar-upload.js?v=20260929-react-safe-avatar"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
     <link rel="stylesheet" href="/dist/assets/sidebar-brand-responsive.css?v=notification-dark-1">
@@ -949,15 +963,18 @@
     <link rel="stylesheet" href="/dist/assets/certificate-bento.css?v=20260924-tabs">
     <link rel="stylesheet" href="/dist/assets/mass-bento.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/appointments-bento.css?v=20260924">
-    <link rel="stylesheet" href="/dist/assets/live-bento.css?v=20260924">
+    <link rel="stylesheet" href="/dist/assets/live-bento.css?v=20261004-remove-stream-schedule">
     <link rel="stylesheet" href="/dist/assets/announcements-bento.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/requests-bento.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/profile-bento.css?v=20260924">
-    <link rel="stylesheet" href="/dist/assets/support-bento.css?v=20260929-chat-layout">
+    <link rel="stylesheet" href="/dist/assets/support-bento.css?v=20261005-parish-presence-7">
     <link rel="stylesheet" href="/dist/assets/member-preferences.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/login-vibrant.css?v=20260924">
     <link rel="stylesheet" href="/dist/assets/brand-blue.css?v=20260927-login-feedback-1">
-  </head>
+  <link rel="stylesheet" href="/dist/assets/announcement-reports.css?v=20261005-remove-announcement-spans-2">
+<link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">
+<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">
+</head>
   <body>
     <dialog id="login-terms-dialog" class="login-terms-dialog" aria-labelledby="login-terms-title">
       <form method="dialog" class="login-terms-dialog__inner">
@@ -1466,8 +1483,8 @@
               '<div class="ucs-remind__availability" role="status"><span aria-hidden="true"></span><strong>Active Status:</strong> Staff availability not shown</div>' +
               '<div>Please drop by the parish office only during these hours:</div>' +
               '<div class="ucs-remind__hours">' +
-                '<span class="ucs-remind__slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8:00 AM &ndash; 11:00 AM</span>' +
-                '<span class="ucs-remind__slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 2:00 PM &ndash; 5:00 PM</span>' +
+                '<div class="ucs-remind__day"><strong>MON &ndash; SAT</strong><span>8:00 AM &ndash; 11:00 AM (Morning)</span><span>2:00 PM &ndash; 5:00 PM (Afternoon)</span></div>' +
+                '<div class="ucs-remind__day"><strong>SUN</strong><span>8:00 AM &ndash; 11:00 AM (Morning / Half day)</span></div>' +
               '</div>' +
               '<ul class="ucs-remind__list">' +
                 '<li>Please bring the necessary requirements based on the certificate requested.</li>' +
@@ -2631,13 +2648,22 @@
               'th{background:#f1f5f9;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#475569;}' +
               'tfoot td{font-size:11px;color:#64748b;padding-top:12px;border-top:2px solid #cbd5e1;}' +
               '@media print { body{padding:0;} .noprint{display:none;} }' +
-            '</style></head><body>' +
+            '</style><link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">
+<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">
+</head><body>' +
               '<h1>' + escapeHtml(meta.label) + '</h1>' +
               '<div class="meta">' + escapeHtml(parishName) + (filterLine ? ' — ' + escapeHtml(filterLine) : '') + '</div>' +
               '<table><thead>' + head + '</thead><tbody>' + body + '</tbody>' +
               '<tfoot><tr><td colspan="' + meta.cols.length + '">Generated ' + fmtDate(new Date().toISOString()) + ' · ' + (rows || []).length + ' record(s)</td></tr></tfoot>' +
               '</table>' +
-            '</body></html>';
+            `    <link rel='stylesheet' href='/dist/assets/dashboard-colorful.css?v=20261004-7-heading-spacing'>
+    <link rel='stylesheet' href='/dist/assets/dashboard-type.css?v=20261004-2'>
+    <style id="hide-certificate-service-summary">
+      html body #root .certificate-booking-modal__service {
+        display: none !important;
+      }
+    </style>
+  </body></html>`;
 
           var w = window.open('', '_blank', 'width=960,height=720');
           if (!w) return;
@@ -2695,7 +2721,9 @@
               '.empty{padding:10px 12px;color:#94a3b8;font-style:italic;}' +
               '.section-count{float:right;font:600 11px/1 system-ui;color:#64748b;letter-spacing:.06em;text-transform:uppercase;}' +
               '@media print { body{padding:0;} h2{break-after:avoid;} table{page-break-inside:auto;} tr{page-break-inside:avoid;} }' +
-            '</style></head><body>' +
+            '</style><link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">
+<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">
+</head><body>' +
               '<h1>Parish Reports</h1>' +
               '<div class="meta">' + escapeHtml(parishName) +
                 (filterLine ? ' — ' + escapeHtml(filterLine) : '') +
@@ -2706,7 +2734,8 @@
                 }).join('') +
               '</div>' +
               '<div id="prb-sections"><p class="empty">Loading data…</p></div>' +
-            '</body></html>'
+            `    <link rel='stylesheet' href='/dist/assets/dashboard-colorful.css?v=20261004-7-heading-spacing'>
+  </body></html>`
           );
           w.document.close();
 
@@ -3067,8 +3096,8 @@
          ================================================================ -->
     <script>
       (function () {
-        var KEY = "diocese-sf-scale";
-        var MIN = 1.0, MAX = 1.6, DEFAULT = 1.15, STEP = 0.1;
+        var KEY = "diocese-sf-scale-v4";
+        var MIN = 1.0, MAX = 2.8, DEFAULT = 1.3, STEP = 0.1;
 
         function clamp(v) { return Math.max(MIN, Math.min(MAX, Math.round(v * 100) / 100)); }
 
@@ -3084,10 +3113,12 @@
           try { window.localStorage.setItem(KEY, String(v)); } catch (e) {}
         }
         function apply(v) {
-          document.documentElement.style.setProperty("--sf-scale", String(v));
+          var onLogin = !window.location.hash || /#login/i.test(window.location.hash);
+          var scale = onLogin ? 1.15 : v;
+          document.documentElement.style.setProperty("--sf-scale", String(scale));
           // The scale variable was being saved but no stylesheet consumed it.
           // Scale the root size so rem/em-based dashboard text responds to the controls.
-          document.documentElement.style.fontSize = (16 * v) + "px";
+          document.documentElement.style.fontSize = (16 * scale) + "px";
           updateButtons(v);
         }
         function updateButtons(v) {
@@ -3112,7 +3143,7 @@
           pill.innerHTML =
             '<span id="sf-toggle__label" aria-hidden="true">Text</span>' +
             '<button type="button" id="sf-toggle__minus" aria-label="Decrease text size" title="Decrease text size">A&minus;</button>' +
-            '<button type="button" id="sf-toggle__reset" aria-label="Reset text size" title="Reset to comfortable default">A</button>' +
+            '<button type="button" id="sf-toggle__reset" aria-label="Reset text size" title="Reset to default text size">A</button>' +
             '<button type="button" id="sf-toggle__plus"  aria-label="Increase text size" title="Increase text size">A+</button>';
           document.body.appendChild(pill);
 
@@ -3133,7 +3164,7 @@
           // the same corner. The login hash is empty or "#login".
           var onLogin = !window.location.hash || /#login/i.test(window.location.hash);
           var pill = document.getElementById("sf-toggle");
-          if (onLogin) { if (pill) pill.remove(); return; }
+          if (onLogin) { if (pill) pill.remove(); apply(load()); return; }
           if (!pill) render();
         }
 
@@ -5936,7 +5967,11 @@
         if (typeof window.speechSynthesis === "undefined" || typeof SpeechSynthesisUtterance === "undefined") {
           return;
         }
-        var TEXT = "Welcome back. I'm Deyo, your parish assistant.";
+        var returningUser = false;
+        try {
+          returningUser = window.localStorage.getItem("parishlink-returning-user") === "1";
+        } catch (e) {}
+        var TEXT = (returningUser ? "Welcome back." : "Welcome.") + " I'm Deyo, your parish assistant.";
         var completed = false;
         var pending = false;
 
@@ -6654,251 +6689,8 @@
         };
       })();
     </script>
-    <style>
-      .dio-name-suggest{position:relative}
-      .dio-name-suggest__list{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:9999;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(255,255,255,.98);box-shadow:0 20px 60px rgba(2,6,23,.18);overflow:hidden;max-height:260px;overflow-y:auto}
-      html[data-theme="dark"] .dio-name-suggest__list{background:rgba(11,18,32,.98);border-color:rgba(148,163,184,.18);box-shadow:0 24px 70px rgba(0,0,0,.55)}
-      .dio-name-suggest__item{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 12px;cursor:pointer;font:800 13px/1.2 system-ui;color:#0f172a}
-      html[data-theme="dark"] .dio-name-suggest__item{color:#e2e8f0}
-      .dio-name-suggest__item:hover{background:rgba(29,78,216,.08)}
-      html[data-theme="dark"] .dio-name-suggest__item:hover{background:rgba(147,197,253,.10)}
-      .dio-name-suggest__item small{font:800 11px/1 system-ui;color:#64748b}
-      html[data-theme="dark"] .dio-name-suggest__item small{color:#94a3b8}
-    </style>
-    <script>
-      // Offline "closest result" suggestions for name fields (Certificate Template / booking).
-      (function () {
-        if (window.__dioOfflineNameSuggest) return;
-        window.__dioOfflineNameSuggest = true;
-
-        var CACHE_KEY = "dio-name-cache:v2"; // store objects for autofill
-        var MAX_ROWS = 1800;
-
-        function loadCache() {
-          try { var raw = localStorage.getItem(CACHE_KEY); var arr = raw ? JSON.parse(raw) : []; return Array.isArray(arr) ? arr : []; }
-          catch (e) { return []; }
-        }
-        function saveCache(arr) {
-          try { if (!Array.isArray(arr)) return; if (arr.length > MAX_ROWS) arr = arr.slice(0, MAX_ROWS); localStorage.setItem(CACHE_KEY, JSON.stringify(arr)); }
-          catch (e) {}
-        }
-        function norm(s){ return String(s || "").replace(/\s+/g," ").trim(); }
-        function normKey(s){ return norm(s).toLowerCase(); }
-        function toRow(r){
-          r = r || {};
-          var full = r.full_name || r.client_name || r.user_full_name || r.name || null;
-          if (!full) {
-            full = [r.first_name, r.middle_name, r.last_name].filter(Boolean).join(" ");
-            if (!full) full = [r.client_first_name, r.client_middle_name, r.client_last_name].filter(Boolean).join(" ");
-          }
-          full = norm(full);
-          if (!full) return null;
-          return {
-            name: full,
-            mother_name: norm(r.mother_name || ""),
-            father_name: norm(r.father_name || ""),
-            church: norm(r.church || r.parish_name || ""),
-            born_on: r.born_on || r.requester_birthday || "",
-            service_date: r.service_date || r.booking_date || "",
-            register_no: r.register_no || "",
-            page_no: r.page_no || "",
-            line_no: r.line_no || ""
-          };
-        }
-        function addRows(rows){
-          rows = Array.isArray(rows) ? rows : [];
-          if (!rows.length) return;
-          var cur = loadCache();
-          var seen = {};
-          for (var i=0;i<cur.length;i++){
-            var k0 = cur[i] && cur[i].name ? normKey(cur[i].name) : "";
-            if (k0) seen[k0] = true;
-          }
-          for (var j=0;j<rows.length;j++){
-            var rr = toRow(rows[j]);
-            if (!rr) continue;
-            var k = normKey(rr.name);
-            if (seen[k]) continue;
-            cur.unshift(rr);
-            seen[k] = true;
-          }
-          saveCache(cur);
-        }
-
-        // Cache from network responses so offline can suggest later.
-        (function(){
-          if (window.__dioNameCacheFetchWrapped) return;
-          window.__dioNameCacheFetchWrapped = true;
-          var _fetch = window.fetch;
-          window.fetch = function(input, init){
-            var url = (typeof input === "string") ? input : (input && input.url) || "";
-            // Cache from request body for writes (works offline / even if response has no JSON).
-            try{
-              var method = (init && init.method) ? String(init.method).toUpperCase() : "GET";
-              var isWrite = method === "POST" || method === "PATCH" || method === "PUT";
-              if (isWrite && init && typeof init.body === "string") {
-                var isWriteInteresting =
-                  url.indexOf("/rest/v1/diocese_archive_records") !== -1 ||
-                  url.indexOf("/rest/v1/diocese_service_bookings") !== -1;
-                if (isWriteInteresting) {
-                  var parsed = null;
-                  try { parsed = JSON.parse(init.body); } catch(e0) { parsed = null; }
-                  var rows0 = Array.isArray(parsed) ? parsed : (parsed ? [parsed] : []);
-                  if (rows0.length) addRows(rows0);
-                }
-              }
-            } catch(e1) {}
-            var p = _fetch.apply(this, arguments);
-            try{
-              var isInteresting =
-                url.indexOf("/rest/v1/diocese_archive_records") !== -1 ||
-                url.indexOf("/rest/v1/diocese_service_bookings") !== -1 ||
-                url.indexOf("/rest/v1/registered_users") !== -1 ||
-                url.indexOf("/rpc/search_archive_records") !== -1 ||
-                url.indexOf("/rpc/search_booked_services") !== -1;
-              if (isInteresting) {
-                p.then(function(res){
-                  try{
-                    if (!res || !res.ok) return;
-                    var c = res.clone();
-                    c.json().then(function(data){
-                      var rows = Array.isArray(data) ? data : (data ? [data] : []);
-                      addRows(rows);
-                    }).catch(function(){});
-                  } catch(e2){}
-                });
-              }
-            } catch(e1){}
-            return p;
-          };
-        })();
-
-        function score(query, cand){
-          query = normKey(query);
-          cand = normKey(cand);
-          if (!query || !cand) return -1;
-          if (cand === query) return 1000;
-          if (cand.indexOf(query) === 0) return 800 - (cand.length - query.length);
-          var idx = cand.indexOf(query);
-          if (idx !== -1) return 500 - idx;
-          // simple fuzzy: count ordered character matches
-          var qi=0, ci=0, hit=0;
-          while (qi<query.length && ci<cand.length){
-            if (query[qi] === cand[ci]) { hit++; qi++; ci++; } else { ci++; }
-          }
-          return hit >= Math.min(4, query.length) ? hit : -1;
-        }
-
-        function bestMatches(query, limit){
-          limit = limit || 8;
-          var arr = loadCache();
-          var scored = [];
-          for (var i=0;i<arr.length;i++){
-            var nm = arr[i] && arr[i].name ? arr[i].name : "";
-            var s = score(query, nm);
-            if (s >= 0) scored.push({ row: arr[i], name: nm, s: s });
-          }
-          scored.sort(function(a,b){ return b.s - a.s; });
-          return scored.slice(0, limit);
-        }
-
-        function isLogin(){
-          try { var h = String(location.hash || "").replace(/^#/, "").toLowerCase(); if (!h || h === "login") return true; } catch(e){}
-          return !!document.querySelector(".scene--login");
-        }
-        function isNameInput(el){
-          if (!el || el.tagName !== "INPUT") return false;
-          var type = String(el.type || "").toLowerCase();
-          if (type && type !== "text" && type !== "search") return false;
-          var name = normKey(el.getAttribute("name")||"");
-          var id = normKey(el.id||"");
-          var ph = normKey(el.getAttribute("placeholder")||"");
-          var aria = normKey(el.getAttribute("aria-label")||"");
-          return (
-            name.indexOf("name") !== -1 ||
-            id.indexOf("name") !== -1 ||
-            ph.indexOf("name") !== -1 ||
-            aria.indexOf("name") !== -1
-          );
-        }
-
-        function attach(el){
-          if (!el || el.getAttribute("data-dio-suggest") === "1") return;
-          el.setAttribute("data-dio-suggest", "1");
-          var parent = el.parentElement;
-          if (!parent) return;
-          parent.classList.add("dio-name-suggest");
-          var list = document.createElement("div");
-          list.className = "dio-name-suggest__list";
-          list.style.display = "none";
-          parent.appendChild(list);
-
-          function hide(){ list.style.display = "none"; list.innerHTML = ""; }
-          function render(){
-            var q = el.value || "";
-            if (norm(q).length < 2) { hide(); return; }
-            var hits = bestMatches(q, 8);
-            if (!hits.length) { hide(); return; }
-            list.innerHTML = hits.map(function(h){
-              var payload = "";
-              try { payload = encodeURIComponent(JSON.stringify(h.row || { name: h.name })); } catch(e){}
-              return '<div class="dio-name-suggest__item" data-row="'+payload+'"><span>'+h.name+'</span><small>offline</small></div>';
-            }).join("");
-            list.style.display = "block";
-          }
-
-          el.addEventListener("input", render);
-          el.addEventListener("focus", render);
-          el.addEventListener("blur", function(){ setTimeout(hide, 120); });
-          function fillOtherFields(row){
-            if (!row) return;
-            var scope = el.closest(".certificate-booking-modal__dialog") || el.closest(".certificate-booking-modal") || el.closest("form") || document;
-            function setVal(sel, val){
-              if (!val) return;
-              var f = scope.querySelector(sel);
-              if (!f) return;
-              try { f.value = val; } catch(e){}
-              try { f.dispatchEvent(new Event("input", { bubbles: true })); } catch(e2){}
-              try { f.dispatchEvent(new Event("change", { bubbles: true })); } catch(e3){}
-            }
-            // Common certificate fields (best-effort).
-            setVal("[name='mother_name'], [id*='mother'], [aria-label*='Mother'], [placeholder*='Mother']", row.mother_name);
-            setVal("[name='father_name'], [id*='father'], [aria-label*='Father'], [placeholder*='Father']", row.father_name);
-            setVal("[name='church'], [id*='church'], [name='parish_name']", row.church);
-            setVal("[name='born_on'], [name='birthdate'], [aria-label*='Birthday']", row.born_on);
-            setVal("[name='service_date'], [name='booking_date'], [aria-label*='Booking Date']", row.service_date);
-            setVal("[name='register_no'], [id*='register'], [placeholder*='Register']", row.register_no);
-            setVal("[name='page_no'], [id*='page'], [placeholder*='Page']", row.page_no);
-            setVal("[name='line_no'], [id*='line'], [placeholder*='Line']", row.line_no);
-          }
-
-          list.addEventListener("mousedown", function(e){
-            var item = e.target && e.target.closest && e.target.closest("[data-row]");
-            if (!item) return;
-            var row = null;
-            try { row = JSON.parse(decodeURIComponent(item.getAttribute("data-row") || "")); } catch(e0){ row = null; }
-            el.value = (row && row.name) ? row.name : (el.value || "");
-            try { el.dispatchEvent(new Event("input", { bubbles: true })); } catch(e2){}
-            try { fillOtherFields(row); } catch(e3){}
-            hide();
-          });
-        }
-
-        function tick(){
-          if (isLogin()) return;
-          var scope = document.querySelector(".certificate-builder, .certificate-form, .certificate-booking-modal__dialog, .certificate-booking-modal") || document;
-          var inputs = scope.querySelectorAll("input");
-          for (var i=0;i<inputs.length;i++){
-            if (isNameInput(inputs[i])) attach(inputs[i]);
-          }
-        }
-
-        if (document.readyState === "complete" || document.readyState === "interactive") setTimeout(tick, 900);
-        else document.addEventListener("DOMContentLoaded", function(){ setTimeout(tick, 900); });
-        window.addEventListener("hashchange", function(){ setTimeout(tick, 900); });
-        setInterval(tick, 3500);
-      })();
-    </script>
+    
+    
     <style>
       .dio-parish-dd{display:grid;gap:6px}
       .dio-parish-dd label{font:800 12px/1.2 system-ui;color:var(--text-dim,#475569)}
@@ -7023,7 +6815,7 @@
           var label = document.createElement("label");
           label.textContent = "Parish Name";
           var sel = document.createElement("select");
-          sel.innerHTML = '<option value="">Select a parish…</option>';
+          sel.innerHTML = '<option value="">Select a parish</option>';
           var hint = document.createElement("small");
           hint.textContent = isParishStaff ? "Parish accounts are locked to their parish." : "Choose the parish for this booking.";
 
@@ -7123,13 +6915,13 @@
       })();
     </script>
     <script>
-      // Booking form: Payment Method + Baptismal pricing (GCash/Personal; 520+80=600 for Baptismal).
+      // Certificate booking payment: PHP 100 total for GCash or personal payment.
       (function () {
         if (window.__dioPaymentFields) return;
         window.__dioPaymentFields = true;
 
         function norm(s){return String(s||"").toLowerCase();}
-        function isBaptismal(serviceName){ return norm(serviceName).indexOf("baptism") !== -1; }
+        function isCertificate(serviceName){ return /certificate|baptism/.test(norm(serviceName)); }
         function ensureNumber(x){
           var n = Number(x);
           return isFinite(n) ? n : 0;
@@ -7178,6 +6970,7 @@
             }
           }
           if (!anchor || !anchor.parentElement) return;
+          anchor = anchor.closest(".login-field") || anchor;
 
           var wrap = document.createElement("div");
           wrap.className = "dio-pay-dd";
@@ -7186,8 +6979,8 @@
           wrap.innerHTML =
             '<div class="dio-pay-dd__row">' +
               '<div class="dio-parish-dd"><label>Payment Method</label>' +
-                '<select data-pay-method>' +
-                  '<option value="">Select…</option>' +
+                '<select data-pay-method required>' +
+                  '<option value="">Select payment method</option>' +
                   '<option value="gcash">GCash</option>' +
                   '<option value="personal">Personal payment</option>' +
                 '</select>' +
@@ -7197,7 +6990,7 @@
               '<div class="dio-parish-dd"><label>Fee</label><input data-pay-fee inputmode="decimal" placeholder="0.00" /></div>' +
             '</div>' +
             '<div class="dio-parish-dd"><label>Total</label><input data-pay-total inputmode="decimal" placeholder="0.00" /></div>' +
-            '<small>Baptismal: amount 520. GCash fee 80 (total 600). Personal payment has no fee.</small>';
+            '<small>Certificate: amount &#8369;100. No additional fee for GCash or personal payment. Total &#8369;100.</small>';
 
           // Insert right after anchor where possible; if anchor is a container, prepend inside.
           if (anchor.classList && anchor.classList.contains("certificate-booking-modal__fields")) {
@@ -7212,32 +7005,12 @@
           var totEl = wrap.querySelector("[data-pay-total]");
 
           function refreshPricing(){
-            var scope = modal || document;
-            var svc = findServiceNameField(scope) || findServiceNameField(document);
-            var bapt = svc && isBaptismal(svc.value || "");
-            var pm = String(methodEl.value || "").toLowerCase();
-            var isPersonal = pm === "personal";
-            if (bapt) {
-              amtEl.value = "520";
-              feeEl.value = isPersonal ? "0" : "80";
-              totEl.value = isPersonal ? "520" : "600";
-              amtEl.disabled = true;
-              feeEl.disabled = true;
-              totEl.disabled = true;
-            } else {
-              amtEl.disabled = false;
-              // Personal payment -> fee forced to 0 (no fee)
-              if (isPersonal) {
-                feeEl.value = "0";
-                feeEl.disabled = true;
-              } else {
-                feeEl.disabled = false;
-              }
-              totEl.disabled = true;
-              var a = ensureNumber(amtEl.value);
-              var f = ensureNumber(feeEl.value);
-              totEl.value = String((a+f).toFixed(2));
-            }
+            amtEl.value = "100";
+            feeEl.value = "0";
+            totEl.value = "100";
+            amtEl.disabled = true;
+            feeEl.disabled = true;
+            totEl.disabled = true;
           }
 
           // Recompute total on edit.
@@ -7263,14 +7036,15 @@
                   var parsed = JSON.parse(init.body);
                   var payload = Array.isArray(parsed) ? (parsed[0] || {}) : (parsed || {});
                   var svc = payload.service_name || "";
-                  var bapt = isBaptismal(svc);
+                  var certificate = isCertificate(svc) || modal.isConnected;
                   var pm = (methodEl && methodEl.value) ? String(methodEl.value) : (payload.payment_method || "");
                   if (pm) payload.payment_method = pm;
                   var isPersonal = String(pm || "").toLowerCase() === "personal";
-                  if (bapt) {
-                    payload.payment_amount = 520;
-                    payload.payment_fee = isPersonal ? 0 : 80;
-                    payload.payment_total = isPersonal ? 520 : 600;
+                  if (certificate) {
+                    payload.payment_amount = 100;
+                    payload.payment_fee = 0;
+                    payload.payment_total = 100;
+                    payload.cost = 100;
                   } else {
                     var a = ensureNumber(payload.payment_amount != null ? payload.payment_amount : (amtEl && amtEl.value));
                     var f = isPersonal ? 0 : ensureNumber(payload.payment_fee != null ? payload.payment_fee : (feeEl && feeEl.value));
@@ -7473,10 +7247,9 @@
     <link rel="stylesheet" href="/dist/assets/portal-screens.css?v=20260925-1">
     <link rel="stylesheet" href="/dist/assets/member-pages.css?v=20260929-hide-support-hero">
     <link rel="stylesheet" href="/dist/assets/parish-typography.css?v=1">
-    <link rel="stylesheet" href="/dist/assets/live-dashboard-design.css?v=service-actions-20260927-3">
-    <link rel="stylesheet" href="/dist/assets/schedules-bookings.css?v=20260930-book-here-white">
+    <link rel="stylesheet" href="/dist/assets/live-dashboard-design.css?v=hero-header-20261004">
+    <link rel="stylesheet" href="/dist/assets/schedules-bookings.css?v=20261004-complete-booking-fields">
     <link rel="stylesheet" href="/dist/assets/certificate-controls.css?v=20260927-2">
-    <link rel="stylesheet" href="/dist/assets/parish-bulletin.css?v=20260929-remove-bulletin-intro">
     <script src="/dist/assets/preview-user.js?v=20260927-4"></script>
     <style id="certificate-tabs-final-fix">
       html body #root#root#root#root .user-certificate-booking {
@@ -7563,7 +7336,14 @@
       }
       html body #root#root#root#root .ucs-remind__slot svg { color: #245db5 !important; }
       html body #root#root#root#root .ucs-remind__list li::before { background: #6d91c3 !important; }
+      html body #root#root#root#root .ucs-remind__hours { display: grid !important; gap: 10px !important; }
+      html body #root#root#root#root .ucs-remind__day { display: grid; gap: 6px; padding: 12px 14px; background: #f7faff; border: 1px solid #dce7f4; border-radius: 12px; color: #38577e; }
       html body #root#root#root#root .ucs-remind__cta {
+        display: flex !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        margin: 16px auto 0 !important;
+        justify-content: center !important;
         min-height: 44px !important;
         padding: 10px 16px !important;
         border: 1px solid #245db5 !important;
@@ -7588,6 +7368,13 @@
       html body #root#root#root#root .dashboard-frame--user article.user-panel:has(> .user-panel__header .user-live-stream) > .user-panel__header h4 {
         display: none !important;
       }
+      
+      html body #root .daily-mass-content { padding: 20px; border: 1px solid #dce7f4; border-radius: 16px; background: #f8fbff; }
+      html body #root .daily-mass-time { display: flex; align-items: center; gap: 24px; color: #244b7a; padding: 0 0 16px; }
+      html body #root .daily-mass-time time { font-weight: 800; white-space: nowrap; }
+      html body #root .daily-mass-content .user-event-list { margin: 0; padding: 0; gap: 0; }
+      html body #root .daily-mass-content .user-event-item { border: 0 !important; border-top: 1px solid #dce7f4 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; padding: 16px 0 !important; min-height: 0 !important; }
+
       .sunday-mass-list { display: grid; gap: 10px; }
       .sunday-mass-item {
         display: grid; grid-template-columns: 105px minmax(0, 1fr) auto; align-items: center;
@@ -7608,7 +7395,35 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="/dist/assets/parishlink-dashboard-blue.css?v=20260929-remove-certificate-divider">
+    <link rel="stylesheet" href="/dist/assets/parishlink-dashboard-blue.css?v=20261004-hide-dashboard-announcements">
     <link rel="stylesheet" href="/dist/assets/certificate-booking-print.css?v=20260929-1">
+  <link rel="stylesheet" href="/dist/assets/login-reference-20261004.css?direct&v=account-rows-10">
+    <link rel="stylesheet" href="/dist/assets/text-reflow.css?v=20261004-2">
+      <link rel='stylesheet' href='/dist/assets/dashboard-colorful.css?v=20261004-7-heading-spacing'>
+    <link rel="stylesheet" href="/dist/assets/dashboard-type.css?v=20261004-8-compact-hero">
+    <style id="member-hero-compact">
+      @media screen {
+        html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user .user-home-hero {
+          box-sizing: border-box !important;
+          width: 100% !important;
+          height: auto !important;
+          min-height: 140px !important;
+          padding: 14px 24px !important;
+        }
+        html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user .user-home-hero__copy {
+          gap: 4px !important;
+        }
+        html[data-design="heaven"] body #root#root#root#root#root#root#root#root .dashboard-frame--user .user-home-hero__copy h3 {
+          margin: 4px 0 !important;
+          font-size: clamp(1.1rem, 1.8vw, 1.5rem) !important;
+          line-height: 1.15 !important;
+          letter-spacing: 0 !important;
+          word-spacing: 0 !important;
+          -webkit-text-stroke: 2px #245db5 !important;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/dist/assets/dashboard-screen-fit.css?v=20261004-4-live-screen-fit">
+    <link rel="stylesheet" href="/dist/assets/certificate-dropdown.css?v=20261004-4">
   </body>
 </html>

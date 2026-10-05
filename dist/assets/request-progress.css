@@ -1,0 +1,16 @@
+
+.user-request-booking-list .user-request-card__grid { display: none !important; }
+.request-progress { margin: 20px 0; }
+.request-progress__status { display: flex; gap: 12px; align-items: center; color: #244b7a; }
+.request-progress__status > span { color: #5a6f89; }
+.request-progress__line { display: flex; list-style: none; padding: 0; margin: 20px 0 0; }
+.request-progress__line li { position: relative; flex: 1; display: flex; flex-direction: column; gap: 10px; color: #64748b; font-size: 14px; }
+.request-progress__line li:not(:last-child)::after { content: ''; position: absolute; top: 7px; left: 16px; right: 0; height: 3px; background: #cbd5e1; }
+.request-progress__line li.is-complete::after { background: #2563eb; }
+.request-progress__dot { width: 17px; height: 17px; border-radius: 50%; background: #cbd5e1; position: relative; z-index: 1; }
+.is-complete .request-progress__dot, .is-current .request-progress__dot { background: #2563eb; }
+.is-current .request-progress__dot { box-shadow: 0 0 0 4px #dbeafe; }
+.is-stopped .request-progress__dot { background: #dc2626; }
+.request-progress__line .is-current { color: #1d4ed8; font-weight: 600; }
+.request-progress__line .is-stopped { color: #b91c1c; }
+@media(max-width: 480px) { .request-progress__line li { font-size: 12px; padding-right: 8px; } }

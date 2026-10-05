@@ -1,4 +1,11 @@
-/* Shared styling for secretary and AI help, without changing chat behavior. */
+/* Shared styling for secretary and AI help. */
+.parish-presence { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; font-size: .8rem; font-weight: 600; }
+.parish-presence::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.parish-presence.is-active { color: #166534 !important; background: #dcfce7; }
+.parish-presence:is(.is-inactive,.is-unknown) { color: #475569 !important; background: #e2e8f0; }
+@media screen {
+  html[data-design="heaven"] #root#root .screen-grid:has(.user-support-hero) > .user-support-chat:has(.parish-secretary-chat__body) { grid-column: 1 / -1; }
+}
 @media screen {
   html[data-design="heaven"] #root#root .overview-shell:has(.user-support-hero) > .overview-shell__header {
     padding: 26px 28px; margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
@@ -69,7 +76,7 @@
     display: none !important;
   }
   html[data-design="heaven"] #root#root .user-support-chat .user-panel__header > div::after {
-    content: "Send a message to the Parish Secretary for assistance with certificates, bookings, schedules, requirements, and other parish-related concerns.";
+    content: none;
     display: block;
     max-width: 72ch;
     margin-top: 7px;
