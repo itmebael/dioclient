@@ -238,9 +238,17 @@ html[data-design="heaven"] #root#root .scene--login .login-terms-link {
 
 html[data-design="heaven"] #root#root .scene--login .forgot-password-link {
   align-self: flex-end !important;
-  margin-top: -4px !important;
+  margin: 0 !important;
   padding: 0 !important;
   font-size: 1.44rem !important;
+}
+
+/* Give the recovery link room between the password and Google consent. */
+html[data-design="heaven"] body #root#root#root#root#root .scene--login .login-form-options {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0 6px !important;
+  padding: 4px 0 !important;
 }
 
 html[data-design="heaven"] #root#root .scene--login .login-terms-embed {
