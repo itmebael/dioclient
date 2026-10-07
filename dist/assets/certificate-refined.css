@@ -1,0 +1,64 @@
+/* Certificate service: blue accents, white form cards, and a clear step strip. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root#root#root#root#root#root .dashboard-frame--user {
+    & .user-home-actions > .user-home-action:nth-child(3) {
+      --card-accent: #4462df;
+      background: linear-gradient(135deg,#f8faff,#edf1ff) !important;
+      border-color: #cfdaff !important;
+    }
+    & .user-home-actions > .user-home-action:nth-child(3) .user-home-action__icon { background: linear-gradient(135deg,#597bf5,#3550ca) !important; }
+    & .user-home-actions > .user-home-action:nth-child(3) .reference-action-description { color: #5b6fa6 !important; }
+    & .overview-shell:has(.user-certificate-booking) {
+      & .user-panel:has(> .user-certificate-booking) { padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+      & .user-certificate-booking {
+        --member-accent: #4462df; --member-line: #d4dff7;
+        display: grid !important; grid-template-columns: minmax(0,1fr) 64px !important; gap: 16px !important;
+        padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important;
+      }
+      & .user-certificate-booking__selector {
+        padding: 18px 20px !important; border: 1px solid #d4dff7 !important; border-radius: 20px !important;
+        background: linear-gradient(120deg,#f7faff,#edf2ff) !important;
+      }
+      & .user-certificate-booking__selector > .login-field > span { color: #253b72 !important; font-weight: 700 !important; }
+      & #selectedCertificateService { min-height: 48px !important; font-size: .78rem !important; border-color: #ccd8f5 !important; background: #fff !important; color: #152c60 !important; }
+      & .ucs-remind-trigger { align-self: stretch !important; height: auto !important; background: #f0f4ff !important; color: #4462df !important; border: 1px solid #d4dff7 !important; border-radius: 18px !important; box-shadow: none !important; }
+      & .ucs-remind-trigger :is(svg,span) { color: #4462df !important; -webkit-text-fill-color: #4462df !important; }
+      & .user-certificate-booking > .detail-list { grid-column: 1 / -1 !important; min-width: 0 !important; }
+      & .user-certificate-booking__option {
+        padding: 24px !important; border: 1px solid #d4dff7 !important; border-radius: 24px !important;
+        background: #fff !important; box-shadow: 0 8px 24px #29498b09 !important;
+      }
+      & .certificate-inline .certificate-booking-modal__dialog {
+        gap: 24px !important; background: transparent !important; border: 0 !important; padding: 0 !important;
+        height: auto !important; max-height: none !important; overflow: visible !important; max-width: 100% !important;
+      }
+      & .certificate-progress { margin: 0 !important; padding: 20px 12px 14px !important; border: 1px solid #e1e8f7; border-radius: 18px; background: #f7faff; }
+      & .certificate-progress__track { top: 38px !important; height: 3px !important; background: #dfe7f7 !important; }
+      & .certificate-progress__fill { background: #4462df !important; }
+      & .certificate-progress li span { width: 38px !important; height: 38px !important; background: #e7edf8 !important; color: #65789f !important; border: 3px solid #f7faff !important; }
+      & .certificate-progress li.is-active span { background: #4462df !important; color: white !important; -webkit-text-fill-color: white !important; box-shadow: 0 0 0 3px #4462df14; }
+      & .certificate-progress li.is-active strong { color: #3654ce !important; }
+      & .certificate-progress li strong { font-size: .65rem !important; line-height: 1.3 !important; color: #61749b !important; overflow-wrap: anywhere; }
+      & .certificate-progress p { font-size: .62rem !important; color: #6a7b9e !important; margin: 14px 0 0 !important; }
+      & .certificate-booking-modal__fields { gap: 18px !important; }
+      & .certificate-booking-modal__section-title { padding: 0 0 14px !important; margin: 0 !important; border-bottom: 1px solid #e7edf8 !important; background: transparent !important; }
+      & .certificate-booking-modal__section-title strong { font-size: .9rem !important; color: #152c60 !important; }
+      & .certificate-booking-modal__section-title span { color: #7080a0 !important; }
+      & .certificate-booking-modal__fields .login-field > span { color: #354c77 !important; font-weight: 600 !important; }
+      & .certificate-booking-modal__fields :is(input,select,textarea) { background: #f8faff !important; border-color: #dce4f4 !important; border-radius: 12px !important; box-shadow: none !important; }
+      & .certificate-booking-modal__fields :is(input,select,textarea):focus-visible { background: #fff !important; outline-color: #4462df !important; }
+      & .certificate-booking-modal__actions { display: flex !important; flex-wrap: wrap !important; justify-content: flex-end !important; gap: 12px !important; margin: 0 !important; padding-top: 18px !important; border-top: 1px solid #e7edf8; }
+      & .certificate-booking-modal__actions .primary-action { min-height: 46px !important; padding: 12px 28px !important; border: 1px solid #4462df !important; border-radius: 12px !important; background: #4462df !important; color: #fff !important; -webkit-text-fill-color: #fff !important; box-shadow: 0 4px 12px #4462df20 !important; }
+      & .certificate-review { border-color: #d4dff7 !important; background: #f7faff !important; color: #152c60 !important; }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root#root#root#root#root#root .dashboard-frame--user .overview-shell:has(.user-certificate-booking) {
+    & .user-certificate-booking__selector { padding: 14px !important; }
+    & .user-certificate-booking__option { padding: 16px !important; border-radius: 20px !important; }
+    & .certificate-progress { padding-inline: 6px !important; }
+    & .certificate-progress li strong { font-size: .55rem !important; }
+    & .certificate-booking-modal__actions .primary-action { flex: 1; }
+  }
+}

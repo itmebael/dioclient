@@ -1,0 +1,57 @@
+/* The dashboard's palette and surfaces shared across member screens. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root#root#root .dashboard-frame--user {
+    --text-primary: #081b68;
+    --text-secondary: #5374ba;
+    & :is(.workspace,.workspace__main,.overview-shell) { background: #eaf3ff !important; box-shadow: none !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) { width: 100% !important; max-width: none !important; padding: 18px 24px 24px !important; gap: 16px !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) > .overview-shell__header { margin: 0 !important; padding: 0 0 4px !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) > .overview-shell__header :is(h3,p,span,.screen-subtitle) { color: #081b68 !important; -webkit-text-fill-color: #081b68 !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) > .overview-shell__header :is(p,.screen-subtitle) { color: #5374ba !important; -webkit-text-fill-color: #5374ba !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) > .overview-shell__header h3 { font-size: clamp(22px,1.5rem,36px) !important; font-weight: 750 !important; line-height: 1.2 !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) .screen-grid { gap: 16px !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.user-panel,.user-summary-card,.member-service-tile,.user-certificate-booking,.user-support-mode-card) {
+      --member-accent: #0087ff;
+      --member-line: #c4e4ff;
+      --member-start: #f8fcff;
+      --member-end: #f0f8ff;
+      min-width: 0 !important;
+      border: 1px solid var(--member-line) !important;
+      border-radius: 23px !important;
+      background: linear-gradient(120deg,var(--member-start),var(--member-end)) !important;
+      box-shadow: 0 4px 9px #245db510 !important;
+    }
+    & .overview-shell:not(.overview-shell--user-dashboard) .user-panel { padding: 20px !important; }
+    & .overview-shell:has(.daily-mass-container) .user-panel,
+    & .overview-shell:has(.user-event-list) .user-panel {
+      --member-accent: #009c70; --member-line: #cfeee0; --member-start: #f4fff9; --member-end: #ecfaf5;
+    }
+    & .overview-shell:has(.user-request-booking-list) .user-panel,
+    & .overview-shell:has(.announcement-board-panel) .user-panel,
+    & .overview-shell:has(.user-support-chat) .user-panel {
+      --member-accent: #8524fa; --member-line: #e1ccff; --member-start: #fcfaff; --member-end: #f6f0ff;
+    }
+    & .overview-shell:has(.user-certificate-booking) :is(.user-panel,.user-certificate-booking) {
+      --member-accent: #ff4d00; --member-line: #ffdac0; --member-start: #fff9f0; --member-end: #fff3e6;
+    }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.user-panel__header,.user-home-card__header) { border: 0 !important; background: transparent !important; padding: 0 !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(h4,h5,.user-panel__header h4,.member-service-tile strong) { color: #081b68 !important; -webkit-text-fill-color: #081b68 !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) .user-panel__header h4 { font-size: clamp(18px,1.1rem,28px) !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.user-appointment-calendar,.user-appointment-side,.user-request-booking-list,.user-profile-summary,.daily-mass-content,.sunday-mass-item,.user-support-side,.user-certificate-booking__option,.empty-state) {
+      min-width: 0 !important; border: 1px solid var(--member-line,#c4e4ff) !important; border-radius: 16px !important;
+      background: #ffffffcf !important; box-shadow: none !important; color: #183652 !important;
+    }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(input,select,textarea) { border: 1px solid #c9dcf5 !important; border-radius: 12px !important; background: white !important; color: #183652 !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(input,select,textarea):focus-visible { outline: 2px solid #0087ff !important; outline-offset: 2px !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.certificate-tabs,.user-support-mode-tabs) { border: 1px solid #c4e4ff !important; border-radius: 16px !important; background: #ffffffbd !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.certificate-tabs button,.user-support-mode-tab) { border-radius: 12px !important; color: #5374ba !important; background: transparent !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.certificate-tabs button.is-active,.certificate-tabs button[aria-selected="true"],.user-support-mode-tab.is-active) { color: #fff !important; -webkit-text-fill-color: white !important; background: #0087ff !important; border-color: #0087ff !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) :is(.primary-button,.appointment-book-here,.user-profile-edit-button,button[type="submit"]) { background: #0087ff !important; color: #fff !important; -webkit-text-fill-color: white !important; border: 1px solid #0087ff !important; border-radius: 12px !important; box-shadow: 0 3px 7px #0087ff25 !important; }
+  }
+}
+@media screen and (max-width:700px) {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root#root#root .dashboard-frame--user {
+    & .overview-shell:not(.overview-shell--user-dashboard) { padding: 12px !important; }
+    & .overview-shell:not(.overview-shell--user-dashboard) .user-panel { padding: 16px !important; border-radius: 20px !important; }
+  }
+}

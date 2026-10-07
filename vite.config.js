@@ -53,7 +53,11 @@ export default defineConfig(({ mode }) => {
       // Browser verification artifacts are not application sources.
       watch: {
         // Match the directory itself so Chokidar never enters locked browser caches.
-        ignored: (filePath) => /(?:^|\/)(?:\.(?:design-browser[^/]*|spacing-browser[^/]*|auth-browser|layout-browser|design-preview)|site-build)(?:\/|$)/.test(filePath.replace(/\\/g, "/")),
+        ignored: (filePath) => /(?:^|\/)(?:\.(?:reference-browser[^/]*|design-browser[^/]*|spacing-browser[^/]*|auth-browser|layout-browser|design-preview)|site-build)(?:\/|$)/.test(filePath.replace(/\\/g, "/")),
+        // Windows can lock images while Explorer or another app reads them.
+        // Polling avoids native fs.watch EBUSY errors and preserves live reload.
+        usePolling: process.platform === "win32",
+        interval: 300,
       },
       port,
       strictPort,

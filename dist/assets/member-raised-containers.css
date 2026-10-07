@@ -1,0 +1,37 @@
+/* Raised edges for visible member cards, with deeper borders below. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root#root#root#root#root#root#root#root .dashboard-frame--user {
+    --edge-line: #adcbed;
+    --edge-bottom: #7da8db;
+    --edge-depth: #aec9eb;
+    & :is(.user-home-action,.user-home-card,.user-home-announcement,.user-chat-card,.user-panel:not(:has(> .user-certificate-booking)),.user-summary-card,.member-service-tile,.user-support-mode-card,.user-certificate-booking__selector,.user-certificate-booking__option,.daily-mass-time,.mass-bento-daily .user-event-list) {
+      border: 2px solid var(--edge-line) !important;
+      border-bottom-color: var(--edge-bottom) !important;
+      box-shadow: inset 0 2px 0 #ffffffeb,inset 0 -1px 0 #ffffff66,0 4px 0 var(--edge-depth),0 10px 20px #23487812 !important;
+    }
+    & :is(.user-home-action:nth-child(2),.user-home-card--requests,.announcement-board-panel,.financial-reports-panel,.user-support-chat,.user-support-mode-card,.mass-bento-daily .user-event-list) {
+      --edge-line: #ccb7ee; --edge-bottom: #ab8dd5; --edge-depth: #cdb9e9;
+    }
+    & :is(.user-home-card--mass,.mass-bento-sunday,.user-panel:has(> .sunday-mass-list)) {
+      --edge-line: #a4d8c3; --edge-bottom: #78b89d; --edge-depth: #b0ddca;
+    }
+    & :is(.user-home-action:nth-child(3),.user-certificate-booking__selector,.user-certificate-booking__option) {
+      --edge-line: #b5c5ef; --edge-bottom: #8b9fd7; --edge-depth: #bccbf0;
+    }
+    & :is(.sunday-mass-item,.user-mass-preview,.user-request-row,.certificate-progress,.certificate-review,.user-appointment-calendar,.user-appointment-side,.user-profile-summary,.user-support-side,.user-home-dashboard .empty-state) {
+      border: 2px solid var(--edge-line) !important;
+      border-bottom-color: var(--edge-bottom) !important;
+      box-shadow: inset 0 1px 0 #fff,0 2px 0 var(--edge-depth),0 5px 10px #23487808 !important;
+    }
+    & .sidebar--user::before {
+      border: 2px solid #ffffff59 !important;
+      border-bottom-color: #d0e6ffa6 !important;
+      box-shadow: inset 0 2px 0 #ffffff40,inset 0 -2px 0 #142f6550,4px 0 12px #12346916 !important;
+    }
+    & .user-home-hero {
+      border: 2px solid #c5dcf8 !important;
+      border-bottom-color: #88b1df !important;
+      box-shadow: 0 4px 0 #b8d1ef,0 8px 16px #23487812 !important;
+    }
+  }
+}

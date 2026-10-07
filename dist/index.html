@@ -141,7 +141,7 @@
         history.replaceState(null, "", location.pathname + location.search + "#user-dashboard");
       }
     </script>
-    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261005-parish-presence-7"></script>
+    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261007-member-requests"></script>
     <script defer src="/dist/assets/dashboard-updates.js?v=20261004-complete-booking-fields"></script>
     <script defer src="/dist/assets/profile-avatar-upload.js?v=20260929-react-safe-avatar"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
@@ -2648,9 +2648,9 @@
               'th{background:#f1f5f9;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#475569;}' +
               'tfoot td{font-size:11px;color:#64748b;padding-top:12px;border-top:2px solid #cbd5e1;}' +
               '@media print { body{padding:0;} .noprint{display:none;} }' +
-            '</style><link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">
-<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">
-</head><body>' +
+            '</style><link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">' +
+            '<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">' +
+            '</head><body>' +
               '<h1>' + escapeHtml(meta.label) + '</h1>' +
               '<div class="meta">' + escapeHtml(parishName) + (filterLine ? ' — ' + escapeHtml(filterLine) : '') + '</div>' +
               '<table><thead>' + head + '</thead><tbody>' + body + '</tbody>' +
@@ -2663,6 +2663,7 @@
         display: none !important;
       }
     </style>
+    <link rel="stylesheet" href="/dist/assets/dashboard-image-reference.css?v=20261007-1">
   </body></html>`;
 
           var w = window.open('', '_blank', 'width=960,height=720');
@@ -2721,9 +2722,9 @@
               '.empty{padding:10px 12px;color:#94a3b8;font-style:italic;}' +
               '.section-count{float:right;font:600 11px/1 system-ui;color:#64748b;letter-spacing:.06em;text-transform:uppercase;}' +
               '@media print { body{padding:0;} h2{break-after:avoid;} table{page-break-inside:auto;} tr{page-break-inside:avoid;} }' +
-            '</style><link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">
-<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">
-</head><body>' +
+            '</style><link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">' +
+            '<link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">' +
+            '</head><body>' +
               '<h1>Parish Reports</h1>' +
               '<div class="meta">' + escapeHtml(parishName) +
                 (filterLine ? ' — ' + escapeHtml(filterLine) : '') +
@@ -7425,5 +7426,14 @@
     </style>
     <link rel="stylesheet" href="/dist/assets/dashboard-screen-fit.css?v=20261004-4-live-screen-fit">
     <link rel="stylesheet" href="/dist/assets/certificate-dropdown.css?v=20261004-4">
+    <link rel="stylesheet" href="/dist/assets/dashboard-image-reference.css?v=20261007-12-settings-card">
+    <script defer src="/dist/assets/dashboard-image-reference.js?v=20261007-5-settings-card"></script>
+    <link rel="stylesheet" href="/dist/assets/member-design-consistency.css?v=20261007-1">
+    <link rel="stylesheet" href="/dist/assets/mass-schedule-bento.css?v=20261007-3-special-priority">
+    <link rel="stylesheet" href="/dist/assets/sidebar-glass.css?v=20261007-7-no-glow">
+    <link rel="stylesheet" href="/dist/assets/dashboard-mobile-bento.css?v=20261007-1">
+    <link rel="stylesheet" href="/dist/assets/certificate-refined.css?v=20261007-1">
+    <link rel="stylesheet" href="/dist/assets/member-raised-containers.css?v=20261007-1">
+    <link rel="stylesheet" href="/dist/assets/request-status-alignment.css?v=20261007-1">
   </body>
 </html>
