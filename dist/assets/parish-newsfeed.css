@@ -1,0 +1,40 @@
+/* Scoped to the parish feed; other dashboard panels keep their own layout. */
+.overview-shell--user:has(.parish-newsfeed) { background: #f0f2f5 !important; border-radius: 20px; padding: 24px !important; }
+.parish-newsfeed.screen-grid { display: flex !important; flex-direction: column; gap: 24px !important; width: min(100%, 720px); margin: 0 auto; }
+.parish-newsfeed .announcement-board-panel,
+.parish-newsfeed .parish-bulletin { padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.parish-newsfeed .announcement-board-panel > .user-panel__header,
+.parish-newsfeed .parish-bulletin > .user-panel__header { padding: 0 4px 12px !important; margin: 0 !important; display: flex; justify-content: space-between; align-items: center; }
+.parish-newsfeed .announcement-board,
+.parish-newsfeed .bulletin-grid { display: flex !important; flex-direction: column; gap: 18px; }
+.parish-newsfeed .announcement-card--user,
+.parish-newsfeed .bulletin-post { display: block !important; padding: 20px !important; margin: 0 !important; background: #fff !important; border: 1px solid #e1e4e8 !important; border-radius: 12px !important; box-shadow: 0 1px 3px #18243812 !important; overflow: hidden; }
+.parish-newsfeed .announcement-card__body { padding: 0 !important; width: 100%; min-width: 0; }
+.parish-newsfeed .feed-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.parish-newsfeed .feed-avatar { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%; background: #e7f0ff; color: #1877f2; font-size: 15px; font-weight: 700; }
+.parish-newsfeed .feed-post-identity { min-width: 0; }
+.parish-newsfeed .feed-post-identity > strong { color: #1c1e21 !important; font-size: 15px; font-weight: 700; }
+.parish-newsfeed .feed-post-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 3px; color: #65676b; font-size: 12px; }
+.parish-newsfeed .feed-post-meta span { color: #65676b !important; }
+.parish-newsfeed .announcement-card h5,
+.parish-newsfeed .bulletin-post > h4 { font-size: 19px !important; line-height: 1.4; color: #1c1e21 !important; margin: 0 0 8px !important; }
+.parish-newsfeed .announcement-card__body > p,
+.parish-newsfeed .bulletin-content { color: #303338 !important; font-size: 15px !important; line-height: 1.65; white-space: pre-wrap; margin: 0 !important; overflow-wrap: anywhere; }
+.parish-newsfeed .announcement-photos { margin: 18px -20px -20px; }
+.parish-newsfeed .announcement-photos > p { display: none; }
+.parish-newsfeed .announcement-photos__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; }
+.parish-newsfeed .announcement-photos__grid:has(> button:only-child) { grid-template-columns: 1fr; }
+.parish-newsfeed .announcement-photos__grid button { border: 0; border-radius: 0; background: #f0f2f5; }
+.parish-newsfeed .announcement-photos__grid img { width: 100%; height: 280px; object-fit: cover; }
+.parish-newsfeed .announcement-photos__grid button:only-child img { height: auto; max-height: 600px; object-fit: contain; }
+.parish-newsfeed .bulletin-filter { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; }
+.parish-newsfeed .bulletin-filter > span { font-size: 13px; color: #65676b; }
+.parish-newsfeed .bulletin-filter select { width: auto; flex: 1; background: #fff !important; border: 1px solid #d8dce2 !important; border-radius: 8px; padding: 10px 12px; }
+.parish-newsfeed .parish-bulletin > .user-panel__header button { background: #e7f0ff; color: #1877f2; border: 0; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+.parish-newsfeed .parish-bulletin > .user-panel__header button:disabled { opacity: .55; cursor: wait; }
+@media (max-width: 600px) {
+  .overview-shell--user:has(.parish-newsfeed) { padding: 12px !important; }
+  .parish-newsfeed .announcement-card--user, .parish-newsfeed .bulletin-post { padding: 16px !important; }
+  .parish-newsfeed .announcement-photos { margin: 16px -16px -16px; }
+  .parish-newsfeed .announcement-photos__grid img { height: 180px; }
+}

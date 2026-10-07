@@ -24,6 +24,10 @@ create table if not exists public.parish_bulletins (
 create index if not exists parish_bulletins_feed_idx
   on public.parish_bulletins(parish_id, status, published_at desc);
 
+-- Optional photos use the same format as announcement uploads.
+alter table public.parish_bulletins
+  add column if not exists photo_urls jsonb not null default '[]'::jsonb;
+
 -- Do not use user-editable JWT user_metadata to authorize publishers.
 create or replace function public.can_publish_parish_bulletin(target_parish uuid)
 returns boolean language sql stable security definer

@@ -138,10 +138,10 @@
     </style>
     <script>
       if (location.hash === "#user-bulletin") {
-        history.replaceState(null, "", location.pathname + location.search + "#user-dashboard");
+        history.replaceState(null, "", location.pathname + location.search + "#user-announcement");
       }
     </script>
-    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261007-member-requests"></script>
+    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261008-social-feed"></script>
     <script defer src="/dist/assets/dashboard-updates.js?v=20261004-complete-booking-fields"></script>
     <script defer src="/dist/assets/profile-avatar-upload.js?v=20260929-react-safe-avatar"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
@@ -974,6 +974,7 @@
   <link rel="stylesheet" href="/dist/assets/announcement-reports.css?v=20261005-remove-announcement-spans-2">
 <link rel="stylesheet" href="/dist/assets/request-progress.css?v=20261005-1">
 <link rel="stylesheet" href="/dist/assets/member-profile.css?v=20261005-centered-avatar">
+<link rel="stylesheet" href="/dist/assets/parish-bulletin.css?v=20261008-feed-photos">
 </head>
   <body>
     <dialog id="login-terms-dialog" class="login-terms-dialog" aria-labelledby="login-terms-title">
@@ -2664,7 +2665,8 @@
       }
     </style>
     <link rel="stylesheet" href="/dist/assets/dashboard-image-reference.css?v=20261007-1">
-  </body></html>`;
+      <link rel="stylesheet" href="/dist/assets/parish-newsfeed.css?v=20261008-social-feed">
+</body></html>`;
 
           var w = window.open('', '_blank', 'width=960,height=720');
           if (!w) return;
@@ -2736,7 +2738,8 @@
               '</div>' +
               '<div id="prb-sections"><p class="empty">Loading data…</p></div>' +
             `    <link rel='stylesheet' href='/dist/assets/dashboard-colorful.css?v=20261004-7-heading-spacing'>
-  </body></html>`
+      <link rel="stylesheet" href="/dist/assets/parish-newsfeed.css?v=20261008-social-feed">
+</body></html>`
           );
           w.document.close();
 
@@ -7435,5 +7438,6 @@
     <link rel="stylesheet" href="/dist/assets/certificate-refined.css?v=20261007-1">
     <link rel="stylesheet" href="/dist/assets/member-raised-containers.css?v=20261007-1">
     <link rel="stylesheet" href="/dist/assets/request-status-alignment.css?v=20261007-1">
-  </body>
+      <link rel="stylesheet" href="/dist/assets/parish-newsfeed.css?v=20261008-social-feed">
+</body>
 </html>
