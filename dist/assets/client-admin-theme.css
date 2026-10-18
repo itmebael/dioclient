@@ -1,0 +1,73 @@
+/* Final client adaptations of the admin's blue panels and welcome banner. */
+@media screen {
+  html[data-design="heaven"] body #root#root#root#root#root#root#root#root#root#root#root#root#root#root#root#root#root .dashboard-frame--user {
+    --heaven-bg: #eef4ff;
+    --heaven-ink: #193e75;
+    --heaven-muted: #627797;
+    --heaven-line: #d5e1f3;
+    --heaven-accent: #2446a8;
+    --portal-ink: #193e75;
+    --sidebar-width: 270px;
+    color: #193e75 !important;
+    & .workspace, & .workspace__main, & .overview-shell, & .workspace__topbar--user { background: #eef4ff !important; }
+    & .sidebar--user { width: var(--sidebar-width) !important; padding: 24px 16px 18px !important; background: linear-gradient(125deg, #101f4de3, #2449b7e0 65%, #2949b4e8), url('/church.jpg') center / cover no-repeat !important; border-right: 1px solid #ffffff26 !important; }
+    & .sidebar__brand { border: 0 !important; border-bottom: 1px solid #ffffff26 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+    & .sidebar__brand h1, & .sidebar__caption { color: #fff !important; }
+    & .sidebar__nav { display: flex !important; flex-direction: column !important; overflow-y: auto !important; max-height: none !important; gap: 5px !important; }
+    & .nav-item { flex: 0 0 auto !important; min-height: 40px !important; padding: 10px 14px !important; color: #e8effd !important; background: transparent !important; border: 1px solid transparent !important; border-radius: 7px !important; box-shadow: none !important; font-weight: 500 !important; }
+    & .nav-item.is-active { color: #fff !important; background: #6b9cde !important; border-color: #a9c9f1 !important; }
+    & .nav-item:hover { background: #ffffff18 !important; }
+    & .nav-item--logout { color: #fff !important; border-color: #ffffff40 !important; background: #ffffff0d !important; }
+    & .nav-item > span { color: inherit !important; -webkit-text-fill-color: currentColor !important; -webkit-text-stroke: 0 !important; text-shadow: none !important; }
+    & .nav-item svg { filter: none !important; width: 20px !important; height: 20px !important; }
+    & .sidebar__brand h1 { font-size: 22px !important; }
+    & .sidebar__caption { font-size: 12px !important; }
+    & .user-home-dashboard { gap: 20px !important; }
+    & .user-home-hero {
+      aspect-ratio: 2048 / 475 !important;
+      min-height: 180px !important;
+      position: relative !important;
+      background: linear-gradient(90deg, #fff 0%, #fffffff0 24%, #ffffffa6 43%, transparent 65%), url('/dist/assets/admin-welcome.png') center / cover no-repeat !important;
+      border: 1px solid #d5e1f3 !important;
+      border-radius: 20px !important;
+      box-shadow: none !important;
+      padding: 24px 32px !important;
+    }
+    & .user-home-hero > :is(div, h1, h2, h3, h4, p) { display: block !important; position: relative !important; max-width: 58% !important; }
+    & .user-home-hero :is(h1,h2,h3,h4) { font: 400 clamp(26px, 3vw, 48px)/1.15 Georgia, serif !important; color: #193e75 !important; -webkit-text-fill-color: #193e75 !important; -webkit-text-stroke: 0 !important; text-shadow: none !important; letter-spacing: -.025em !important; }
+    & .user-home-hero p { color: #526f90 !important; font-size: 15px !important; }
+    & :is(.user-home-action, .user-home-card, .page-card, .glass-card, .member-page-card) {
+      --card-accent: #2446a8;
+      background: #fff !important;
+      border: 1px solid #d5e1f3 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 8px 24px rgba(35,65,110,.06) !important;
+    }
+    & .user-home-action { min-height: 104px !important; }
+    & .user-home-action__icon { background: #eef4ff !important; color: #2446a8 !important; border: 1px solid #cbdcff !important; border-radius: 12px !important; }
+    & .user-home-action__icon svg { color: #2446a8 !important; stroke: currentColor !important; }
+    & .user-home-action :is(strong, .user-home-action__arrow) { color: #193e75 !important; }
+    & .user-home-action :is(.reference-action-description, span:not([class])) { color: #627797 !important; }
+    & :is(.user-home-card__header, .glass-card__header) { padding: 16px !important; border-radius: 10px !important; background: #2446a8 !important; color: #fff !important; margin-bottom: 18px !important; }
+    & :is(.user-home-card__header, .glass-card__header) :is(h2,h3,h4,p,span) { color: #fff !important; }
+    & .user-home-card__header h4::before { display: none !important; }
+    & .user-home-card__header button { color: #fff !important; border-color: #ffffff66 !important; background: #ffffff18 !important; }
+    & .user-mass-date { background: linear-gradient(#2446a8 0 34%, #fff 34%) !important; box-shadow: none !important; }
+    & .user-request-row { border: 1px solid #d5e1f3 !important; background: #f8faff !important; }
+    & .profile-pill__avatar { background: #dce8fc !important; }
+    & .profile-pill__avatar svg { visibility: visible !important; }
+    @media (max-width: 900px) {
+      & .sidebar--user { width: min(300px, 90vw) !important; }
+      & .user-home-hero { padding: 22px !important; min-height: 280px !important; height: auto !important; aspect-ratio: auto !important; }
+      & .user-home-hero > :is(div,h1,h2,h3,h4,p) { max-width: 80% !important; }
+    }
+  }
+  html[data-design="heaven"][data-theme="dark"] body #root#root#root#root#root#root#root#root#root#root#root#root#root#root#root#root#root .dashboard-frame--user {
+    --heaven-bg: #101b2d; --heaven-ink: #e3edff; --portal-ink: #e3edff;
+    & .workspace, & .workspace__main, & .overview-shell, & .workspace__topbar--user { background: #101b2d !important; }
+    & :is(.user-home-action,.user-home-card,.page-card,.glass-card,.member-page-card) { background: #172238 !important; border-color: #334155 !important; }
+    & .user-home-action :is(strong,.user-home-action__arrow) { color: #e3edff !important; }
+    & .user-home-action :is(.reference-action-description,span:not([class])) { color: #afc3e0 !important; }
+    & .user-request-row { background: #1e2d45 !important; border-color: #334155 !important; }
+  }
+}

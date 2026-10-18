@@ -13,8 +13,15 @@ export function authenticatedPhotoUrl(url) {
   const parsed = new URL(url);
   if (parsed.origin !== 'https://lnipoknkbjcxwnggzrnm.supabase.co') return null;
   if (!/^\/storage\/v1\/object\/(public|sign|authenticated)\//.test(parsed.pathname)) return null;
-  parsed.pathname = parsed.pathname.replace(/\/object\/(public|sign)\//, '/object/authenticated/');
-  parsed.search = '';
+  // Preserve the storage signature on signed URLs. Convert public URLs only
+  // when an authenticated fetch is required by the bucket policy.
+  if (parsed.pathname.includes('/object/public/')) {
+    parsed.pathname = parsed.pathname.replace('/object/public/', '/object/authenticated/');
+    parsed.search = '';
+  } else if (parsed.pathname.includes('/object/sign/')) {
+    parsed.pathname = parsed.pathname.replace('/object/sign/', '/object/authenticated/');
+    parsed.search = '';
+  }
   return parsed.href;
 }
 
@@ -45,7 +52,7 @@ function FeedPhoto({ React, url, alt, ...props }) {
     })();
     return () => { active = false; if (objectUrl) URL.revokeObjectURL(objectUrl); };
   }, [retry, url]);
-  return failed ? React.createElement('span', { role: 'status' }, 'Photo unavailable. The parish may need to restore the file or its viewing permission.') :
+  return failed ? React.createElement('span', { className: 'announcement-photo-unavailable', role: 'status' }, 'Photo unavailable. The parish may need to restore the file or its viewing permission.') :
     React.createElement('img', { ...props, src: source, alt, onError: () => retry ? setFailed(true) : setRetry(true) });
 }
 

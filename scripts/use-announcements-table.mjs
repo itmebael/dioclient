@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const file='dist/assets/index-login-20261004-clean-registration.js';
+let source=fs.readFileSync(file,'utf8');
+const start=source.indexOf('function Eg('),end=source.indexOf('function Lg(',start);
+if(start<0||end<0)throw Error('Announcement component not found');
+source='import { MemberAnnouncements } from "./member-announcements-table.js?v=20261013-1";\n'+source.slice(0,start)+'function Eg({userProfile:e,workspaceSession:t}){return n.jsx(MemberAnnouncements,{React:N,readPosts:de,accessToken:be(t),EmptyState:ce})}'+source.slice(end);
+fs.writeFileSync(file,source);
+const entry='dist/index.html';let html=fs.readFileSync(entry,'utf8');const endBody=html.lastIndexOf('</body>');
+html=html.slice(0,endBody)+'<link rel="stylesheet" href="/dist/assets/member-announcements-table.css?v=20261013-1">\n'+html.slice(endBody);fs.writeFileSync(entry,html);
+console.log('Member announcements now use tabs and tables.');
