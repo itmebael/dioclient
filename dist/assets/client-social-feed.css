@@ -40,3 +40,7 @@
 #root .parish-social-feed :is(.social-feed-panel,.social-post-list,.social-post-activities,.social-post-activity) { height:auto!important; max-height:none!important; overflow:visible!important; }
 #root .parish-social-feed .social-post-activity p { display:block!important; max-height:none!important; overflow:visible!important; -webkit-line-clamp:unset!important; white-space:pre-wrap!important; }
 }
+@layer client-social-feed {
+#root .social-activity-location { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:9px; }
+#root .social-activity-location span { font-size:11px; color:#7d8eab; line-height:1.6; }
+}
