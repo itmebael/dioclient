@@ -1,0 +1,27 @@
+/* Keep the sign-in heading in a vertical flow, separate from field rows. */
+@layer client-login-spacing {
+.scene--login .login-card--form:not(.login-card--register) .login-card__header {
+ display:flex!important; flex-direction:column!important; align-items:flex-start!important;
+ justify-content:flex-start!important; gap:7px!important; margin:0 0 22px!important;
+ padding:0!important; width:100%!important; min-width:0!important; text-align:left!important;
+}
+.scene--login .login-card--form:not(.login-card--register) .login-card__header > * {
+ position:static!important; transform:none!important; width:auto!important; max-width:100%!important;
+ margin:0!important; padding:0!important; white-space:normal!important;
+}
+.scene--login .login-card--form .client-reference-eyebrow {
+ order:-1!important; font-size:11px!important; font-weight:600!important; line-height:1.4!important;
+ letter-spacing:1px!important; color:#7184a0!important;
+}
+.scene--login .login-card--form:not(.login-card--register) .login-card__header h3 {
+ font-size:30px!important; line-height:1.2!important; letter-spacing:-.6px!important; color:#243b5d!important;
+}
+.scene--login .login-card--form:not(.login-card--register) .login-card__header p:not(.client-reference-eyebrow) {
+ font-size:14px!important; line-height:1.6!important; color:#6c7f9b!important;
+}
+.scene--login .login-card--form:not(.login-card--register) { box-sizing:border-box!important; padding:32px!important; }
+@media(max-width:600px) {
+.scene--login .login-card--form:not(.login-card--register) { padding:24px 20px!important; }
+.scene--login .login-card--form:not(.login-card--register) .login-card__header h3 { font-size:26px!important; }
+}
+}

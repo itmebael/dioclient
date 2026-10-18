@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" data-design="heaven">
-  <head>
+  <head><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style>
     <link rel="stylesheet" href="/dist/assets/certificate-steps.css?v=20261004-1" />
     <meta charset="UTF-8" />
     <!-- This CSP meta tag allows Vite to use eval() for hot-reloading in development -->
@@ -2639,7 +2639,7 @@
           }).join('');
 
           var html =
-            '<!doctype html><html><head><meta charset="utf-8"><title>' + escapeHtml(meta.label) + '</title>' +
+            '<!doctype html><html><head><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style><meta charset="utf-8"><title>' + escapeHtml(meta.label) + '</title>' +
             '<style>' +
               'body{font:13px/1.5 system-ui,sans-serif;color:#0f172a;padding:24px;}' +
               'h1{font:700 20px/1.2 system-ui;margin:0 0 4px;}' +
@@ -2708,7 +2708,7 @@
           if (!w) return;
           w.document.open();
           w.document.write(
-            '<!doctype html><html><head><meta charset="utf-8"><title>Parish Reports</title>' +
+            '<!doctype html><html><head><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style><meta charset="utf-8"><title>Parish Reports</title>' +
             '<style>' +
               'body{font:13px/1.5 system-ui,sans-serif;color:#0f172a;padding:24px;}' +
               'h1{font:700 24px/1.2 system-ui;margin:0 0 4px;}' +
@@ -7444,5 +7444,5 @@
 
 <script defer src="/dist/assets/client-reference.js?v=20261013-2"></script>
 <link rel="stylesheet" href="/dist/assets/client-calendar.css?v=20261014-dark-blue">
-</body>
+<link rel="stylesheet" href="/dist/assets/client-phone-layout.css?v=1"><script defer src="/dist/assets/client-phone-layout.js?v=1"></script><link rel="stylesheet" href="/dist/assets/client-login-spacing.css?v=1"></body>
 </html>

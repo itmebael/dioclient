@@ -1,0 +1,51 @@
+.phone-welcome,.phone-booking-actions,.phone-bottom-nav{display:none}
+@layer client-phone-layout {
+@media screen and (max-width:700px) {
+html:has(.dashboard-frame--user),body:has(.dashboard-frame--user){overflow-x:hidden!important;height:auto!important;background:#f4f8f6!important}
+#root .dashboard-frame--user{display:block!important;min-height:100dvh!important;height:auto!important;background:#f4f8f6!important;color:#123f34!important}
+#root .dashboard-frame--user .sidebar--user{display:none!important}
+#root .dashboard-frame--user .workspace{width:100%!important;min-width:0!important;margin:0!important;height:auto!important;background:#f4f8f6!important}
+#root .dashboard-frame--user .workspace__topbar{display:none!important}
+#root .overview-shell--user-dashboard{padding:16px 14px 108px!important;background:#f4f8f6!important;height:auto!important;overflow:visible!important}
+#root .overview-shell--user-dashboard > .overview-shell__header{display:none!important}
+#root .user-home-dashboard{display:flex!important;flex-direction:column!important;gap:20px!important;height:auto!important;overflow:visible!important}
+#root .phone-welcome{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:16px!important}
+#root .phone-welcome span{font-size:14px!important;color:#32745b!important;font-weight:600!important}
+#root .phone-welcome h2{font-size:30px!important;line-height:1.2!important;margin:4px 0!important;color:#123f34!important}
+#root .phone-welcome p{font-size:13px!important;line-height:1.6!important;color:#72877e!important;margin:4px 0 0!important;max-width:270px!important}
+#root .phone-welcome button{width:46px!important;height:46px!important;flex:0 0 46px!important;border:0!important;border-radius:50%!important;background:white!important;color:#17563f!important;display:grid!important;place-items:center!important;box-shadow:0 6px 18px #214f3710!important}
+#root .phone-welcome svg{width:23px!important;height:23px!important}
+#root .user-home-hero{position:relative!important;display:flex!important;align-items:flex-end!important;aspect-ratio:auto!important;height:240px!important;min-height:240px!important;padding:22px!important;border:0!important;border-radius:22px!important;background:linear-gradient(0deg,#103e32ed,transparent 90%),url('/dist/assets/church.jpg') center/cover!important;box-shadow:0 12px 28px #214f371a!important;overflow:hidden!important}
+#root .user-home-hero > .user-home-hero__copy{display:block!important;position:relative!important;z-index:1!important;color:white!important}
+#root .user-home-hero .member-hero-eyebrow{display:inline-block!important;font-size:10px!important;letter-spacing:1px!important;color:#dbeddf!important;margin-bottom:8px!important}
+#root .user-home-hero h3{display:block!important;font-size:24px!important;line-height:1.2!important;color:white!important;-webkit-text-stroke:0!important;text-shadow:none!important;margin:0 0 8px!important}
+#root .user-home-hero .member-hero-location{display:block!important;color:#dae9e0!important;font-size:13px!important}
+#root .phone-booking-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+#root .phone-booking-actions button{position:relative!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:8px!important;min-width:0!important;min-height:145px!important;padding:18px 16px!important;border:1px solid #d4dfd9!important;border-radius:20px!important;background:white!important;text-align:left!important;color:#154c39!important;box-shadow:0 8px 20px #214f3708!important}
+#root .phone-booking-actions svg{width:22px!important;height:22px!important;padding:10px!important;background:#e9f4eb!important;border-radius:12px!important;box-sizing:content-box!important;margin-bottom:4px!important}
+#root .phone-booking-actions strong{font-size:14px!important;line-height:1.4!important}
+#root .phone-booking-actions span{font-size:11px!important;color:#7b8e84!important;padding-right:20px!important}
+#root .phone-booking-actions b{position:absolute!important;right:14px!important;bottom:14px!important;width:28px!important;height:28px!important;display:grid!important;place-items:center!important;background:#e9f4eb!important;border-radius:50%!important}
+#root .user-home-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+#root .user-home-actions > .user-home-action{min-height:76px!important;grid-column:auto!important;grid-template-columns:40px 1fr 20px!important;grid-template-rows:auto auto!important;padding:14px!important;border-radius:16px!important;background:#fff!important;border:1px solid #d4dfd9!important;color:#154c39!important}
+#root .phone-bottom-nav{position:fixed!important;bottom:0!important;left:8px!important;right:8px!important;z-index:1000!important;display:flex!important;justify-content:space-around!important;align-items:center!important;padding:12px 12px calc(12px + env(safe-area-inset-bottom))!important;border-radius:28px 28px 0 0!important;background:#fffffffa!important;box-shadow:0 -8px 30px #214f3715!important;border:1px solid #e2eae5!important}
+#root .phone-bottom-nav a{display:flex!important;flex-direction:column!important;align-items:center!important;gap:5px!important;color:#8a9c92!important;font-size:11px!important;text-decoration:none!important;min-width:70px!important}
+#root .phone-bottom-nav svg{width:22px!important;height:22px!important}
+#root .phone-bottom-nav .phone-nav-home svg{box-sizing:content-box!important;padding:16px!important;border:6px solid #e3ede6!important;border-radius:50%!important;background:#1d694e!important;color:#fff!important;margin-top:-40px!important;box-shadow:0 5px 16px #184d3a35!important}
+#root .phone-bottom-nav a[aria-current]{color:#21684e!important;font-weight:700!important}
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard){padding-bottom:110px!important}
+#root .phone-bottom-nav a:focus-visible,#root .phone-booking-actions button:focus-visible{outline:3px solid #3f8d6d!important;outline-offset:3px!important}
+}
+}
+@layer client-phone-layout {
+@media screen and (max-width:700px) {
+#root .user-home-hero h3 { font-family:Manrope,Segoe UI,sans-serif!important; font-weight:700!important; }
+#root .user-home-actions > .user-home-action strong { grid-column:2!important; grid-row:1!important; font-size:14px!important; overflow-wrap:normal!important; }
+#root .user-home-actions > .user-home-action .reference-action-description { grid-column:2!important; grid-row:2!important; font-size:12px!important; }
+#root .user-home-actions > .user-home-action .user-home-action__icon { grid-column:1!important; grid-row:1 / 3!important; }
+#root .user-home-actions > .user-home-action .user-home-action__arrow { grid-column:3!important; grid-row:1 / 3!important; }
+#root .dashboard-frame--user .workspace__topbar:has(.notification-menu) { display:block!important; position:fixed!important; inset:0 0 auto!important; height:0!important; padding:0!important; z-index:1100!important; }
+#root .dashboard-frame--user .workspace__topbar:has(.notification-menu) > :not(:has(.notification-menu)) { display:none!important; }
+#root .dashboard-frame--user .notification-menu { position:fixed!important; top:74px!important; right:14px!important; width:calc(100vw - 28px)!important; max-height:65dvh!important; overflow:auto!important; }
+}
+}

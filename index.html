@@ -1,17 +1,11 @@
 <!doctype html>
 <html lang="en" data-design="heaven">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ParishLink · Client portal</title>
-    <link rel="icon" type="image/svg+xml" href="/dist/favicon.svg" />
-    <script>
-      if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-        window.location.replace("/dist/index.html" + window.location.hash);
-      }
-    </script>
-  </head>
-  <body style="margin: 0; padding: 0; background: #f6f7f3;">
-    <div id="root"></div>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParishLink � Client portal</title>
+<link rel="icon" type="image/svg+xml" href="/dist/favicon.svg">
+<script>window.location.replace('/dist/index.html' + window.location.search + window.location.hash);</script>
+</head>
+<body><a href="/dist/index.html">Open ParishLink</a></body>
 </html>
