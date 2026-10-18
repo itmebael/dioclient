@@ -215,3 +215,12 @@
 #root .dashboard-frame--user :is(.user-panel,.member-page-card,.member-service-tile,.user-profile-summary,.daily-mass-content,.sunday-mass-item,.user-support-side,.user-support-mode-card,.social-post,.user-certificate-booking__option,.primary-action,.secondary-action,.social-feed-toolbar button,.member-post-tabs button,.user-panel__header button,.user-home-action,input,select,textarea) { transition:none!important; transform:none!important; }
 }
 }
+
+@layer client-certificate-theme {
+@media(max-width:700px) {
+#root .dashboard-frame--user .phone-bottom-nav {
+ border:1px solid #b7c8f5!important;
+ box-shadow:0 -4px 20px #4462df10!important;
+}
+}
+}

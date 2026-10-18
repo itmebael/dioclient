@@ -44,3 +44,6 @@
 }
 #root .dashboard-frame--user .overview-shell > .overview-shell__header :is(.screen-tag,.screen-title-block::before) { display:none!important; }
 }
+@layer client-screen-headers {
+#root .dashboard-frame--user .overview-shell--user-dashboard > .overview-shell__header { display:none!important; }
+}
