@@ -51,3 +51,24 @@ dialog.my-booking-detail-screen .booking-detail-bottom-nav { z-index:5!important
 .request-progress--rejected .request-progress__line .is-stopped .request-progress__dot { background:#c45965!important; box-shadow:0 0 0 4px #fae5e8!important; }
 .request-progress--rejected .request-progress__line .is-stopped { color:#b44452!important; }
 }
+
+@layer client-booking-detail-screen {
+dialog.my-booking-detail-screen .booking-detail-summary h2 { font-size:clamp(18px,2vw,24px)!important; }
+dialog.my-booking-detail-screen .request-progress__line { display:grid!important; grid-template-columns:repeat(4,minmax(0,1fr))!important; gap:0!important; }
+dialog.my-booking-detail-screen .request-progress__line > li { display:flex!important; flex-direction:column!important; align-items:center!important; text-align:center!important; position:relative!important; padding:0 4px!important; gap:12px!important; min-width:0!important; border:0!important; }
+dialog.my-booking-detail-screen .request-progress__line > li:not(:last-child)::after { content:''!important; position:absolute!important; top:7px!important; left:calc(50% + 10px)!important; right:calc(-50% + 10px)!important; height:2px!important; background:#dce4f1!important; }
+dialog.my-booking-detail-screen .request-progress__line > li.is-complete::after { background:#6d88ea!important; }
+dialog.my-booking-detail-screen .request-progress__line > li:nth-last-child(2)::after { background:transparent!important; border-top:2px dashed #dce4f1!important; height:0!important; }
+dialog.my-booking-detail-screen .request-progress__line .request-progress__dot { z-index:1!important; flex:0 0 16px!important; width:16px!important; height:16px!important; margin:0!important; }
+dialog.my-booking-detail-screen .booking-detail-information dl > div { padding:12px 0!important; }
+@media(min-width:701px) {
+ dialog.my-booking-detail-screen[open] { inset:0!important; margin:auto!important; width:min(880px,calc(100vw - 48px))!important; height:fit-content!important; max-height:calc(100dvh - 48px)!important; border:1px solid #d5e0f5!important; border-radius:18px!important; box-shadow:0 24px 80px #193a6930!important; }
+ dialog.my-booking-detail-screen::backdrop { background:#142c4c66!important; }
+ dialog.my-booking-detail-screen .booking-detail-content { max-width:none!important; padding:22px 24px 24px!important; gap:16px!important; }
+ dialog.my-booking-detail-screen .booking-detail-topbar { min-height:58px!important; }
+ dialog.my-booking-detail-screen .booking-detail-summary { padding:18px 20px!important; }
+ dialog.my-booking-detail-screen .booking-detail-label { margin-top:10px!important; }
+ dialog.my-booking-detail-screen .booking-detail-information dl { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; column-gap:28px!important; }
+ dialog.my-booking-detail-screen .booking-detail-information dl > div { grid-template-columns:65px minmax(0,1fr)!important; gap:12px!important; }
+}
+}
