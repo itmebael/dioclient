@@ -1,0 +1,18 @@
+@layer client-certificate-outer-cleanup {
+#root .dashboard-frame--user .overview-shell:has(.user-certificate-booking) .user-panel:has(> .user-certificate-booking),
+#root .dashboard-frame--user .user-certificate-booking {
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ min-width:0!important;
+}
+#root .dashboard-frame--user .user-certificate-booking > .detail-list {
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+}
+}

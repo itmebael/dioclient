@@ -1,0 +1,217 @@
+/* Shared client palette taken from Request Certificate. */
+@layer client-certificate-theme {
+#root .dashboard-frame--user {
+ --member-accent:#4462df!important; --member-line:#d4dff7!important;
+ --heaven-accent:#4462df!important; --heaven-ink:#253b72!important; --heaven-muted:#6a7b9e!important;
+ --heaven-bg:#f3f6ff!important; --heaven-surface:#fff!important;
+}
+#root .dashboard-frame--user :is(.workspace,.workspace__main,.overview-shell) { background:#f3f6ff!important; }
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) { padding:20px 24px 32px!important; }
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(.user-panel,.member-page-card,.member-service-tile,.user-profile-summary,.daily-mass-content,.sunday-mass-item,.user-support-side,.user-support-mode-card) {
+ --member-accent:#4462df!important; --member-line:#d4dff7!important;
+ border:1px solid #d4dff7!important; border-radius:20px!important; background:#fff!important;
+ box-shadow:0 8px 24px #29498b09!important; min-width:0!important;
+}
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(h3,h4,h5) { color:#253b72!important; -webkit-text-fill-color:#253b72!important; }
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) .user-panel__header { background:transparent!important; border:0!important; border-bottom:1px solid #e1e8f7!important; border-radius:0!important; padding:0 0 16px!important; margin-bottom:18px!important; }
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) .user-panel__header :is(p,span) { color:#6a7b9e!important; -webkit-text-fill-color:#6a7b9e!important; }
+#root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { box-sizing:border-box!important; max-width:100%!important; border:1px solid #ccd8f5!important; border-radius:9px!important; background:#fff!important; color:#253b72!important; font-size:14px!important; }
+#root .dashboard-frame--user :is(.primary-action,.my-bookings-filters button[aria-pressed=true],.my-booking-card-actions > span) { background:#4462df!important; border-color:#4462df!important; color:#fff!important; -webkit-text-fill-color:#fff!important; box-shadow:none!important; }
+#root .dashboard-frame--user :is(.secondary-action,.social-feed-toolbar button,.my-booking-card-actions button) { background:#f4f7ff!important; border-color:#d4dff7!important; color:#4462df!important; -webkit-text-fill-color:#4462df!important; }
+#root .dashboard-frame--user :is(.my-booking-card,.my-bookings-stats > div,.social-post) { background:#fff!important; border:1px solid #d4dff7!important; border-radius:20px!important; box-shadow:0 8px 24px #29498b09!important; }
+#root .dashboard-frame--user :is(.my-bookings-heading h3,.my-booking-card h4,.my-bookings-stats strong,.my-booking-status) { color:#253b72!important; -webkit-text-fill-color:#253b72!important; }
+#root .dashboard-frame--user :is(.my-booking-card p,.my-bookings-stats span,.my-bookings-filters button) { color:#6a7b9e!important; }
+#root .dashboard-frame--user .my-bookings-filters button { border-color:#d4dff7!important; background:#fff!important; }
+#root .dashboard-frame--user .my-bookings-filters button[aria-pressed=true] { color:#fff!important; }
+#root .dashboard-frame--user .member-post-tabs { background:#edf2ff!important; border-color:#d4dff7!important; }
+#root .dashboard-frame--user .member-post-tabs button[aria-selected=true] { color:#4462df!important; }
+#root .dashboard-frame--user .feed-avatar { background:#edf2ff!important; color:#4462df!important; }
+#root .dashboard-frame--user .user-home-actions > .user-home-action { background:#fff!important; border-color:#d4dff7!important; border-radius:20px!important; }
+#root .dashboard-frame--user .user-home-actions :is(strong,.user-home-action__arrow) { color:#253b72!important; -webkit-text-fill-color:#253b72!important; }
+#root .dashboard-frame--user .user-home-actions :is(.user-home-action__icon,.user-home-action__arrow) { background:#edf2ff!important; color:#4462df!important; }
+#root .dashboard-frame--user .user-home-actions .reference-action-description { color:#6a7b9e!important; -webkit-text-fill-color:#6a7b9e!important; }
+#root .dashboard-frame--user .phone-bottom-nav { background:#fffffffa!important; border-color:#d4dff7!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home svg { background:#4462df!important; border-color:#edf2ff!important; color:#fff!important; }
+#root .dashboard-frame--user .phone-bottom-nav a[aria-current=page] { color:#4462df!important; }
+#root .dashboard-frame--user .phone-bottom-nav a:not(.phone-nav-home)[aria-current=page] svg { background:#edf2ff!important; color:#4462df!important; box-shadow:0 0 0 6px #edf2ff!important; }
+#root .dashboard-frame--user .phone-welcome :is(h2,span) { color:#253b72!important; }
+#root .dashboard-frame--user .phone-welcome button { color:#4462df!important; }
+@media(max-width:700px) { #root .dashboard-frame--user .overview-shell:not(.overview-shell--user-dashboard) { padding:16px 14px calc(110px + env(safe-area-inset-bottom))!important; } }
+}
+
+@layer client-certificate-theme {
+#root .dashboard-frame--user .overview-shell .user-panel:has(.my-bookings),
+#root .dashboard-frame--user .overview-shell .my-bookings {
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ overflow:visible!important;
+}
+#root .dashboard-frame--user .my-bookings-heading {
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ padding:0!important;
+ margin:0 0 18px!important;
+}
+#root .dashboard-frame--user .my-bookings-heading > a { display:none!important; }
+}
+
+@layer client-certificate-theme {
+@media(max-width:700px) {
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home { overflow:visible!important; position:relative!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home svg {
+ box-sizing:content-box!important; width:24px!important; height:24px!important;
+ padding:14px!important; margin-top:-34px!important;
+ border:5px solid #f3f6ff!important; border-radius:50%!important;
+ background:linear-gradient(145deg,#6583ff,#3b56d7)!important; color:#fff!important;
+ box-shadow:0 7px 20px #4462df45,0 2px 5px #4462df25!important;
+ transition:transform .2s ease,box-shadow .2s ease!important;
+ transform:translateY(-2px)!important;
+}
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home:hover svg { transform:translateY(-5px)!important; box-shadow:0 10px 24px #4462df50!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home:active svg { transform:translateY(1px) scale(.92)!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home.home-tap svg { animation:client-home-pop .45s ease!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home.home-tap::after { content:''; position:absolute; top:-24px; left:50%; width:48px; height:48px; border:2px solid #8299f5; border-radius:50%; pointer-events:none; animation:client-home-ring .5s ease-out forwards; }
+@keyframes client-home-pop { 0%{transform:translateY(-2px) scale(1)} 35%{transform:translateY(-7px) scale(1.08)} 70%{transform:translateY(0) scale(.97)} 100%{transform:translateY(-2px) scale(1)} }
+@keyframes client-home-ring { from{transform:translateX(-50%) scale(.85);opacity:.65} to{transform:translateX(-50%) scale(1.65);opacity:0} }
+@media(prefers-reduced-motion:reduce) {
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home svg { transition:none!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home.home-tap svg { animation:none!important; }
+#root .dashboard-frame--user .phone-bottom-nav .phone-nav-home.home-tap::after { display:none!important; }
+}
+}
+}
+/* Soft surfaces and restrained motion shared with the floating navigation. */
+@layer client-certificate-theme {
+#root .my-bookings { isolation:isolate; }
+#root .my-bookings .my-bookings-heading h3 { letter-spacing:1.3px!important; }
+#root .my-bookings .my-bookings-stats > div {
+ position:relative!important;
+ background:linear-gradient(145deg,#fffffffa,#f7f9ffed)!important;
+ border:1px solid #dfe6fa!important;
+ border-radius:18px!important;
+ box-shadow:0 6px 20px #4462df0a,inset 0 1px 0 #fff!important;
+ padding:18px!important;
+ transition:transform .2s ease,box-shadow .2s ease!important;
+}
+#root .my-bookings .my-bookings-stats strong { font-size:25px!important; font-weight:700!important; margin-top:7px!important; letter-spacing:-.6px!important; }
+#root .my-bookings .my-bookings-stats span { font-size:11px!important; font-weight:500!important; }
+#root .my-bookings .my-booking-card {
+ background:linear-gradient(145deg,#fffffffc,#f8fafff5)!important;
+ border:1px solid #dce5fa!important;
+ border-radius:22px!important;
+ box-shadow:0 8px 26px #4462df0b,inset 0 1px 0 #fff!important;
+ padding:22px!important;
+ transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;
+}
+#root .my-bookings .my-booking-status {
+ display:inline-block!important;
+ width:fit-content!important;
+ padding:5px 10px!important;
+ border-radius:8px!important;
+ background:#edf2ff!important;
+ color:#6179bf!important;
+ font-size:10px!important;
+ font-weight:600!important;
+ margin-bottom:14px!important;
+}
+#root .my-bookings .my-booking-card h4 { font-size:16px!important; letter-spacing:-.15px!important; }
+#root .my-bookings .my-booking-card p { color:#8492ad!important; font-size:12px!important; line-height:1.7!important; }
+#root .my-bookings .my-booking-card-actions { border-top:1px solid #e7ecf8!important; padding-top:16px!important; margin-top:18px!important; gap:10px!important; }
+#root .my-bookings .my-booking-card-actions button {
+ background:linear-gradient(145deg,#fff,#f3f6ff)!important;
+ border:1px solid #d8e2fa!important;
+ border-radius:12px!important;
+ color:#526dc4!important;
+ box-shadow:0 3px 9px #4462df08!important;
+ min-height:42px!important;
+ transition:transform .16s ease,background .16s ease,box-shadow .16s ease!important;
+}
+#root .my-bookings .my-booking-card-actions > span {
+ background:linear-gradient(140deg,#6883f5,#4462df)!important;
+ border:1px solid #5270e8!important;
+ border-radius:12px!important;
+ box-shadow:0 4px 12px #4462df20!important;
+ color:#fff!important;
+}
+#root .my-bookings .my-bookings-status-filter select {
+ background:linear-gradient(145deg,#fff,#f8faff)!important;
+ border:1px solid #dce5fa!important;
+ border-radius:12px!important;
+ box-shadow:0 4px 14px #4462df07!important;
+ min-height:46px!important;
+ transition:border-color .2s ease,box-shadow .2s ease!important;
+}
+#root .my-bookings .my-bookings-status-filter select:focus { border-color:#9baff2!important; box-shadow:0 0 0 3px #4462df12!important; }
+#root .my-bookings .my-booking-card-actions button:active { transform:scale(.97)!important; box-shadow:0 1px 3px #4462df12!important; }
+@media(hover:hover) {
+#root .my-bookings .my-booking-card:hover { transform:translateY(-2px)!important; border-color:#c7d5f7!important; box-shadow:0 12px 30px #4462df12!important; }
+#root .my-bookings .my-bookings-stats > div:hover { transform:translateY(-2px)!important; box-shadow:0 9px 24px #4462df10!important; }
+#root .my-bookings .my-booking-card-actions button:hover { background:#edf2ff!important; box-shadow:0 5px 12px #4462df12!important; }
+}
+@media(prefers-reduced-motion:reduce) {
+#root .my-bookings :is(.my-booking-card,.my-bookings-stats > div,.my-booking-card-actions button,.my-bookings-status-filter select) { transition:none!important; transform:none!important; }
+}
+}
+
+/* Consistent soft surfaces across the remaining member screens. */
+@layer client-certificate-theme {
+#root .dashboard-frame--user .overview-shell:not(:has(.my-bookings)) :is(.user-panel,.member-page-card,.member-service-tile,.user-profile-summary,.daily-mass-content,.sunday-mass-item,.user-support-side,.user-support-mode-card,.social-post,.user-certificate-booking__option),
+#root .dashboard-frame--user .user-home-actions > .user-home-action {
+ background:linear-gradient(145deg,#fffffffc,#f8fafff5)!important;
+ border:1px solid #dce5fa!important;
+ border-radius:20px!important;
+ box-shadow:0 8px 26px #4462df0b,inset 0 1px 0 #fff!important;
+ transition:box-shadow .2s ease,border-color .2s ease!important;
+}
+#root .dashboard-frame--user :is(.user-certificate-booking__selector,.certificate-progress,.user-profile-summary) {
+ background:linear-gradient(120deg,#f7faff,#edf2ff)!important;
+ border-color:#dce5fa!important;
+ box-shadow:0 6px 20px #4462df08,inset 0 1px 0 #fff!important;
+}
+#root .dashboard-frame--user :is(.primary-action,.certificate-booking-modal__actions .primary-action) {
+ background:linear-gradient(140deg,#6883f5,#4462df)!important;
+ border:1px solid #5270e8!important;
+ border-radius:11px!important;
+ box-shadow:0 4px 12px #4462df20!important;
+ transition:transform .16s ease,box-shadow .16s ease!important;
+}
+#root .dashboard-frame--user :is(.secondary-action,.social-feed-toolbar button,.member-post-tabs button,.user-panel__header button) {
+ background:linear-gradient(145deg,#fff,#f3f6ff)!important;
+ border:1px solid #d8e2fa!important;
+ border-radius:10px!important;
+ box-shadow:0 3px 9px #4462df08!important;
+ transition:transform .16s ease,box-shadow .16s ease!important;
+}
+#root .dashboard-frame--user .member-post-tabs button[aria-selected=true] {
+ background:#fff!important;
+ color:#4462df!important;
+ box-shadow:0 3px 10px #4462df12!important;
+}
+#root .dashboard-frame--user .overview-shell:not(:has(.my-bookings)) :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),select,textarea) {
+ background:linear-gradient(145deg,#fff,#fafbff)!important;
+ border:1px solid #dce5fa!important;
+ border-radius:10px!important;
+ box-shadow:0 3px 12px #4462df05!important;
+ transition:border-color .2s ease,box-shadow .2s ease!important;
+}
+#root .dashboard-frame--user .overview-shell :is(input,select,textarea):focus-visible {
+ outline:2px solid #91a7ef!important;
+ outline-offset:2px!important;
+ box-shadow:0 0 0 3px #4462df0d!important;
+}
+#root .dashboard-frame--user :is(.primary-action,.secondary-action,.member-service-tile,.user-home-action,.social-feed-toolbar button):active {
+ transform:scale(.98)!important;
+}
+@media(hover:hover) {
+#root .dashboard-frame--user :is(.primary-action,.secondary-action,.social-feed-toolbar button):hover:not(:disabled) { box-shadow:0 7px 18px #4462df24!important; }
+#root .dashboard-frame--user :is(.member-service-tile,.user-home-action):hover { border-color:#c5d3f5!important; box-shadow:0 12px 30px #4462df14!important; }
+}
+@media(prefers-reduced-motion:reduce) {
+#root .dashboard-frame--user :is(.user-panel,.member-page-card,.member-service-tile,.user-profile-summary,.daily-mass-content,.sunday-mass-item,.user-support-side,.user-support-mode-card,.social-post,.user-certificate-booking__option,.primary-action,.secondary-action,.social-feed-toolbar button,.member-post-tabs button,.user-panel__header button,.user-home-action,input,select,textarea) { transition:none!important; transform:none!important; }
+}
+}

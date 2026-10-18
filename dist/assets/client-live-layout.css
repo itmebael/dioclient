@@ -1,0 +1,28 @@
+@layer client-live-layout {
+@media screen {
+html:has(.user-live-viewer),body:has(.user-live-viewer) { height:auto!important; min-height:100%!important; overflow-y:auto!important; }
+#root .dashboard-frame--user:has(.user-live-viewer) { height:auto!important; min-height:100dvh!important; overflow:visible!important; }
+#root .dashboard-frame--user .workspace:has(.user-live-viewer) { display:flex!important; flex-direction:column!important; height:auto!important; min-height:100dvh!important; overflow:visible!important; }
+#root .dashboard-frame--user .workspace__main:has(.user-live-viewer) { display:block!important; height:auto!important; min-height:0!important; overflow:visible!important; flex:1 0 auto!important; }
+#root .dashboard-frame--user .overview-shell:has(.user-live-viewer) { display:block!important; height:auto!important; min-height:0!important; overflow:visible!important; padding:24px!important; }
+#root .overview-shell:has(.user-live-viewer) > .overview-shell__header { margin-bottom:20px!important; }
+#root .screen-grid:has(.user-live-viewer) { display:block!important; height:auto!important; min-height:0!important; overflow:visible!important; }
+#root .user-panel:has(.user-live-viewer) { display:flex!important; flex-direction:column!important; height:auto!important; min-height:0!important; max-height:none!important; padding:20px!important; overflow:visible!important; gap:16px!important; }
+#root .user-panel:has(.user-live-viewer) > .user-panel__header { display:flex!important; justify-content:space-between!important; align-items:center!important; flex-wrap:wrap!important; height:auto!important; gap:12px!important; padding:0 0 14px!important; margin:0!important; }
+#root .user-live-stream { position:static!important; flex:0 0 auto!important; padding:6px 10px!important; min-height:30px!important; font-size:11px!important; }
+#root .user-live-viewer { position:relative!important; display:block!important; box-sizing:border-box!important; width:100%!important; height:auto!important; min-height:240px!important; aspect-ratio:16 / 9!important; flex:0 0 auto!important; border:1px solid #dce5fa!important; border-radius:12px!important; overflow:hidden!important; background:#f1f5ff!important; }
+#root .user-live-viewer__img { position:absolute!important; inset:0!important; width:100%!important; height:100%!important; object-fit:contain!important; background:#111d32!important; }
+#root .user-live-viewer:not(.is-live) .user-live-viewer__img { visibility:hidden!important; }
+#root .user-live-viewer__placeholder { position:absolute!important; inset:0!important; display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important; gap:10px!important; padding:26px!important; box-sizing:border-box!important; text-align:center!important; background:#f5f8ff!important; }
+#root .user-live-viewer__placeholder strong { color:#344d7b!important; font-size:15px!important; line-height:1.5!important; }
+#root .user-live-viewer__placeholder span { color:#7d8fae!important; font-size:12px!important; line-height:1.6!important; max-width:360px!important; }
+#root .user-live-controls { display:flex!important; justify-content:flex-end!important; flex-shrink:0!important; }
+#root .user-live-watch-btn { min-height:42px!important; padding:10px 18px!important; font-size:13px!important; }
+@media(max-width:700px) {
+#root .dashboard-frame--user .overview-shell:has(.user-live-viewer) { padding:18px 14px calc(115px + env(safe-area-inset-bottom))!important; }
+#root .user-panel:has(.user-live-viewer) { padding:16px!important; }
+#root .user-live-viewer { min-height:235px!important; }
+#root .user-live-watch-btn { width:100%!important; }
+}
+}
+}

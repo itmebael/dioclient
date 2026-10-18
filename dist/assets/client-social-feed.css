@@ -1,0 +1,42 @@
+@layer client-social-feed {
+#root .parish-social-feed { width:100%!important; max-width:760px!important; margin:0 auto!important; padding:0!important; background:transparent!important; border:0!important; }
+#root .parish-social-feed .member-post-tabs { display:flex!important; gap:6px!important; padding:5px!important; background:#eaf0f7!important; border:1px solid #dce5ef!important; border-radius:10px!important; margin-bottom:20px!important; }
+#root .parish-social-feed .member-post-tabs button { flex:1!important; border:0!important; border-radius:7px!important; padding:11px!important; background:transparent!important; color:#6a7e97!important; font-size:13px!important; box-shadow:none!important; }
+#root .parish-social-feed .member-post-tabs button[aria-selected=true] { background:white!important; color:#315b93!important; font-weight:600!important; box-shadow:0 1px 4px #16395d10!important; }
+#root .social-feed-panel { background:transparent!important; border:0!important; padding:0!important; }
+#root .social-feed-toolbar { display:flex!important; justify-content:space-between!important; align-items:center!important; gap:14px!important; margin-bottom:18px!important; background:transparent!important; padding:0!important; }
+#root .social-feed-toolbar h4 { margin:0!important; color:#2d4869!important; font-size:17px!important; }
+#root .social-feed-toolbar p { margin:5px 0 0!important; color:#8292a5!important; font-size:12px!important; }
+#root .social-feed-toolbar button { padding:8px 12px!important; border:1px solid #d8e2ed!important; border-radius:7px!important; background:white!important; color:#4f6b8e!important; font-size:12px!important; }
+#root .social-post-list { display:flex!important; flex-direction:column!important; gap:20px!important; }
+#root .social-post { min-width:0!important; padding:0!important; border:1px solid #dfe5ed!important; border-radius:14px!important; background:#fff!important; box-shadow:0 4px 18px #233f5e08!important; overflow:hidden!important; }
+#root .social-post .feed-post-header { display:flex!important; align-items:center!important; gap:11px!important; padding:18px 20px 12px!important; margin:0!important; background:#fff!important; border:0!important; border-radius:0!important; }
+#root .social-post .feed-avatar { width:42px!important; height:42px!important; flex:0 0 42px!important; display:grid!important; place-items:center!important; border-radius:50%!important; background:#eaf1fa!important; color:#41668f!important; font-size:13px!important; font-weight:600!important; }
+#root .social-post .feed-post-identity { min-width:0!important; }
+#root .social-post .feed-post-identity > strong { display:block!important; color:#2e4867!important; font-size:14px!important; font-weight:600!important; line-height:1.5!important; }
+#root .social-post .feed-post-meta { display:flex!important; gap:6px 12px!important; flex-wrap:wrap!important; font-size:11px!important; color:#8795a7!important; margin-top:3px!important; }
+#root .social-post-activities,#root .social-post-copy { padding:4px 20px 18px!important; }
+#root .social-post-activity { padding:12px 0!important; border-bottom:1px solid #edf1f5!important; }
+#root .social-post-activity:last-child { border-bottom:0!important; padding-bottom:0!important; }
+#root .social-post-activity time { display:inline-block!important; color:#6382a6!important; font-size:11px!important; font-weight:600!important; margin-bottom:5px!important; }
+#root .social-post-activity p,#root .social-post-copy p { margin:0!important; color:#415570!important; font-size:14px!important; line-height:1.7!important; white-space:pre-wrap!important; overflow-wrap:anywhere!important; }
+#root .social-post-copy h3 { font-size:17px!important; line-height:1.5!important; color:#2e4867!important; margin:8px 0!important; }
+#root .social-post .announcement-photos { margin:0!important; padding:0!important; border:0!important; background:#f6f8fb!important; }
+#root .social-post .announcement-photos > p { display:none!important; }
+#root .social-post .announcement-photos__grid { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:3px!important; padding:0!important; }
+#root .social-post .announcement-photos__grid > button { padding:0!important; border:0!important; border-radius:0!important; background:#eef3f8!important; min-width:0!important; overflow:hidden!important; }
+#root .social-post .announcement-photos__grid > button:only-child { grid-column:1 / -1!important; }
+#root .social-post .announcement-photos__grid img { display:block!important; width:100%!important; height:240px!important; object-fit:cover!important; border-radius:0!important; }
+#root .social-post .announcement-photos__grid > button:only-child img { height:auto!important; max-height:460px!important; object-fit:contain!important; }
+#root .social-post .announcement-photo-unavailable { display:block!important; padding:24px!important; color:#8795a7!important; font-size:12px!important; line-height:1.6!important; font-weight:400!important; }
+#root .social-post-footer { display:flex!important; justify-content:space-between!important; flex-wrap:wrap!important; gap:8px!important; padding:12px 20px!important; border-top:1px solid #edf1f5!important; font-size:10px!important; color:#91a0b0!important; }
+#root .parish-social-feed .member-bulletin-filter { margin:0 0 18px!important; display:flex!important; align-items:center!important; gap:12px!important; font-size:12px!important; }
+#root .parish-social-feed .member-bulletin-filter select { min-width:0!important; max-width:100%!important; padding:9px 12px!important; border:1px solid #d7e1ec!important; border-radius:7px!important; background:white!important; font-size:13px!important; }
+#root .parish-social-feed button:focus-visible { outline:2px solid #517bab!important; outline-offset:-3px!important; }
+@media(max-width:600px) { #root .social-post .feed-post-header { padding:16px!important; } #root .social-post-activities,#root .social-post-copy { padding:0 16px 16px!important; } #root .social-post .announcement-photos__grid img { height:180px!important; } }
+}
+
+@layer client-social-feed {
+#root .parish-social-feed :is(.social-feed-panel,.social-post-list,.social-post-activities,.social-post-activity) { height:auto!important; max-height:none!important; overflow:visible!important; }
+#root .parish-social-feed .social-post-activity p { display:block!important; max-height:none!important; overflow:visible!important; -webkit-line-clamp:unset!important; white-space:pre-wrap!important; }
+}

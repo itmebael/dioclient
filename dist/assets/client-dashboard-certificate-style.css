@@ -1,0 +1,60 @@
+@layer client-dashboard-certificate-style {
+#root .dashboard-frame--user .overview-shell--user-dashboard { background:#f3f6ff!important; }
+#root .user-home-dashboard .phone-welcome h2 { color:#253b72!important; -webkit-text-fill-color:#253b72!important; font-weight:700!important; }
+#root .user-home-dashboard .phone-welcome > div > span { color:#6176a5!important; -webkit-text-fill-color:#6176a5!important; }
+#root .user-home-dashboard .phone-welcome p { color:#6a7b9e!important; }
+#root .user-home-dashboard .phone-welcome button { border:1px solid #d4dff7!important; background:#fff!important; color:#4462df!important; box-shadow:0 4px 14px #29498b09!important; }
+#root .user-home-dashboard .user-home-actions { gap:16px!important; }
+#root .user-home-dashboard .user-home-actions > .user-home-action {
+ background:#fff!important;
+ border:1px solid #d4dff7!important;
+ border-radius:20px!important;
+ padding:22px!important;
+ box-shadow:0 8px 24px #29498b09!important;
+ text-align:left!important;
+ align-items:flex-start!important;
+}
+#root .user-home-dashboard .user-home-actions .user-home-action__icon {
+ width:44px!important; height:44px!important;
+ border:1px solid #d4dff7!important;
+ border-radius:12px!important;
+ background:linear-gradient(120deg,#f7faff,#edf2ff)!important;
+ color:#4462df!important;
+ box-shadow:none!important;
+}
+#root .user-home-dashboard .user-home-actions .user-home-action__icon svg { color:#4462df!important; stroke:currentColor!important; }
+#root .user-home-dashboard .user-home-actions strong { color:#253b72!important; -webkit-text-fill-color:#253b72!important; font-size:15px!important; font-weight:700!important; }
+#root .user-home-dashboard .user-home-actions .reference-action-description { color:#6a7b9e!important; -webkit-text-fill-color:#6a7b9e!important; font-size:12px!important; line-height:1.6!important; }
+#root .user-home-dashboard .user-home-actions .user-home-action__arrow {
+ background:#edf2ff!important; color:#4462df!important; -webkit-text-fill-color:#4462df!important;
+ border:1px solid #d4dff7!important; border-radius:10px!important;
+}
+#root .user-home-dashboard .user-home-card { background:#fff!important; border:1px solid #d4dff7!important; border-radius:20px!important; box-shadow:0 8px 24px #29498b09!important; }
+#root .user-home-dashboard .user-home-card__header { background:transparent!important; border-bottom:1px solid #e1e8f7!important; border-radius:0!important; }
+#root .user-home-dashboard .user-home-card__header h4 { color:#253b72!important; }
+#root .user-home-dashboard .user-home-card__header button { background:#f0f4ff!important; border:1px solid #d4dff7!important; border-radius:8px!important; color:#4462df!important; }
+@media(max-width:700px) { #root .user-home-dashboard .user-home-actions > .user-home-action { padding:18px 16px!important; } }
+}
+
+@layer client-dashboard-certificate-style {
+#root .user-home-hero { position:relative!important; }
+#root .user-home-hero > .client-hero-carousel { display:flex!important; width:100%!important; max-width:none!important; min-width:0!important; overflow-x:auto!important; overflow-y:hidden!important; scroll-snap-type:x mandatory; scrollbar-width:none; overscroll-behavior-x:contain; }
+.client-hero-carousel::-webkit-scrollbar { display:none; }
+#root .client-hero-carousel > .client-hero-slide { position:relative!important; flex:0 0 100%!important; width:100%!important; min-width:0!important; box-sizing:border-box!important; display:flex!important; align-items:center!important; min-height:240px!important; aspect-ratio:2048 / 475!important; isolation:isolate; overflow:hidden; scroll-snap-align:start; scroll-snap-stop:always; }
+#root .client-hero-slide .client-simple-hero-caption { padding-left:48px!important; }
+#root .client-hero-slide > img { object-fit:cover!important; }
+#root .user-home-hero > .client-hero-carousel-controls { position:absolute!important; inset:0!important; width:100%!important; max-width:none!important; pointer-events:none!important; display:block!important; }
+.client-hero-carousel-controls > button { pointer-events:auto; cursor:pointer; border:1px solid #d4dff7; border-radius:50%; background:#ffffffd9; color:#4462df; box-shadow:0 3px 12px #29498b15; }
+.hero-carousel-previous,.hero-carousel-next { position:absolute; top:50%; transform:translateY(-50%); width:30px; height:36px; font-size:24px; padding:0; }
+.hero-carousel-previous { left:9px; }.hero-carousel-next { right:9px; }
+.client-hero-carousel-dots { display:flex; gap:7px; pointer-events:auto; position:absolute; bottom:12px; left:50%; transform:translateX(-50%); padding:7px 10px; background:#ffffffc9; border-radius:12px; }
+.client-hero-carousel-dots button { width:7px; height:7px; padding:0; border:0; border-radius:50%; background:#bdc9e9; cursor:pointer; }
+.client-hero-carousel-dots button[aria-current=true] { width:20px; border-radius:8px; background:#4462df; }
+.client-hero-carousel-controls .hero-carousel-pause { position:absolute; right:10px; bottom:10px; font-size:10px; padding:5px 8px; border-radius:6px; }
+.client-hero-carousel:focus-visible,.client-hero-carousel-controls button:focus-visible { outline:2px solid #4462df; outline-offset:-2px; }
+@media(max-width:700px) {
+#root .client-hero-carousel > .client-hero-slide { min-height:250px!important; aspect-ratio:auto!important; }
+#root .client-hero-slide .client-simple-hero-caption { width:75%!important; max-width:75%!important; padding:20px 20px 36px 42px!important; }
+#root .client-hero-slide .client-simple-hero-caption h2 { font-size:clamp(22px,5.4vw,29px)!important; }
+}
+}

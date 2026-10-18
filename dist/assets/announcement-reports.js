@@ -43,7 +43,7 @@ function FeedPhoto({ React, url, alt, ...props }) {
         }
         const token = session?.accessToken || session?.access_token;
         if (!endpoint || !token) throw new Error('Photo unavailable');
-        const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` } });
+        const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}`, apikey: "sb_publishable_865CAmJ0g9wUj9dlCo6phQ_l5biuRKK" } });
         if (!response.ok) throw new Error('Photo unavailable');
         const blob = await response.blob();
         if (!blob.type.startsWith('image/')) throw new Error('Photo unavailable');

@@ -23,6 +23,13 @@
         }
       }
     }
+    const notificationHeader = document.querySelector('.notification-menu--user .topbar-menu__header');
+    if (notificationHeader && !notificationHeader.querySelector('.client-notification-close')) {
+      const close = document.createElement('button'); close.type = 'button'; close.className = 'client-notification-close';
+      close.setAttribute('aria-label', 'Close notifications'); close.innerHTML = '&times;';
+      close.onclick = event => { event.stopPropagation(); document.querySelector('.dashboard-frame--user button[aria-label="Notifications"]')?.click(); };
+      notificationHeader.append(close);
+    }
     const hero = document.querySelector('.user-home-hero');
     if (hero) {
       hero.removeAttribute('role');

@@ -44,23 +44,7 @@
       hero.setAttribute('role', 'img');
       hero.setAttribute('aria-label', 'Welcome to Our Lady of the Annunciation Parish, Calbiga, Samar');
     }
-    const cards = dashboard.querySelectorAll('.user-home-actions > button');
-    const descriptions = ['View and book Masses, sacraments and parish services.', 'Stay updated with the latest news and activities.', 'Request Baptismal, Confirmation, Marriage and other certificates.'];
-    cards.forEach((card, index) => {
-      if (index > 2 || card.querySelector('.reference-action-description')) return;
-      const description = document.createElement('span');
-      description.className = 'reference-action-description';
-      description.textContent = descriptions[index];
-      card.append(description);
-      if (index === 2) {
-        card.querySelector('strong').textContent = 'Request Certificate';
-        card.addEventListener('click', event => {
-          event.stopImmediatePropagation();
-          const destination = [...document.querySelectorAll('.sidebar__nav .nav-item')].find(item => item.textContent.trim() === 'Request Certificate');
-          destination?.click();
-        }, true);
-      }
-    });
+
   }
   new MutationObserver(update).observe(document.body, {childList:true, subtree:true});
   window.addEventListener('hashchange', update);
