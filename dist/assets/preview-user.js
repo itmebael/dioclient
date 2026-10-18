@@ -36,7 +36,7 @@
     const path = new URL(url).pathname;
     const method = String(init.method || "GET").toUpperCase();
     if (path.startsWith("/rest/v1/") && method !== "GET" &&
-        path !== "/rest/v1/rpc/get_parish_booking_calendar_rows") {
+        path !== "/rest/v1/rpc/get_parish_booking_calendar_rows" && path !== "/rest/v1/rpc/user_mass_schedules") {
       return new Response(JSON.stringify({ message: "Preview mode is read-only." }), {
         status: 403,
         headers: { "Content-Type": "application/json" },
@@ -50,6 +50,8 @@
       data = [{ id: userId, full_name: "Maria Santos", email, parish_name: parish, parish_id: "preview-parish" }];
     } else if (path.includes("get_parish_id_by_email") || path.startsWith("/rest/v1/parishes")) {
       data = [{ id: "preview-parish", parish_name: parish }];
+    } else if (path.endsWith("/rpc/user_mass_schedules")) {
+      data = [{ id: "preview-mass", title: "Sunday Holy Mass", event_date: "2026-09-20", start_time: "08:00", location: "Main Parish", event_type: "Mass", audience_type: "main_parish" }];
     } else if (path.includes("/parish_events")) {
       data = [{ id: "preview-mass", title: "Sunday Holy Mass", event_date: "2026-09-20", start_time: "08:00", location: "Main Parish Church", event_type: "Mass" }];
     } else if (path.includes("/diocese_service_bookings")) {
