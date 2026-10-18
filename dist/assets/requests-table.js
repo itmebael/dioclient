@@ -28,7 +28,7 @@ export function RequestsTable({React:R,rows=[],loading,error,onCancel,onDelete})
  const today=day(new Date()),upcoming=rows.filter(row=>!['cancelled','rejected','completed'].includes(requestCategory(row))&&row.booking_date&&Number.isFinite(Date.parse(row.booking_date))&&day(row.booking_date)>=today).length;
  const visible=rows.filter(row=>filter==='all'||requestCategory(row)===filter);
  async function act(row,callback,verb){if(busy||!callback||!window.confirm(verb+' this request?'))return;setBusy(row.id);setActionError('');try{await callback(row);setSelected(null);}catch(e){setActionError(e.message||'Could not update the request.');}finally{setBusy(null);}}
- return h('section',{className:'my-bookings','aria-label':'My bookings'},h('header',{className:'my-bookings-heading'},h('h3',null,'My Bookings')),
+ return h('section',{className:'my-bookings','aria-label':'My bookings'},
  h('div',{className:'my-bookings-stats'},[['Total Requests',rows.length],['Pending',rows.filter(r=>requestCategory(r)==='pending').length],['Confirmed',rows.filter(r=>requestCategory(r)==='confirmed').length],['Cancelled',rows.filter(r=>requestCategory(r)==='cancelled').length]].map(([label,count])=>h('div',{key:label},h('span',null,label),h('strong',null,loading||error?'�':count)))),
  h('label',{className:'my-bookings-status-filter'},h('span',null,'Request status'),h('select',{value:filter,onChange:event=>setFilter(event.target.value)},['all','confirmed','pending','rejected','cancelled','completed'].map(value=>h('option',{key:value,value},value==='all'?'All requests':value[0].toUpperCase()+value.slice(1))))),
  actionError?h('p',{role:'alert'},actionError):null,

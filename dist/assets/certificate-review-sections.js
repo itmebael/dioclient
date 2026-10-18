@@ -1,0 +1,7 @@
+export function groupCertificateReview(details=[]){
+ const groups=[{title:'Requester information',key:'requester',items:[]},{title:'Certificate holder & family',key:'holder',items:[]},{title:'Booking details',key:'booking',items:[]},{title:'Payment summary',key:'payment',items:[]}];
+ for(const [label,value]of details){const name=String(label).trim();const target=/^(payment method|amount|fee|total)$/i.test(name)?3:/^(client|mother|father|certificate holder)/i.test(name)?1:/^(parish|booking|reference|service|certificate type)/i.test(name)?2:0;groups[target].items.push([name,value]);}
+ return groups.filter(group=>group.items.length);
+}
+function display(label,value){if(/^\d{4}-\d{2}-\d{2}$/.test(String(value))&&/date|birthday/i.test(label)){const date=new Date(value+'T12:00:00');if(Number.isFinite(date.getTime()))return date.toLocaleDateString('en-PH',{month:'short',day:'numeric',year:'numeric'});}return value;}
+export function CertificateReviewSections({React:R,details=[]}){const h=R.createElement;return h('div',{className:'certificate-review-sections'},groupCertificateReview(details).map(group=>h('section',{key:group.key,className:'certificate-review-group certificate-review-group--'+group.key},h('h5',null,group.title),h('dl',null,group.items.map(([label,value],i)=>h('div',{key:i,className:/^total$/i.test(label)?'certificate-review-total':''},h('dt',null,label),h('dd',null,display(label,value))))))));}

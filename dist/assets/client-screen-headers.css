@@ -1,0 +1,46 @@
+@layer client-screen-headers {
+#root .dashboard-frame--user .overview-shell > .overview-shell__header {
+ display:flex!important;
+ flex-direction:row!important;
+ align-items:flex-start!important;
+ justify-content:space-between!important;
+ gap:12px!important;
+ padding:0!important;
+ margin:0 0 20px!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ text-align:left!important;
+}
+#root .dashboard-frame--user .overview-shell > .overview-shell__header .screen-title-block {
+ display:flex!important;
+ flex-direction:column!important;
+ align-items:flex-start!important;
+ gap:0!important;
+ min-width:0!important;
+ width:100%!important;
+ text-align:left!important;
+}
+#root .dashboard-frame--user .overview-shell > .overview-shell__header h3 {
+ margin:0!important;
+ padding:0!important;
+ color:#253b72!important;
+ -webkit-text-fill-color:#253b72!important;
+ font:700 clamp(26px,3vw,32px)/1.2 Manrope,Segoe UI,sans-serif!important;
+ letter-spacing:-.7px!important;
+ text-align:left!important;
+ white-space:normal!important;
+ overflow-wrap:break-word!important;
+}
+#root .dashboard-frame--user .overview-shell > .overview-shell__header :is(.screen-subtitle,p) {
+ display:block!important;
+ margin:7px 0 0!important;
+ padding:0!important;
+ color:#6a7b9e!important;
+ -webkit-text-fill-color:#6a7b9e!important;
+ font:400 13px/1.6 Manrope,Segoe UI,sans-serif!important;
+ text-align:left!important;
+}
+#root .dashboard-frame--user .overview-shell > .overview-shell__header :is(.screen-tag,.screen-title-block::before) { display:none!important; }
+}

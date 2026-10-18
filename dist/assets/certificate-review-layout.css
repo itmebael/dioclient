@@ -1,0 +1,18 @@
+@layer certificate-review-layout {
+#root .certificate-review { padding:0!important; background:transparent!important; border:0!important; }
+#root .certificate-review[hidden] { display:none!important; }
+#root .certificate-review > h4 { margin:0 0 8px!important; color:#253b72!important; font-size:20px!important; line-height:1.4!important; }
+#root .certificate-review > p { margin:0 0 22px!important; color:#8191af!important; font-size:13px!important; line-height:1.7!important; font-weight:400!important; }
+#root .certificate-review-sections { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:18px!important; }
+#root .certificate-review-group { min-width:0!important; padding:20px!important; border:1px solid #dce5fa!important; border-radius:16px!important; background:#fff!important; box-shadow:0 6px 20px #4462df07!important; }
+#root .certificate-review-group h5 { margin:0 0 16px!important; padding:0 0 12px!important; border-bottom:1px solid #edf1f8!important; color:#4a6090!important; font-size:13px!important; font-weight:600!important; letter-spacing:0!important; }
+#root .certificate-review-group dl { display:grid!important; grid-template-columns:minmax(0,1fr)!important; gap:14px!important; padding:0!important; margin:0!important; border:0!important; background:transparent!important; }
+#root .certificate-review-group dl > div { display:grid!important; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)!important; align-items:start!important; gap:16px!important; margin:0!important; padding:0!important; border:0!important; background:transparent!important; min-width:0!important; }
+#root .certificate-review-group dt { margin:0!important; color:#8998b3!important; font-size:11px!important; line-height:1.6!important; font-weight:400!important; }
+#root .certificate-review-group dd { margin:0!important; color:#3d527d!important; font-size:13px!important; line-height:1.6!important; font-weight:500!important; overflow-wrap:anywhere!important; text-align:right!important; }
+#root .certificate-review-group--payment { background:linear-gradient(120deg,#f8faff,#f0f4ff)!important; }
+#root .certificate-review-group dl > .certificate-review-total { padding:14px 0 0!important; border-top:1px solid #dce5fa!important; margin-top:4px!important; }
+#root .certificate-review-total dt { color:#4462df!important; font-size:13px!important; font-weight:600!important; }
+#root .certificate-review-total dd { color:#4462df!important; font-size:20px!important; font-weight:700!important; line-height:1.2!important; }
+@media(max-width:750px) { #root .certificate-review-sections { grid-template-columns:minmax(0,1fr)!important; gap:14px!important; } #root .certificate-review-group { padding:18px!important; } }
+}

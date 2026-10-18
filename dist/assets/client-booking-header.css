@@ -1,0 +1,32 @@
+@layer client-booking-header {
+#root .schedules-request-panel.is-booking-open > .user-panel__header {
+ display:grid!important; grid-template-columns:minmax(0,1fr) auto!important;
+ grid-template-rows:auto auto!important; gap:7px 14px!important;
+ align-items:center!important; min-height:0!important;
+ padding:16px 18px!important; margin:0!important;
+ position:sticky!important; top:0!important; z-index:2!important;
+ background:#f8faff!important; border-bottom:1px solid #e1e8f7!important;
+}
+#root .schedules-request-panel.is-booking-open > .user-panel__header h4 {
+ grid-column:1!important; grid-row:1!important;
+ margin:0!important; min-width:0!important; padding:0!important;
+ font-size:18px!important; line-height:1.4!important;
+ text-align:left!important; white-space:normal!important; overflow-wrap:normal!important;
+ letter-spacing:0!important; color:#253b72!important;
+}
+#root .schedules-request-panel.is-booking-open > .user-panel__header > span {
+ grid-column:1 / -1!important; grid-row:2!important;
+ display:block!important; margin:0!important; padding:0!important;
+ font-size:12px!important; line-height:1.5!important; font-weight:400!important;
+ color:#7b8daa!important; text-align:left!important;
+}
+#root .schedules-request-panel.is-booking-open > .user-panel__header .appointment-booking-close {
+ grid-column:2!important; grid-row:1!important;
+ position:static!important; inset:auto!important; transform:none!important;
+ justify-self:end!important; width:auto!important; height:34px!important;
+ min-height:34px!important; padding:7px 12px!important; margin:0!important;
+ font-size:12px!important; line-height:1.4!important;
+ border:1px solid #d4dff7!important; border-radius:7px!important;
+ background:#fff!important; color:#4462df!important;
+}
+}

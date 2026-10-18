@@ -1,0 +1,15 @@
+@layer client-sidebar-cleanup {
+#root .dashboard-frame--user .sidebar--user::before,
+#root .dashboard-frame--user .sidebar--user::after {
+ content:none!important;
+ display:none!important;
+ border:0!important;
+ background:none!important;
+ box-shadow:none!important;
+ backdrop-filter:none!important;
+}
+#root .dashboard-frame--user .sidebar--user {
+ border-radius:0!important;
+ box-shadow:none!important;
+}
+}

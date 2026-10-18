@@ -1,0 +1,17 @@
+@layer client-past-calendar-view {
+#root .user-appointment-calendar .user-appointment-day.is-past-viewable {
+ pointer-events:auto!important;
+ cursor:pointer!important;
+ opacity:.75!important;
+}
+#root .user-appointment-calendar .user-appointment-day.is-past-viewable:hover { background:#edf2ff!important; opacity:1!important; }
+#root .user-appointment-calendar .user-appointment-day.is-past-viewable:focus-visible { outline:2px solid #4462df!important; outline-offset:-2px!important; opacity:1!important; }
+}
+
+@layer client-past-calendar-view {
+#root .user-appointment-side__section { padding:20px!important; }
+#root .user-appointment-side__section > .workspace__eyebrow { margin:0 0 8px!important; font-size:10px!important; letter-spacing:1px!important; line-height:1.5!important; color:#8393ad!important; }
+#root .user-appointment-side__section > h4 { margin:0 0 16px!important; font-size:20px!important; line-height:1.4!important; color:#253b72!important; }
+#root .user-appointment-selected { display:flex!important; flex-direction:column!important; align-items:flex-start!important; gap:10px!important; padding:0 0 16px!important; margin:0 0 16px!important; border-bottom:1px solid #e3eaf7!important; }
+#root .user-appointment-selected > span:last-child { margin:0!important; font-size:12px!important; font-weight:400!important; line-height:1.7!important; color:#7a8cab!important; }
+}

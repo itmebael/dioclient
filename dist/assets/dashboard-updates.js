@@ -275,7 +275,18 @@
       daySection.append(bookButton);
     }
 
+    function pastOrMissingDate() {
+      const selected = panel.querySelector('[name="appointmentDate"]')?.value;
+      const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Singapore',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+      return !/^\d{4}-\d{2}-\d{2}$/.test(selected || '') || selected < today;
+    }
+    const unavailableDate = pastOrMissingDate();
+    bookButton.disabled = unavailableDate;
+    bookButton.setAttribute('aria-disabled', String(unavailableDate));
+    bookButton.title = unavailableDate ? 'Past dates are for viewing only. Select today or a future date to book.' : 'Book this date';
+
     function openBooking() {
+      if (pastOrMissingDate()) return;
       overlay.hidden = false;
       overlay.setAttribute("aria-hidden", "false");
       panel.classList.add("is-booking-open");
@@ -307,6 +318,12 @@
     });
   }
 
+  document.addEventListener('click', event => {
+    if(event.target.closest('[data-calendar-date]'))setTimeout(enhanceAppointmentBooking,0);
+  });
+  document.addEventListener('change', event => {
+    if(event.target.matches('[name="appointmentDate"]'))setTimeout(enhanceAppointmentBooking,0);
+  });
   const observer = new MutationObserver(() => {
     removeBulletinMenuItem();
     updateDashboard();

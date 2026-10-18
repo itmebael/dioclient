@@ -1,0 +1,23 @@
+.client-desktop-overview { display:none; }
+@layer client-desktop-dashboard {
+@media(min-width:701px) {
+#root .user-home-dashboard .client-desktop-overview { display:block!important; padding:18px!important; border:1px solid #d5e1f3!important; border-radius:14px!important; background:#fff!important; box-shadow:0 4px 18px #29498b06!important; }
+#root .client-desktop-overview > h4 { margin:0 0 16px!important; padding:12px 15px!important; border-radius:9px!important; background:#2948ab!important; color:#fff!important; font-size:18px!important; line-height:1.4!important; }
+#root .client-desktop-overview-grid { display:grid!important; grid-template-columns:1.4fr 1fr .65fr!important; padding:15px 0!important; border:1px solid #d4e0fa!important; border-radius:10px!important; background:#f0f5ff!important; }
+#root .client-desktop-overview-grid > div { min-width:0!important; padding:0 18px!important; border-right:1px solid #d4e0fa!important; }
+#root .client-desktop-overview-grid > div:last-child { border-right:0!important; }
+#root .client-desktop-overview-grid span { display:block!important; font-size:12px!important; line-height:1.5!important; color:#7b90b3!important; }
+#root .client-desktop-overview-grid strong { display:block!important; margin-top:9px!important; color:#254b7f!important; font-size:17px!important; line-height:1.5!important; overflow-wrap:anywhere!important; }
+#root .user-home-dashboard .user-home-grid { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:18px!important; }
+#root .user-home-dashboard .user-home-grid > .user-home-card--mass,
+#root .user-home-dashboard .user-home-grid > .user-home-card--requests { display:block!important; min-width:0!important; padding:16px!important; border:1px solid #d5e1f3!important; border-radius:14px!important; background:#fff!important; box-shadow:none!important; }
+#root .user-home-dashboard .user-home-card__header { display:flex!important; align-items:center!important; justify-content:space-between!important; gap:12px!important; padding:12px 14px!important; margin:0 0 16px!important; border:0!important; border-radius:9px!important; background:#2948ab!important; }
+#root .user-home-dashboard .user-home-card__header h4 { margin:0!important; color:#fff!important; -webkit-text-fill-color:#fff!important; font-size:17px!important; }
+#root .user-home-dashboard .user-home-card__header button { background:#ffffff18!important; border:1px solid #ffffff60!important; color:#fff!important; font-size:11px!important; }
+#root .user-home-dashboard .user-home-actions { display:none!important; }
+}
+@media(max-width:700px) { #root .user-home-dashboard .client-desktop-overview { display:none!important; } }
+}
+@layer client-desktop-dashboard {
+@media(min-width:701px) { #root .client-desktop-overview-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; } }
+}
