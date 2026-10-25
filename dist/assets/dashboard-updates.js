@@ -173,7 +173,7 @@
       if (!form.querySelector('[name="appointmentVenue"]')) {
         const venue = document.createElement('label');
         venue.className = 'login-field login-field--wide booking-venue';
-        venue.innerHTML = '<span>Venue (Optional)</span><input name="appointmentVenue" placeholder="Enter venue">';
+        venue.innerHTML = '<span>Venue</span><select name="appointmentVenue" required><option value="">Select venue</option><option value="Main Parish">Main Parish</option><option value="BEC Area">BEC Area</option></select>';
         form.insertBefore(venue, form.querySelector('button[type="submit"]'));
       }
       if (!form.querySelector('[name="appointmentNotes"]')) {
@@ -218,10 +218,11 @@
         const amountText = selected === 'Blessing request' ? 'No Fixed Fee — Voluntary Offering' : !option?.value ? 'Select an option' : amount ? '\u20b1' + amount.toLocaleString('en-US') : 'No Fee';
         details.querySelector('.booking-payment-notice').hidden = !amount;
         const amountLabel = details.querySelector('.booking-amount span');
-        const amountTitle = selected === 'Blessing request' ? 'Offering' : 'Amount to Pay (Arancel)';
+        const amountTitle = selected === 'Blessing request' ? 'Offering' : selected === 'Mass booking' ? 'Amount to Pay (Arancel)' : 'Amount to Pay';
         if (amountLabel.textContent !== amountTitle) amountLabel.textContent = amountTitle;
         const venue = form.querySelector('[name=appointmentVenue]');
         venue.disabled = selected === 'Confession' || selected === 'Parish Hall';
+        venue.required = !venue.disabled;
         venue.closest('label').hidden = venue.disabled;
         const display = details.querySelector('.booking-amount strong');
         if (display.textContent !== amountText) display.textContent = amountText;

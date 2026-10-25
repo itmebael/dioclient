@@ -1,3 +1,5 @@
+import {AnnouncementSummaryTables} from './announcement-summary-tables.js';
+import {AnnouncementActivityTable} from './announcement-activity-table.js?v=20261026-responsive';
 import { parseAnnouncementActivities } from './announcement-activities.js';
 import {AnnouncementPhotos,FeedPostHeader} from './announcement-reports.js?v=20261008-social-feed';
 const categories=['Project transparency','Donations & contributions','Visiting priests','Fundraising','Parish matters'];
@@ -31,9 +33,9 @@ export function MemberAnnouncements({React:R,readPosts,accessToken,EmptyState}){
   h('div',{id:'member-post-panel',role:'tabpanel','aria-labelledby':'member-post-tab-'+tab,className:'social-feed-panel'},
    h('header',{className:'social-feed-toolbar'},h('div',null,h('h4',null,tab==='announcement'?'Latest announcements':'Parish bulletin'),h('p',null,'Updates from your parish community.')),h('button',{type:'button',disabled:loading,onClick:()=>setRevision(value=>value+1)},loading?'Refreshing...':'Refresh')),
    tab==='bulletin'?h('label',{className:'member-bulletin-filter'},h('span',null,'Category'),h('select',{value:category,onChange:event=>setCategory(event.target.value)},['All updates',...categories].map(value=>h('option',{key:value,value},value)))):null,
-   loading?h('p',{role:'status',className:'social-feed-status'},'Loading parish posts...'):errors[tab]?h('p',{role:'alert',className:'member-post-error'},errors[tab]):rows.length?h('div',{className:'social-post-list'},rows.map(post=>h('article',{key:post.id||post.title,className:'social-post'},
+   loading?h('p',{role:'status',className:'social-feed-status'},'Loading parish posts...'):errors[tab]?h('p',{role:'alert',className:'member-post-error'},errors[tab]):tab==='announcement'?h(AnnouncementSummaryTables,{React:R,posts:announcements}):rows.length?h('div',{className:'social-post-list'},rows.map(post=>h('article',{key:post.id||post.title,className:'social-post'},
     h(FeedPostHeader,{React:R,name:post.parishes?.parish_name||post.parish_name||'Parish Office',date:post.published_at||post.created_at,category:tab==='announcement'?'Parish announcement':post.category||'Parish bulletin'}),
-    tab==='announcement'?h('div',{className:'social-post-activities'},activityRows(post).map((item,index)=>h('section',{key:index,className:'social-post-activity'},h('div',{className:'social-activity-heading'},h('span',null,'Activity date'),h('time',{dateTime:item.date},dateLabel(item.date))),h('div',{className:'social-activity-description'},h('span',null,'Activity'),h('p',null,item.activity)),item.barangay||item.organization?h('dl',{className:'social-activity-location'},item.barangay?h('div',null,h('dt',null,'Barangay'),h('dd',null,item.barangay)):null,item.organization?h('div',null,h('dt',null,'Organization'),h('dd',null,item.organization)):null):null))):h('div',{className:'social-post-copy'},h('h3',null,post.title),h('p',null,post.content||'')),
+    tab==='announcement'?h(AnnouncementActivityTable,{React:R,post}):h('div',{className:'social-post-copy'},h('h3',null,post.title),h('p',null,post.content||'')),
     h(AnnouncementPhotos,{React:R,row:post}),
     h('footer',{className:'social-post-footer'},h('span',null,'Posted by your parish office'),post.audience?.startsWith('BEC Area:')?h('span',null,post.audience):null)
    ))):empty));
