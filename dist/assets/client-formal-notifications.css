@@ -42,4 +42,8 @@
 #root .notification-menu--user .notification-item--read strong { font-weight:400!important; color:#8190a4!important; }
 #root .notification-menu--user .notification-item:has(input:checked) { background:#f3f7ff!important; }
 #root .notification-dot[hidden] { display:none!important; }
+#root .notification-menu--user .notification-item { cursor:pointer!important; }
+#root .notification-menu--user .notification-item__content { display:block!important; min-width:0!important; flex:1!important; padding:0!important; border:0!important; border-radius:0!important; background:transparent!important; box-shadow:none!important; text-align:left!important; cursor:pointer!important; }
+#root .notification-menu--user .notification-item__content > span { display:block!important; margin-top:5px!important; font:400 11px/1.5 Manrope,Segoe UI,sans-serif!important; color:#8593a6!important; }
+#root .notification-menu--user .notification-item__content:focus-visible { outline:2px solid #4462df!important; outline-offset:3px!important; }
 }
