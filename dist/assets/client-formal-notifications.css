@@ -47,3 +47,47 @@
 #root .notification-menu--user .notification-item__content > span { display:block!important; margin-top:5px!important; font:400 11px/1.5 Manrope,Segoe UI,sans-serif!important; color:#8593a6!important; }
 #root .notification-menu--user .notification-item__content:focus-visible { outline:2px solid #4462df!important; outline-offset:3px!important; }
 }
+dialog.client-certificate-delivery:not([open]) {display:none!important;}
+dialog.client-certificate-delivery[open] {
+ display:block!important;position:fixed!important;inset:0!important;margin:auto!important;
+ width:min(480px,calc(100vw - 32px))!important;max-height:calc(100dvh - 32px)!important;
+ padding:24px!important;border:1px solid #bdbee9!important;border-radius:24px!important;
+ background:linear-gradient(145deg,#fff,#eff0ff)!important;color:#34316e!important;
+ box-shadow:inset 2px 2px 5px #ffffffed,inset -3px -3px 8px #d3d5f466,0 24px 80px #29205c40!important;
+ font:500 15px/1.6 Manrope,'Segoe UI',sans-serif!important;overflow:auto;
+}
+dialog.client-certificate-delivery::backdrop {background:rgb(30 20 65 / 48%);backdrop-filter:blur(4px);}
+dialog.client-certificate-delivery h2 {
+ margin:0 0 18px!important;padding:16px 18px!important;border:1px solid #ac8bff!important;
+ border-radius:15px!important;background:linear-gradient(120deg,#7848ff,#5b00db)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ box-shadow:inset 2px 2px 4px #ffffff73,inset -2px -3px 5px #35007940,0 4px 12px #6833d426!important;
+ font:700 20px/1.35 Manrope,'Segoe UI',sans-serif!important;
+}
+dialog.client-certificate-delivery p {margin:0!important;padding:0 4px!important;line-height:1.7!important;overflow-wrap:anywhere;color:#4b4c80!important;}
+dialog.client-certificate-delivery > div {display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px solid #d9daf0;}
+dialog.client-certificate-delivery button {
+ min-height:46px!important;padding:11px 20px!important;border-radius:14px!important;cursor:pointer;
+ font:600 14px/1.4 Manrope,'Segoe UI',sans-serif!important;
+ transition:transform .15s ease,box-shadow .15s ease;
+}
+dialog.client-certificate-delivery .primary-action {
+ border:1px solid #9b76ff!important;background:linear-gradient(135deg,#814cff,#5b00db)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;
+ box-shadow:inset 2px 2px 4px #ffffff70,inset -2px -3px 5px #3a008644,0 5px 14px #6833d42b!important;
+}
+dialog.client-certificate-delivery .secondary-action {
+ border:1px solid #b7b5eb!important;background:linear-gradient(145deg,#fff,#e5e7ff)!important;
+ color:#38217d!important;-webkit-text-fill-color:#38217d!important;
+ box-shadow:inset 2px 2px 4px #fff,0 4px 10px #453b8820!important;
+}
+dialog.client-certificate-delivery button:hover {transform:translateY(-1px);}
+dialog.client-certificate-delivery button:focus-visible {outline:3px solid #854dff!important;outline-offset:3px!important;}
+dialog.client-certificate-delivery button:focus:not(:focus-visible) {outline:none!important;}
+@media(max-width:480px) {
+ dialog.client-certificate-delivery[open] {padding:18px!important;border-radius:20px!important;}
+ dialog.client-certificate-delivery h2 {font-size:18px!important;padding:14px!important;}
+ dialog.client-certificate-delivery > div {flex-direction:column;}
+ dialog.client-certificate-delivery button {width:100%!important;}
+}
+@media(prefers-reduced-motion:reduce) {dialog.client-certificate-delivery button {transition:none!important;transform:none!important;}}

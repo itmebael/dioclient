@@ -141,7 +141,7 @@
         history.replaceState(null, "", location.pathname + location.search + "#user-announcement");
       }
     </script>
-    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261026-reset-certificate"></script>
+    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261103-certificate-delivery"></script>
     <script defer src="/dist/assets/dashboard-updates.js?v=20261025-mass-arancel"></script>
     <script defer src="/dist/assets/profile-avatar-upload.js?v=20260929-react-safe-avatar"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
@@ -6697,6 +6697,7 @@
     
     <style>
       .dio-parish-dd{display:grid;gap:6px}
+      [data-dio-parish-hidden="1"]{display:none !important}
       .dio-parish-dd label{font:800 12px/1.2 system-ui;color:var(--text-dim,#475569)}
       html[data-theme="dark"] .dio-parish-dd label{color:#94a3b8}
       .dio-parish-dd select,.dio-parish-dd input{
@@ -6790,13 +6791,14 @@
           var candidates = container.querySelectorAll("select, input");
           for (var i = 0; i < candidates.length; i++) {
             var el = candidates[i];
+            if (el.hasAttribute("data-native-parish-select")) continue;
             // Skip already-enhanced/hidden original inputs.
             if (el && (el.getAttribute("data-dio-parish-hidden") === "1" || el.getAttribute("data-dio-parish-enhanced") === "1")) continue;
             var name = String(el.getAttribute("name") || "").toLowerCase();
             var id = String(el.id || "").toLowerCase();
             var ph = String(el.getAttribute("placeholder") || "").toLowerCase();
             var aria = String(el.getAttribute("aria-label") || "").toLowerCase();
-            if (name === "parish_name" || name === "parish" || id.indexOf("parish") !== -1 || ph.indexOf("parish") !== -1 || aria.indexOf("parish") !== -1) {
+            if (["parishname", "parish"].indexOf(name.replace(/[_-]/g, "")) !== -1 || /^(certificate)?parishname$/.test(id.replace(/[_-]/g, "")) || /^(search or select parish|parish name)$/.test(ph) || aria === "parish name") {
               // Don't re-wrap our own injected select.
               if (el.closest(".dio-parish-dd")) continue;
               return el;
@@ -6808,6 +6810,9 @@
         function mountDropdown(field) {
           if (!field || field.closest(".dio-parish-dd")) return;
           if (field.getAttribute("data-dio-parish-enhanced") === "1") return;
+          // Enhance the booking parish field only; other parish details keep their own inputs.
+          var form = field.closest("form") || field.parentElement;
+          if (form.querySelector("[data-dio-parish-hidden='1']")) return;
           field.setAttribute("data-dio-parish-enhanced", "1");
 
           // Parish staff should not change parish; diocese can choose any.
@@ -7444,5 +7449,5 @@
 
 <script defer src="/dist/assets/client-reference.js?v=20261019-notifications"></script>
 <link rel="stylesheet" href="/dist/assets/client-calendar.css?v=20261014-dark-blue">
-<link rel="stylesheet" href="/dist/assets/client-phone-layout.css?v=20261019-five-nav"><script defer src="/dist/assets/client-phone-layout.js?v=20261019-floating-home"></script><link rel="stylesheet" href="/dist/assets/client-login-spacing.css?v=1"><link rel="stylesheet" href="/dist/assets/client-bento-shortcuts.css?v=20261019-no-duplicate-nav"><link rel="stylesheet" href="/dist/assets/client-hero-banner.css?v=20261019-highlights"><script defer src="/dist/assets/client-hero-panorama.js?v=20261019-auto-slide"></script><link rel="stylesheet" href="/dist/assets/client-dashboard-responsive.css?v=20261019-nav-spacing"><link rel="stylesheet" href="/dist/assets/client-formal-notifications.css?v=20261019-actions"><link rel="stylesheet" href="/dist/assets/client-social-feed.css?v=20261019-full-activities"><link rel="stylesheet" href="/dist/assets/client-my-bookings.css?v=20261019-summary-counts"><link rel="stylesheet" href="/dist/assets/client-certificate-theme.css?v=20261019-nav-outline"><link rel="stylesheet" href="/dist/assets/client-booking-detail-screen.css?v=20261019-rejected"><link rel="stylesheet" href="/dist/assets/client-live-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-certificate-outer-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-certificate-style.css?v=20261019-three-photos"><link rel="stylesheet" href="/dist/assets/client-profile-redesign.css?v=20261019-shared-header"><link rel="stylesheet" href="/dist/assets/certificate-review-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-past-calendar-view.css?v=20261019-clean-message"><link rel="stylesheet" href="/dist/assets/client-screen-headers.css?v=20261019-no-dashboard-title"><link rel="stylesheet" href="/dist/assets/client-booking-header.css?v=1"><link rel="stylesheet" href="/dist/assets/client-sidebar-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-shortcut-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-desktop-dashboard.css?v=20261019-no-linked-parish"></body>
+<link rel="stylesheet" href="/dist/assets/client-phone-layout.css?v=20261019-five-nav"><script defer src="/dist/assets/client-phone-layout.js?v=20261019-floating-home"></script><link rel="stylesheet" href="/dist/assets/client-login-spacing.css?v=1"><link rel="stylesheet" href="/dist/assets/client-bento-shortcuts.css?v=20261019-no-duplicate-nav"><link rel="stylesheet" href="/dist/assets/client-hero-banner.css?v=20261019-highlights"><script defer src="/dist/assets/client-hero-panorama.js?v=20261019-auto-slide"></script><link rel="stylesheet" href="/dist/assets/client-dashboard-responsive.css?v=20261019-nav-spacing"><link rel="stylesheet" href="/dist/assets/client-formal-notifications.css?v=20261103-delivery-theme"><link rel="stylesheet" href="/dist/assets/client-social-feed.css?v=20261019-full-activities"><link rel="stylesheet" href="/dist/assets/client-my-bookings.css?v=20261019-summary-counts"><link rel="stylesheet" href="/dist/assets/client-certificate-theme.css?v=20261019-nav-outline"><link rel="stylesheet" href="/dist/assets/client-booking-detail-screen.css?v=20261019-rejected"><link rel="stylesheet" href="/dist/assets/client-live-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-certificate-outer-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-certificate-style.css?v=20261019-three-photos"><link rel="stylesheet" href="/dist/assets/client-profile-redesign.css?v=20261019-shared-header"><link rel="stylesheet" href="/dist/assets/certificate-review-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-past-calendar-view.css?v=20261019-clean-message"><link rel="stylesheet" href="/dist/assets/client-screen-headers.css?v=20261019-no-dashboard-title"><link rel="stylesheet" href="/dist/assets/client-booking-header.css?v=1"><link rel="stylesheet" href="/dist/assets/client-sidebar-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-shortcut-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-desktop-dashboard.css?v=20261019-no-linked-parish"></body>
 </html>

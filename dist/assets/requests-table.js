@@ -1,7 +1,7 @@
 import { RequestProgress } from './request-progress.js';
 const zone='Asia/Singapore';
 const normalize=row=>String(row.booking_status||'Submitted').trim().toLowerCase();
-export function requestCategory(row){const status=normalize(row);return /^(rejected|declined|disapproved)$/.test(status)?'rejected':/^(cancelled|canceled)$/.test(status)?'cancelled':/^(confirmed|approved|scheduled|ready|ready for release)$/.test(status)?'confirmed':/^(completed|released|collected)$/.test(status)?'completed':'pending';}
+export function requestCategory(row){const status=normalize(row);return /^(rejected|declined|disapproved)$/.test(status)?'rejected':/^(cancelled|canceled)$/.test(status)?'cancelled':/^(confirmed|approved|scheduled|ready|ready for release)$/.test(status)?'confirmed':/^(completed|released|collected|certificate ready)$/.test(status)?'completed':'pending';}
 export const requestFilters=[['all','All requests'],['pending','Pending'],['confirmed','Confirmed'],['rejected','Rejected'],['cancelled','Cancelled'],['completed','Completed']];
 export function requestStats(rows){return requestFilters.map(([value,label])=>({value,label:value==='all'?'Total Requests':label,count:value==='all'?rows.length:rows.filter(row=>requestCategory(row)===value).length}));}
 const day=value=>new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(value));
@@ -29,6 +29,7 @@ export function RequestsTable({React:R,rows=[],loading,error,onCancel,onDelete})
  const h=R.createElement,[filter,setFilter]=R.useState('all'),[selected,setSelected]=R.useState(null),[busy,setBusy]=R.useState(null),[actionError,setActionError]=R.useState('');
  const today=day(new Date()),upcoming=rows.filter(row=>!['cancelled','rejected','completed'].includes(requestCategory(row))&&row.booking_date&&Number.isFinite(Date.parse(row.booking_date))&&day(row.booking_date)>=today).length;
  const visible=rows.filter(row=>filter==='all'||requestCategory(row)===filter);
+ const selectedRow=selected ? rows.find(row=>row.id===selected.id)||selected : null;
  async function act(row,callback,verb){if(busy||!callback||!window.confirm(verb+' this request?'))return;setBusy(row.id);setActionError('');try{await callback(row);setSelected(null);}catch(e){setActionError(e.message||'Could not update the request.');}finally{setBusy(null);}}
  return h('section',{className:'my-bookings','aria-label':'My bookings'},
  h('div',{className:'my-bookings-stats'},requestStats(rows).map(({value,label,count})=>h('div',{key:value,'data-request-status':value},h('span',null,label),h('strong',null,loading||error?'—':count)))),
@@ -36,5 +37,5 @@ export function RequestsTable({React:R,rows=[],loading,error,onCancel,onDelete})
  actionError?h('p',{role:'alert'},actionError):null,
  !loading&&!error&&!visible.length?h('p',{className:'my-bookings-empty'},rows.length?'No requests in this category.':'No bookings or certificate requests yet.'):null,
  h('div',{className:'my-bookings-cards'},visible.map(row=>h('article',{key:row.id,className:'my-booking-card','data-request-status':requestCategory(row)},h('span',{className:'my-booking-status'},row.booking_status||'Submitted'),h('h4',null,row.service_name||'Parish service request'),h('p',null,'Submitted: ',formatDate(row.created_at,true)),h('p',null,'Schedule: ',formatDate(row.booking_date)),h('p',{className:'my-booking-reference'},row.reference_number||'Reference pending'),h('div',{className:'my-booking-card-actions'},h('button',{type:'button',onClick:()=>setSelected(row)},'View Details'))))),
- selected?h(Details,{React:R,row:selected,onClose:()=>setSelected(null),onCancel,onDelete,busy,act}):null);
+ selectedRow?h(Details,{React:R,row:selectedRow,onClose:()=>setSelected(null),onCancel,onDelete,busy,act}):null);
 }
