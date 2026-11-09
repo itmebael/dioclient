@@ -1,0 +1,42 @@
+@layer client-mobile-responsive {
+ @media screen and (max-width:700px) {
+  #root .dashboard-frame--user { width:100%!important; max-width:100%!important; min-width:0!important; height:auto!important; min-height:100dvh!important; }
+  #root .dashboard-frame--user :is(.workspace,.workspace__main,.overview-shell,.screen-grid,.user-panel,.member-page-card) { min-width:0!important; max-width:100%!important; box-sizing:border-box!important; }
+  #root .dashboard-frame--user .workspace { margin-left:0!important; width:100%!important; }
+  #root .dashboard-frame--user .workspace__main { height:auto!important; overflow:visible!important; }
+  #root .dashboard-frame--user .overview-shell { width:100%!important; padding:18px 12px calc(120px + env(safe-area-inset-bottom))!important; }
+  #root .dashboard-frame--user .screen-grid { grid-template-columns:minmax(0,1fr)!important; gap:16px!important; }
+  #root .dashboard-frame--user .screen-grid > * { grid-column:1 / -1!important; min-width:0!important; }
+  #root .dashboard-frame--user :is(.user-panel,.member-page-card) { padding:16px!important; border-radius:18px!important; }
+  #root .dashboard-frame--user :is(.overview-shell__header,.user-panel__header,.social-feed-toolbar) { flex-wrap:wrap!important; gap:12px!important; min-width:0!important; height:auto!important; }
+  #root .dashboard-frame--user :is(h1,h2,h3,h4,h5,h6,p,label,dd,.settings-item__value) { overflow-wrap:anywhere!important; }
+  #root .dashboard-frame--user :is(.certificate-booking-modal__fields,.user-profile-edit-form,.certificate-review-sections,.dio-pay-dd__row,.user-support-grid) { display:grid!important; grid-template-columns:minmax(0,1fr)!important; gap:14px!important; min-width:0!important; }
+  #root .dashboard-frame--user :is(.certificate-booking-modal__fields,.user-profile-edit-form) > * { min-width:0!important; grid-column:1 / -1!important; }
+  #root .dashboard-frame--user :is(.login-field,.dio-parish-dd) { width:100%!important; min-width:0!important; max-width:100%!important; box-sizing:border-box!important; }
+  #root .dashboard-frame--user :is(input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea) { width:100%!important; min-width:0!important; max-width:100%!important; box-sizing:border-box!important; min-height:44px!important; }
+  #root .dashboard-frame--user :is(button,.primary-action,.secondary-action) { min-height:44px!important; max-width:100%!important; white-space:normal!important; }
+  #root .dashboard-frame--user :is(.certificate-booking-modal__actions,.user-profile-edit-actions,.booking-detail-actions,.user-support-actions) { display:flex!important; flex-wrap:wrap!important; gap:10px!important; }
+  #root .dashboard-frame--user :is(.certificate-booking-modal__actions,.user-profile-edit-actions) > button { flex:1 1 120px!important; }
+  #root .dashboard-frame--user .my-bookings-cards { grid-template-columns:minmax(0,1fr)!important; gap:14px!important; }
+  #root .dashboard-frame--user .my-bookings-stats { grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:10px!important; }
+  #root .dashboard-frame--user .my-bookings-status-filter { max-width:none!important; }
+  #root .dashboard-frame--user .my-booking-card { padding:20px!important; }
+  #root .dashboard-frame--user :is(.announcement-activity-table-wrap,.register-wrap) { width:100%!important; max-width:100%!important; overflow-x:auto!important; overscroll-behavior-inline:contain; -webkit-overflow-scrolling:touch; }
+  #root .dashboard-frame--user :is(.user-live-viewer,.user-support-chat,.user-support-side,.member-preferences) { width:100%!important; min-width:0!important; box-sizing:border-box!important; }
+  #root .dashboard-frame--user .user-live-viewer { min-height:190px!important; }
+  #root .dashboard-frame--user .phone-bottom-nav { max-width:calc(100% - 16px)!important; box-sizing:border-box!important; }
+  #root .dashboard-frame--user .phone-bottom-nav a span { white-space:normal!important; overflow-wrap:anywhere!important; text-align:center!important; }
+  #root .dashboard-frame--user :is(.user-profile-edit-modal,.certificate-booking-modal__dialog,.user-appointment-side__section) { width:calc(100% - 20px)!important; max-width:100%!important; max-height:calc(100dvh - 24px)!important; overflow-y:auto!important; box-sizing:border-box!important; padding:18px!important; }
+  #root .dashboard-frame--user .certificate-inline .certificate-booking-modal__dialog { width:100%!important; max-height:none!important; padding:0!important; }
+  #root .dashboard-frame--user .certificate-review-group dl > div { grid-template-columns:minmax(0,1fr)!important; gap:4px!important; }
+  #root .dashboard-frame--user .certificate-review-group dd { text-align:left!important; }
+  #root .dashboard-frame--user .user-appointment-side__section > .detail-list::before { display:none!important; }
+  #root .dashboard-frame--user .user-appointment-side__section > .detail-list > .detail-list__item { min-width:0!important; grid-template-columns:minmax(0,1fr)!important; gap:8px!important; padding:14px!important; }
+  #root .dashboard-frame--user .user-appointment-side__section > .detail-list > .detail-list__item > .detail-list__meta > :is(strong,span) { grid-column:1!important; }
+ }
+ @media screen and (max-width:360px) {
+  #root .dashboard-frame--user .overview-shell { padding-inline:10px!important; }
+  #root .dashboard-frame--user :is(.user-panel,.member-page-card) { padding:12px!important; }
+  #root .dashboard-frame--user .certificate-tabs { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+ }
+}

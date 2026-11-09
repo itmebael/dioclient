@@ -41,8 +41,7 @@ export function MemberPreferences({React, session}) {
   return h('article', {className:'user-panel user-panel--wide member-preferences'},
     h('div', {className:'user-panel__header'}, h('h4', null, 'Settings'), h('span', null, 'Saved on this browser')),
     h('div', {className:'settings-list'},
-      row('member-notifications','Notification reminders','Show pop-up alerts for request updates and parish messages. Updates remain in your notification inbox.',toggle('member-notifications','notifications')),
-      row('member-prayer','Prayer feed updates','Show published prayer-related parish notices on your dashboard.',toggle('member-prayer','prayerFeed'))),
+      row('member-notifications','Notification reminders','Show pop-up alerts for request updates and parish messages. Updates remain in your notification inbox.',toggle('member-notifications','notifications'))),
     h('p', {className:'member-preference-status',role:'status'}, status));
 }
 export function PrayerFeed({React,session,notices=[],onNavigate}) {

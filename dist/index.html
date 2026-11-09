@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" data-design="heaven">
-  <head><style>@layer system-royal-clay;</style><link rel="stylesheet" href="/dist/assets/system-royal-clay.css?v=20261026-two-announcement-tables"><style>@layer client-dashboard-clay;</style><link rel="stylesheet" href="/dist/assets/client-dashboard-clay.css?v=20261025-visible-abstract"><style>@layer client-member-heading;</style><link rel="stylesheet" href="/dist/assets/client-member-heading.css?v=20261025-avatar-dropdown-fix"><style>@layer client-desktop-dashboard;</style><style>@layer client-dashboard-shortcut-layout;</style><style>@layer client-sidebar-cleanup;</style><style>@layer client-booking-header;</style><style>@layer client-screen-headers;</style><style>@layer client-past-calendar-view;</style><style>@layer client-profile-reference;</style><style>@layer certificate-review-layout;</style><style>@layer client-profile-redesign;</style><style>@layer client-dashboard-certificate-style;</style><style>@layer client-certificate-outer-cleanup;</style><style>@layer client-live-layout;</style><style>@layer client-booking-detail-screen;</style><style>@layer client-certificate-theme;</style><style>@layer client-my-bookings;</style><style>@layer client-social-feed;</style><style>@layer client-formal-notifications;</style><style>@layer client-dashboard-responsive;</style><style>@layer client-hero-banner;</style><style>@layer client-bento-shortcuts;</style><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style>
+  <head><style>@layer client-text-size;</style><style>@layer client-mobile-responsive;</style><link rel="stylesheet" href="/dist/assets/client-mobile-responsive.css?v=20261109-phone-screens"><script defer src="/dist/assets/client-text-size.js?v=20261109-fixed-fonts"></script><style>@layer client-live-status;</style><link rel="stylesheet" href="/dist/assets/client-live-status.css?v=20261109-readable-offline"><style>@layer client-profile-grid;</style><link rel="stylesheet" href="/dist/assets/client-profile-grid.css?v=20261109-modern-grid"><style>@layer client-announcement-match;</style><link rel="stylesheet" href="/dist/assets/client-announcement-match.css?v=20261109-parish-match"><style>@layer certificate-locked-fields;</style><link rel="stylesheet" href="/dist/assets/certificate-locked-fields.css?v=20261109"><script defer src="/dist/assets/certificate-locked-fields.js?v=20261109"></script><style>@layer logo-palette;</style><link rel="stylesheet" href="/dist/assets/logo-palette.css?v=20261106-user-gray"><style>@layer system-royal-clay;</style><link rel="stylesheet" href="/dist/assets/system-royal-clay.css?v=20261026-two-announcement-tables"><style>@layer client-dashboard-clay;</style><link rel="stylesheet" href="/dist/assets/client-dashboard-clay.css?v=20261025-visible-abstract"><style>@layer client-member-heading;</style><link rel="stylesheet" href="/dist/assets/client-member-heading.css?v=20261025-avatar-dropdown-fix"><style>@layer client-desktop-dashboard;</style><style>@layer client-dashboard-shortcut-layout;</style><style>@layer client-sidebar-cleanup;</style><style>@layer client-booking-header;</style><style>@layer client-screen-headers;</style><style>@layer client-past-calendar-view;</style><style>@layer client-profile-reference;</style><style>@layer certificate-review-layout;</style><style>@layer client-profile-redesign;</style><style>@layer client-dashboard-certificate-style;</style><style>@layer client-certificate-outer-cleanup;</style><style>@layer client-live-layout;</style><style>@layer client-booking-detail-screen;</style><style>@layer client-certificate-theme;</style><style>@layer client-my-bookings;</style><style>@layer client-social-feed;</style><style>@layer client-formal-notifications;</style><style>@layer client-dashboard-responsive;</style><style>@layer client-hero-banner;</style><style>@layer client-bento-shortcuts;</style><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style>
     <link rel="stylesheet" href="/dist/assets/certificate-steps.css?v=20261004-1" />
     <meta charset="UTF-8" />
     <!-- This CSP meta tag allows Vite to use eval() for hot-reloading in development -->
@@ -141,7 +141,7 @@
         history.replaceState(null, "", location.pathname + location.search + "#user-announcement");
       }
     </script>
-    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261103-certificate-delivery"></script>
+    <script type="module" crossorigin src="/dist/assets/index-login-20261004-clean-registration.js?v=20261106-sponsors-first"></script>
     <script defer src="/dist/assets/dashboard-updates.js?v=20261025-mass-arancel"></script>
     <script defer src="/dist/assets/profile-avatar-upload.js?v=20260929-react-safe-avatar"></script>
     <link rel="stylesheet" crossorigin href="/dist/assets/index-yReDnWMe.css">
@@ -2639,7 +2639,7 @@
           }).join('');
 
           var html =
-            '<!doctype html><html><head><style>@layer client-hero-banner;</style><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style><meta charset="utf-8"><title>' + escapeHtml(meta.label) + '</title>' +
+            '<!doctype html><html><head><style>@layer logo-palette;</style><link rel="stylesheet" href="/dist/assets/logo-palette.css?v=20261106-user-gray"><style>@layer client-hero-banner;</style><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style><meta charset="utf-8"><title>' + escapeHtml(meta.label) + '</title>' +
             '<style>' +
               'body{font:13px/1.5 system-ui,sans-serif;color:#0f172a;padding:24px;}' +
               'h1{font:700 20px/1.2 system-ui;margin:0 0 4px;}' +
@@ -2708,7 +2708,7 @@
           if (!w) return;
           w.document.open();
           w.document.write(
-            '<!doctype html><html><head><style>@layer client-hero-banner;</style><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style><meta charset="utf-8"><title>Parish Reports</title>' +
+            '<!doctype html><html><head><style>@layer logo-palette;</style><link rel="stylesheet" href="/dist/assets/logo-palette.css?v=20261106-user-gray"><style>@layer client-hero-banner;</style><style>@layer client-login-spacing;</style><style>@layer client-phone-layout;</style><meta charset="utf-8"><title>Parish Reports</title>' +
             '<style>' +
               'body{font:13px/1.5 system-ui,sans-serif;color:#0f172a;padding:24px;}' +
               'h1{font:700 24px/1.2 system-ui;margin:0 0 4px;}' +
@@ -3123,6 +3123,8 @@
           // The scale variable was being saved but no stylesheet consumed it.
           // Scale the root size so rem/em-based dashboard text responds to the controls.
           document.documentElement.style.fontSize = (16 * scale) + "px";
+          document.documentElement.dataset.textScale = String(v);
+          window.dispatchEvent(new Event("client-text-size-change"));
           updateButtons(v);
         }
         function updateButtons(v) {
@@ -6990,7 +6992,7 @@
               '<div class="dio-parish-dd"><label>Payment Method</label>' +
                 '<select data-pay-method required>' +
                   '<option value="">Select payment method</option>' +
-                  '<option value="gcash">GCash</option>' +
+                  '<option value="gcash">GCash (not yet supported)</option>' +
                   '<option value="personal">Personal payment</option>' +
                 '</select>' +
                 '<small>Choose how the client will pay.</small>' +
@@ -7449,5 +7451,6 @@
 
 <script defer src="/dist/assets/client-reference.js?v=20261019-notifications"></script>
 <link rel="stylesheet" href="/dist/assets/client-calendar.css?v=20261014-dark-blue">
-<link rel="stylesheet" href="/dist/assets/client-phone-layout.css?v=20261019-five-nav"><script defer src="/dist/assets/client-phone-layout.js?v=20261019-floating-home"></script><link rel="stylesheet" href="/dist/assets/client-login-spacing.css?v=1"><link rel="stylesheet" href="/dist/assets/client-bento-shortcuts.css?v=20261019-no-duplicate-nav"><link rel="stylesheet" href="/dist/assets/client-hero-banner.css?v=20261019-highlights"><script defer src="/dist/assets/client-hero-panorama.js?v=20261019-auto-slide"></script><link rel="stylesheet" href="/dist/assets/client-dashboard-responsive.css?v=20261019-nav-spacing"><link rel="stylesheet" href="/dist/assets/client-formal-notifications.css?v=20261103-delivery-theme"><link rel="stylesheet" href="/dist/assets/client-social-feed.css?v=20261019-full-activities"><link rel="stylesheet" href="/dist/assets/client-my-bookings.css?v=20261019-summary-counts"><link rel="stylesheet" href="/dist/assets/client-certificate-theme.css?v=20261019-nav-outline"><link rel="stylesheet" href="/dist/assets/client-booking-detail-screen.css?v=20261019-rejected"><link rel="stylesheet" href="/dist/assets/client-live-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-certificate-outer-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-certificate-style.css?v=20261019-three-photos"><link rel="stylesheet" href="/dist/assets/client-profile-redesign.css?v=20261019-shared-header"><link rel="stylesheet" href="/dist/assets/certificate-review-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-past-calendar-view.css?v=20261019-clean-message"><link rel="stylesheet" href="/dist/assets/client-screen-headers.css?v=20261019-no-dashboard-title"><link rel="stylesheet" href="/dist/assets/client-booking-header.css?v=1"><link rel="stylesheet" href="/dist/assets/client-sidebar-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-shortcut-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-desktop-dashboard.css?v=20261019-no-linked-parish"></body>
+<link rel="stylesheet" href="/dist/assets/client-phone-layout.css?v=20261019-five-nav"><script defer src="/dist/assets/client-phone-layout.js?v=20261019-floating-home"></script><link rel="stylesheet" href="/dist/assets/client-login-spacing.css?v=1"><link rel="stylesheet" href="/dist/assets/client-bento-shortcuts.css?v=20261019-no-duplicate-nav"><link rel="stylesheet" href="/dist/assets/client-hero-banner.css?v=20261019-highlights"><script defer src="/dist/assets/client-hero-panorama.js?v=20261019-auto-slide"></script><link rel="stylesheet" href="/dist/assets/client-dashboard-responsive.css?v=20261019-nav-spacing"><link rel="stylesheet" href="/dist/assets/client-formal-notifications.css?v=20261103-delivery-theme"><link rel="stylesheet" href="/dist/assets/client-social-feed.css?v=20261019-full-activities"><link rel="stylesheet" href="/dist/assets/client-my-bookings.css?v=20261109-button-alignment"><link rel="stylesheet" href="/dist/assets/client-certificate-theme.css?v=20261019-nav-outline"><link rel="stylesheet" href="/dist/assets/client-booking-detail-screen.css?v=20261019-rejected"><link rel="stylesheet" href="/dist/assets/client-live-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-certificate-outer-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-certificate-style.css?v=20261019-three-photos"><link rel="stylesheet" href="/dist/assets/client-profile-redesign.css?v=20261019-shared-header"><link rel="stylesheet" href="/dist/assets/certificate-review-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-past-calendar-view.css?v=20261019-clean-message"><link rel="stylesheet" href="/dist/assets/client-screen-headers.css?v=20261019-no-dashboard-title"><link rel="stylesheet" href="/dist/assets/client-booking-header.css?v=1"><link rel="stylesheet" href="/dist/assets/client-sidebar-cleanup.css?v=1"><link rel="stylesheet" href="/dist/assets/client-dashboard-shortcut-layout.css?v=1"><link rel="stylesheet" href="/dist/assets/client-desktop-dashboard.css?v=20261019-no-linked-parish"></body>
 </html>
+

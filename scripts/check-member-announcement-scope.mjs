@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {memberPostQueries} from '../dist/assets/member-announcements-table.js';
+const calls=[];
+const readPosts=async(table,query,token)=>{calls.push({table,query,token});return [{id:'parish-1',parish_name:'Saint Peter & Paul'}];};
+const queries=await memberPostQueries({readPosts,accessToken:'member-token',session:{parish_id:'parish-1',parish_name:'Old name'}});
+assert.match(calls[0].query,/id=eq.parish-1/);assert.equal(calls[0].token,'member-token');
+assert.match(queries[0][2],/parish_name=eq.Saint%20Peter%20%26%20Paul/);assert.match(queries[0][2],/status=ilike.Published/);
+assert.match(queries[1][2],/parish_id=eq.parish-1/);assert.match(queries[1][2],/status=eq.Published/);
+await memberPostQueries({readPosts,session:{parish_id:'old'},profile:{record:{parish_id:'new'}}});assert.match(calls[1].query,/id=eq.new/);
+await memberPostQueries({readPosts,session:{parish_name:'Saint Peter & Paul'}});assert.match(calls[2].query,/parish_name=eq.Saint%20Peter%20%26%20Paul/);
+const before=calls.length;await assert.rejects(memberPostQueries({readPosts}),/not linked/);assert.equal(calls.length,before);
+await assert.rejects(memberPostQueries({readPosts:async()=>[],session:{parish_id:'missing'}}),/identify your parish/);
+console.log('PASS: parish-scoped announcements and bulletins, canonical parish name, profile precedence, published-only queries, and no unscoped fallback.');

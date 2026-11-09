@@ -1,4 +1,7 @@
 @layer client-my-bookings {
+#root .my-bookings-cards { align-items:stretch!important; grid-auto-rows:1fr!important; }
+#root .my-booking-card { display:flex!important; flex-direction:column!important; height:100%!important; box-sizing:border-box!important; }
+#root .my-booking-card .my-booking-reference { margin-bottom:18px!important; }
 #root .user-panel:has(.my-bookings) { padding:0!important; border:0!important; background:transparent!important; box-shadow:none!important; }
 #root .user-panel:has(.my-bookings) > .user-panel__header { display:none!important; }
 #root .overview-shell:has(.my-bookings) > .overview-shell__header { display:none!important; }
@@ -35,6 +38,10 @@
 .my-booking-details button { padding:8px 12px; border:1px solid #d5e1d9; border-radius:7px; background:#fff; color:#315640; cursor:pointer; }
 #root .my-bookings button:focus-visible,.my-booking-details button:focus-visible { outline:2px solid #3f805c; outline-offset:2px; }
 @media(max-width:650px) { #root .my-bookings-cards { grid-template-columns:1fr; } #root .my-bookings-stats { gap:8px; } #root .my-bookings-stats > div { padding:13px 12px; } }
+}
+
+@layer client-certificate-theme {
+#root .my-bookings .my-booking-card .my-booking-card-actions { margin-top:auto!important; padding-top:16px!important; flex-shrink:0!important; }
 }
 
 @layer client-my-bookings {

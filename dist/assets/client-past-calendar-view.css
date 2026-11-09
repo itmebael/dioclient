@@ -1,4 +1,6 @@
 @layer client-past-calendar-view {
+#root .user-appointment-legend::after { content:none!important; display:none!important; }
+#root .user-appointment-legend__dot--past { background:#657184!important; }
 #root .user-appointment-calendar .user-appointment-day.is-past-viewable {
  pointer-events:auto!important;
  cursor:pointer!important;

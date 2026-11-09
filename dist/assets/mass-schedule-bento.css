@@ -22,7 +22,7 @@
     & .daily-mass-time time { color: #0087ff !important; font-size: clamp(28px,1.5rem,46px) !important; line-height: 1.2 !important; }
     & .daily-mass-time span { color: #5374ba !important; }
     & .mass-bento-daily .user-event-list { grid-column: 2 !important; grid-row: 2 !important; display: grid !important; align-content: start !important; gap: 18px !important; margin: 0 !important; min-width: 0; padding: 24px !important; border: 1px solid #e1ccff; border-radius: 24px; background: linear-gradient(135deg,#fcfaff,#f0eaff); box-shadow: 0 4px 9px #245db510; }
-    & .mass-bento-daily .user-event-list::before { content: 'Special Masses'; color: #081b68; font-size: clamp(18px,1.1rem,28px); font-weight: 700; }
+    & .mass-bento-daily .user-event-list::before { content: 'Upcoming Masses'; color: #081b68; font-size: clamp(18px,1.1rem,28px); font-weight: 700; }
     & .mass-bento-daily .empty-state { padding: 16px !important; border-color: #e1ccff !important; background: #ffffffb8 !important; }
     & .mass-bento-daily .empty-state strong { color: #081b68 !important; }
     & .mass-bento-daily .empty-state span { color: #5374ba !important; }

@@ -2,7 +2,7 @@ import { RequestProgress } from './request-progress.js';
 const zone='Asia/Singapore';
 const normalize=row=>String(row.booking_status||'Submitted').trim().toLowerCase();
 export function requestCategory(row){const status=normalize(row);return /^(rejected|declined|disapproved)$/.test(status)?'rejected':/^(cancelled|canceled)$/.test(status)?'cancelled':/^(confirmed|approved|scheduled|ready|ready for release)$/.test(status)?'confirmed':/^(completed|released|collected|certificate ready)$/.test(status)?'completed':'pending';}
-export const requestFilters=[['all','All requests'],['pending','Pending'],['confirmed','Confirmed'],['rejected','Rejected'],['cancelled','Cancelled'],['completed','Completed']];
+export const requestFilters=[['all','All requests'],['pending','Pending'],['confirmed','Approved'],['rejected','Rejected'],['cancelled','Cancelled'],['completed','Completed']];
 export function requestStats(rows){return requestFilters.map(([value,label])=>({value,label:value==='all'?'Total Requests':label,count:value==='all'?rows.length:rows.filter(row=>requestCategory(row)===value).length}));}
 const day=value=>new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(value));
 function formatDate(value,time=false){if(!value||!Number.isFinite(Date.parse(value)))return 'Not scheduled';return new Intl.DateTimeFormat('en-PH',{timeZone:zone,month:'short',day:'numeric',year:'numeric',...(time?{hour:'numeric',minute:'2-digit'}:{})}).format(new Date(value));}

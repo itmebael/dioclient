@@ -1,0 +1,58 @@
+@layer client-profile-grid {
+  #root .screen-grid:has(.user-profile-summary) .settings-list--profile {
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:14px!important;
+    padding:4px 0!important;
+    align-items:stretch!important;
+  }
+  #root .settings-list--profile .settings-item--profile {
+    position:relative!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:flex-start!important;
+    align-items:flex-start!important;
+    gap:10px!important;
+    min-width:0!important;
+    min-height:112px!important;
+    margin:0!important;
+    padding:20px!important;
+    border:1px solid #dce3f2!important;
+    border-radius:16px!important;
+    background:linear-gradient(135deg,#fff,#f5f7ff)!important;
+    box-shadow:0 4px 14px #27396606!important;
+    text-align:left!important;
+    box-sizing:border-box!important;
+  }
+  #root .settings-list--profile .settings-item--profile > div { width:100%!important; min-width:0!important; }
+  #root .settings-list--profile .settings-item--profile > div strong {
+    display:block!important;
+    margin:0 0 9px!important;
+    color:#77839e!important;
+    -webkit-text-fill-color:#77839e!important;
+    font-size:12px!important;
+    font-weight:500!important;
+    line-height:1.4!important;
+    text-align:left!important;
+  }
+  #root .settings-list--profile .settings-item--profile > .settings-item__value {
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    color:#293b68!important;
+    -webkit-text-fill-color:#293b68!important;
+    font-size:15px!important;
+    font-weight:600!important;
+    line-height:1.55!important;
+    text-align:left!important;
+    overflow-wrap:anywhere!important;
+  }
+  #root .settings-list--profile .settings-item--profile:last-child { grid-column:1 / -1!important; }
+  html[data-theme="dark"] #root .settings-list--profile .settings-item--profile { background:linear-gradient(135deg,#253047,#1e293d)!important; border-color:#3b4963!important; }
+  html[data-theme="dark"] #root .settings-list--profile .settings-item--profile > div strong { color:#a5b3cc!important; -webkit-text-fill-color:#a5b3cc!important; }
+  html[data-theme="dark"] #root .settings-list--profile .settings-item--profile > .settings-item__value { color:#e2eaff!important; -webkit-text-fill-color:#e2eaff!important; }
+  @media(max-width:600px) {
+    #root .screen-grid:has(.user-profile-summary) .settings-list--profile { grid-template-columns:minmax(0,1fr)!important; gap:10px!important; }
+    #root .settings-list--profile .settings-item--profile { min-height:92px!important; padding:16px 18px!important; }
+  }
+}
